@@ -1,4 +1,4 @@
-package it.unical.mat.webcomp21.test.controller;
+package main.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -97,8 +97,10 @@
                             <div class="hero-slides-content text-center">
                                 <h6 data-animation="fadeInUp" data-delay="100ms">Scegli fra 700.000 volumi</h6>
                                 <h2 data-animation="fadeInUp" data-delay="300ms" style="font-weight: 800;">GLOBUX <span>GLOBUX </span></h2>
-                                CERCA
                             </div>
+                            
+                            <input placeholder="Titolo, Autore ..." class="search__books">
+                            
                         </div>
                     </div>
                 </div>
