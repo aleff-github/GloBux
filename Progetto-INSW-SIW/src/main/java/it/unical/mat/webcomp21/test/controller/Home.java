@@ -20,7 +20,5 @@ public class Home {
 		return "<h1>Ciao Mondo</h1>";
 	}
 	
-	
-	
-	
+
 }
