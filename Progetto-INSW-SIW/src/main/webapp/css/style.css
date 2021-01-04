@@ -546,7 +546,7 @@ img {
     z-index: -5;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.6);
     content: ''; }
   .single-hero-slide .slide-img {
     position: absolute;
