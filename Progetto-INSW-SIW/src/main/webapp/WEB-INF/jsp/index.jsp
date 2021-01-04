@@ -19,7 +19,11 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+	
+	<!-- Icon search -->
+	<script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
 
+	
 </head>
 
 <body>
@@ -43,7 +47,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand">GLOBUX</a>
+                        <a href="index.html" class="nav-brand logo">GLOBUX</a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -99,8 +103,13 @@
                                 <h2 data-animation="fadeInUp" data-delay="300ms" style="font-weight: 800;">GLOBUX <span>GLOBUX </span></h2>
                             </div>
                             
-                            <input placeholder="Titolo, Autore ..." class="search__books">
-                            
+                            <div class="input-group md-form form-sm form-2 pl-0">
+                            	<input class="form-control my-0 py-1 red-border" type="text" placeholder="Titolo, autore, ..." aria-label="Search">
+								<div class="input-group-append">
+									<span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
+								</div>
+							</div>
+                           
                         </div>
                     </div>
                 </div>
