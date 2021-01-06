@@ -313,7 +313,8 @@ img {
   width: 40px;
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
-  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.15); }
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.15); 
+  border-radius: 20px;}
   @media only screen and (max-width: 767px) {
     #scrollUp {
       right: 30px;
@@ -492,7 +493,7 @@ img {
     left: 0;
     z-index: 9999;
     background-color: #000000;
-    box-shadow: 0 5px 50px 15px rgba(0, 0, 0, 0.2); }
+    box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.8) }
     @media only screen and (max-width: 767px) {
       .header-area .is-sticky .oneMusic-main-menu {
         height: 70px; } }
@@ -869,7 +870,8 @@ img {
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
   .single-album-area img {
-    width: 100%; }
+    width: 100%; 
+    border-radius: 20px}
   .single-album-area .album-info {
     display: block;
     position: relative;
@@ -889,12 +891,13 @@ img {
   .albums-slideshow .single-album {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
-    margin-bottom: 0;
-    border: 1px solid transparent; }
+    margin: 25px 0 25px 0;
+    border-radius: 20px;
+    cursor: pointer; }
     .albums-slideshow .single-album:hover, .albums-slideshow .single-album:focus {
-      border: 1px solid #000000;
-      box-shadow: none;
-      background-color: #f5f9fa; }
+    border: none;
+    box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.3);
+    transform: scale(1.02); }
   .albums-slideshow .owl-prev,
   .albums-slideshow .owl-next {
     -webkit-transition-duration: 500ms;

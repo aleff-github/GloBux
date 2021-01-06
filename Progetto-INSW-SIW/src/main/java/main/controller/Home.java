@@ -8,8 +8,12 @@ public class Home {
 
 	@GetMapping("/")
 	public String getIndex() {
-		System.out.println("prova");
 		return "index";
+	}
+	
+	@GetMapping("/book")
+	public String getBook() {
+		return "book";
 	}
 	
 	/*
