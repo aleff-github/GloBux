@@ -547,7 +547,8 @@ img {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    content: ''; }
+    content: ''; 
+    box-shadow: inset 0px -111px 46px -51px rgba(255,255,255,1);}
   .single-hero-slide .slide-img {
     position: absolute;
     width: 100%;

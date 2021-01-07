@@ -23,7 +23,6 @@
 	<!-- Icon search -->
 	<script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
 
-	
 </head>
 
 <body>
@@ -74,7 +73,7 @@
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
+                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
                                     </div>
                                 </div>
                             </div>

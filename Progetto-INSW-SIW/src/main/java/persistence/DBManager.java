@@ -1,7 +1,9 @@
 package persistence;
 
 import persistence.dao.LibroDAO;
+import persistence.dao.UtenteDAO;
 import persistence.dao.jdbc.LibroDAOJDBC;
+import persistence.dao.jdbc.UtenteDAOJDBC;
 
 
 // usiamo il singleton perché vogliamo una e una sola istanza che gestisca il database
@@ -14,8 +16,7 @@ public class DBManager {
 	// stabiliamo la connessione al CB tramite JDBC
 	static {
 		try {
-			Class.forName("org.postgresql.Driver");		
-			
+			Class.forName("org.postgresql.Driver");
               
 			dataSource = new DBSource("jdbc:postgresql://suleiman.db.elephantsql.com:5432/jsgsdndb", "jsgsdndb", "q1ZFef73zpabwtEUmmajmNFvHcbLc8nS");
 		} catch (Exception e) {
@@ -42,6 +43,9 @@ public class DBManager {
 		return new LibroDAOJDBC(this.dataSource);
 	}
 	
+	public UtenteDAO utenteDAO() {
+		return new UtenteDAOJDBC(this.dataSource);
+	}
 	
 }
 
