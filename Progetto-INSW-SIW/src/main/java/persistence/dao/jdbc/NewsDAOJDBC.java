@@ -22,10 +22,11 @@ public class NewsDAOJDBC implements NewsDAO {
 	}
 	@Override
 	public void save(NewsDTO news) {
+		Connection connection = null;
 		try {
-			Connection conn = dbSource.getConnection();
+			connection = dbSource.getConnection();
 			String query = "INSERT INTO news (titolo,data,username,immagine,contenuto) VALUES (?,?,?,?,?)";
-			PreparedStatement statement = conn.prepareStatement(query);
+			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, news.getTitolo());
 			statement.setDate(2, news.getData());
 			statement.setString(3, news.getUsername());
@@ -36,18 +37,25 @@ public class NewsDAOJDBC implements NewsDAO {
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 
 	}
 
 	@Override
 	public NewsDTO findByPrimaryKey(String titolo) {
+		Connection connection = null;
 		NewsDTO news = null;
 		try {
-			Connection conn = dbSource.getConnection();
+			connection = dbSource.getConnection();
 			PreparedStatement statement;
 			String query = "select * from news where titolo = ?";
-			statement = conn.prepareStatement(query);
+			statement = connection.prepareStatement(query);
 			statement.setString(1, titolo);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
@@ -61,15 +69,22 @@ public class NewsDAOJDBC implements NewsDAO {
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 		return news;
 	}
 
 	@Override
 	public List<NewsDTO> findAll() { 
+		Connection connection = null;
 		List<NewsDTO> newsList = new LinkedList<>();
 		try {
-			Connection connection = dbSource.getConnection();
+			connection = dbSource.getConnection();
 			NewsDTO news;
 			Statement statement = connection.createStatement();
 			String query = "select * from news";
@@ -86,6 +101,12 @@ public class NewsDAOJDBC implements NewsDAO {
 			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 		return newsList;
 	}
