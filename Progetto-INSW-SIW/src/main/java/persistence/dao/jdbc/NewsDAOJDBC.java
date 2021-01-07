@@ -69,9 +69,7 @@ public class NewsDAOJDBC implements NewsDAO {
 	public List<NewsDTO> findAll() { 
 		List<NewsDTO> newsList = new LinkedList<>();
 		try {
-			System.out.println("1");
 			Connection connection = dbSource.getConnection();
-			System.out.println("2");
 			NewsDTO news;
 			Statement statement = connection.createStatement();
 			String query = "select * from news";
