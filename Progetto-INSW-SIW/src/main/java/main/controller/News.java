@@ -21,7 +21,7 @@ public class News {
 		List<NewsDTO> nws = nDao.findAll();
 		Collections.reverse(nws);
 		session.setAttribute("newss", nws);
-		return "news";
+		return "news"; 
 	}
 	
 }

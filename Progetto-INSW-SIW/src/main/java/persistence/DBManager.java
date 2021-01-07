@@ -50,7 +50,7 @@ public class DBManager {
 	}
 	
 	public NewsDAO newsDAO() {
-		return new NewsDAOJDBC(this.dataSource);
+		return new NewsDAOJDBC(dataSource);
 	}
 	
 }

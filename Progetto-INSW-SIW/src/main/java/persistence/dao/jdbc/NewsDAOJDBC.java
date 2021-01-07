@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -65,15 +66,16 @@ public class NewsDAOJDBC implements NewsDAO {
 	}
 
 	@Override
-	public List<NewsDTO> findAll() {
+	public List<NewsDTO> findAll() { 
 		List<NewsDTO> newsList = new LinkedList<>();
 		try {
-			Connection connection = this.dbSource.getConnection();
+			System.out.println("1");
+			Connection connection = dbSource.getConnection();
+			System.out.println("2");
 			NewsDTO news;
-			PreparedStatement statement;
+			Statement statement = connection.createStatement();
 			String query = "select * from news";
-			statement = connection.prepareStatement(query);
-			ResultSet result = statement.executeQuery();
+			ResultSet result = statement.executeQuery(query);
 			while (result.next()) {
 				news = new NewsDTO();
 				news.setContenuto(result.getString("contenuto"));				
@@ -83,7 +85,8 @@ public class NewsDAOJDBC implements NewsDAO {
 				news.setUsername(result.getString("username"));
 				newsList.add(news);
 			}
-		}catch (SQLException e) {
+			connection.close();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return newsList;
