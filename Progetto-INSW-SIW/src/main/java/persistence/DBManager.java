@@ -1,8 +1,10 @@
 package persistence;
 
 import persistence.dao.LibroDAO;
+import persistence.dao.NewsDAO;
 import persistence.dao.UtenteDAO;
 import persistence.dao.jdbc.LibroDAOJDBC;
+import persistence.dao.jdbc.NewsDAOJDBC;
 import persistence.dao.jdbc.UtenteDAOJDBC;
 
 
@@ -45,6 +47,10 @@ public class DBManager {
 	
 	public UtenteDAO utenteDAO() {
 		return new UtenteDAOJDBC(this.dataSource);
+	}
+	
+	public NewsDAO newsDAO() {
+		return new NewsDAOJDBC(dataSource);
 	}
 	
 }
