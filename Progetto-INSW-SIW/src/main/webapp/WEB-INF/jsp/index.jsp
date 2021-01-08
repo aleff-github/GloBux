@@ -64,8 +64,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="albums-store.html">Categorie</a></li>
-                                    <li><a href="blog.html">Novità</a></li>
+                                    <li><a href="categorie">Categorie</a></li>
+                                    <li><a href="news">Novità</a></li>
                                     <li><a href="contact.html">Contatti</a></li>
                                 </ul>
 
