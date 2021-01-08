@@ -78,7 +78,7 @@
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
+                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><i class="fas fa-user"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -106,14 +106,14 @@
 				        <div class="">
 				
 				            <!-- Upload image input-->
-				            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" hidden>
+				            <input id="upload" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden >
 				            
 				            <!-- Uploaded image area-->
-				            <label for="upload" class="image-area image-area-glo">
-				            	<img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+				            <label id="lbl_image" for="upload" class="image-area image-area-glo" >
+				            	<img id="imageResult" src="#" alt="" class="img-fluid shadow-sm mx-auto d-block" >
 				            </label>
 				        </div>
-				    </div>
+				    </div> 
 				
 				</section>
 
@@ -238,6 +238,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Active js -->
     <script src="js/active.js"></script>
 </body>
+
+<script type="text/javascript">
+
+	function removeBrdUpImage(){
+		console.log('ci sono');
+		document.querySelector("#lbl_image").setAttribute('style', 'border:none');
+	}
+
+</script>
 
 
 </html>

@@ -15,7 +15,7 @@ public class DBManager {
 	static DBSource dataSource;
 	
 	// all'avvio viene eseguito questo pezzo di codice
-	// stabiliamo la connessione al CB tramite JDBC
+	// stabiliamo la connessione al DB tramite JDBC
 	static {
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -42,11 +42,11 @@ public class DBManager {
 	}
 
 	public LibroDAO libroDAO() {
-		return new LibroDAOJDBC(this.dataSource);
+		return new LibroDAOJDBC(dataSource);
 	}
 	
 	public UtenteDAO utenteDAO() {
-		return new UtenteDAOJDBC(this.dataSource);
+		return new UtenteDAOJDBC(dataSource);
 	}
 	
 	public NewsDAO newsDAO() {

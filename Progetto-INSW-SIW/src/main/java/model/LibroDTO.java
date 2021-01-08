@@ -9,6 +9,8 @@ public class LibroDTO {
 	private String autore;
 	private String contenuto;
 	private Date data;
+	private String genere;
+	private String sottogenere;
 	
 	
 	
@@ -42,6 +44,19 @@ public class LibroDTO {
 	public void setData(Date data) {
 		this.data = data;
 	}
+	public String getGenere() {
+		return genere;
+	}
+	public void setGenere(String genere) {
+		this.genere = genere;
+	}
+	public String getSottogenere() {
+		return sottogenere;
+	}
+	public void setSottogenere(String sottogenere) {
+		this.sottogenere = sottogenere;
+	}
+	
 	
 	
 	

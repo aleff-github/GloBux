@@ -29,13 +29,15 @@ public class LibroDAOJDBC implements LibroDAO {
 		try {
 			conn = dbSource.getConnection();
 			
-			String query = "INSERT INTO libro (isbn, titolo, autore, data, contenuto) VALUES (?, ?, ?, ?, ?)";
+			String query = "INSERT INTO libro (isbn, titolo, autore, data, contenuto, genere, sottogenere) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libro.getIsbn());
 			statement.setString(2, libro.getTitolo());
 			statement.setString(3, libro.getAutore());
 			statement.setDate(4, (Date) libro.getData());
 			statement.setString(5, libro.getContenuto());
+			statement.setString(6, libro.getGenere());
+			statement.setString(7, libro.getSottogenere());
 			
 			statement.executeQuery();
 		}catch (SQLException e) {
@@ -66,6 +68,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setData(result.getDate("data"));
 				libro.setIsbn(result.getString("isbn"));
 				libro.setTitolo(result.getString("titolo"));
+				libro.setGenere(result.getString("genere"));
+				libro.setSottogenere(result.getString("sottogenere"));
 				
 				return libro;
 			}
@@ -98,6 +102,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				String autore = rs.getString("autore");
 				Date data = rs.getDate("data");
 				String contenuto = rs.getString("contenuto");
+				String genere = rs.getString("genere");
+				String sottoGenere = rs.getString("sottogenere");
 				
 				LibroDTO libro = new LibroDTO();
 				libro.setIsbn(isb);
@@ -105,6 +111,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setAutore(autore);
 				libro.setData(data);
 				libro.setContenuto(contenuto);
+				libro.setGenere(genere);
+				libro.setSottogenere(sottoGenere);
 				
 				libri.add(libro);
 				
@@ -129,12 +137,14 @@ public class LibroDAOJDBC implements LibroDAO {
 		try {
 			conn = dbSource.getConnection();
 			
-			String query = "update libro set titolo=?, autore=?, data=?, contenuto=? where isbn=?";
+			String query = "update libro set titolo=?, autore=?, data=?, contenuto=?, genere=?, sottogenere=? where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libro.getTitolo());
 			statement.setString(2, libro.getAutore());
 			statement.setDate(3, (Date) libro.getData());
 			statement.setString(4, libro.getContenuto());
+			statement.setString(5, libro.getGenere());
+			statement.setString(6, libro.getSottogenere());
 			
 			ResultSet result = statement.executeQuery();
 			

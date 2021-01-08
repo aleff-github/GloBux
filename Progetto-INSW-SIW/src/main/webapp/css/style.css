@@ -128,6 +128,10 @@ img {
 
 .height-800 {
   height: 800px !important; }
+  
+.fa-user{
+	font-size: 30px;
+}
 
 /* :: 3.3.0 Section Padding */
 .section-padding-100 {
@@ -387,14 +391,18 @@ img {
         font-size: 16px; }
         .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a:hover, .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a:focus {
           color: rgba(255, 255, 255, 0.7); }
-        @media only screen and (min-width: 768px) and (max-width: 991px) {
+      /*  @media only screen and (min-width: 768px) and (max-width: 991px) {
           .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a {
             background-color: #000000;
-            border-bottom-color: rgba(255, 255, 255, 0.1); } }
-        @media only screen and (max-width: 767px) {
+            border-bottom-color: rgba(255, 255, 255, 0.1); } } */
+        @media only screen and (max-width: 991px) {
           .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a {
             background-color: #000000;
-            border-bottom-color: rgba(255, 255, 255, 0.1); } }
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+            font-size: 1.8rem;
+		    font-weight: 500;
+		    margin-bottom: 10px;
+		    letter-spacing: 2px; } }
       .header-area .oneMusic-main-menu .classy-navbar .classynav ul li.megamenu-item > a::after,
       .header-area .oneMusic-main-menu .classy-navbar .classynav ul li.has-down > a::after {
         color: #ffffff; }
@@ -434,14 +442,22 @@ img {
       position: relative;
       z-index: 1;
       margin-left: 100px; }
-      @media only screen and (min-width: 768px) and (max-width: 991px) {
+     /* @media only screen and (min-width: 768px) and (max-width: 991px) {
         .header-area .oneMusic-main-menu .login-register-cart-button {
-          margin-left: 12px;
-          margin-top: 15px; } }
-      @media only screen and (max-width: 767px) {
+          margin-left: 0;
+          margin-top: 45px; 
+          justify-content: center;} 
+         .login-register-btn.mr-50 {
+    		margin-right: 0!important;
+			}}*/
+      @media only screen and (max-width: 991px) {
         .header-area .oneMusic-main-menu .login-register-cart-button {
-          margin-left: 12px;
-          margin-top: 15px; } }
+          margin-left: 0;
+          margin-top: 40px; 
+          justify-content: center;} 
+          .login-register-btn.mr-50 {
+    		margin-right: 0!important;
+			}}
       .header-area .oneMusic-main-menu .login-register-cart-button .login-register-btn {
         position: relative;
         z-index: 10; }
