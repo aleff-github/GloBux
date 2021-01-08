@@ -15,11 +15,15 @@
     <title>GloBux</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="img/core-img/favicon.ico"> 
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleBook.css">
+    <link rel="stylesheet" href="css/styleUpBook.css">
+    
+    <!-- My script -->
+    <script src="js/scriptUpBook.js" type="text/javascript"></script>
 	
 	<!-- Icon search -->
 	<script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
@@ -93,148 +97,89 @@
 
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
-	
-		<div class="container-main-book-1" >
-			<!-- Image -->
-			<section class="container-main-book-first">
+		<!-- form -->
+		<form action="/upbook/up" method="post">
+			<div class="container-main-book-1 mt-5" >
+				<!-- Image -->
+				<section class="container-main-book-first jc-c">	
+					<div class="row min-h-100">
+				        <div class="">
 				
-				<img alt="" src="/img/copertina.jpg">
-			
-			</section>
-		
-			
-			<!-- Info book -->
-			<section class="container-main-book-second">
+				            <!-- Upload image input-->
+				            <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" hidden>
+				            
+				            <!-- Uploaded image area-->
+				            <label for="upload" class="image-area image-area-glo">
+				            	<img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+				            </label>
+				        </div>
+				    </div>
 				
-				<h1 class="title-book">1984</h1>
+				</section>
+
+					<!-- Info book -->
+					<section class="container-main-book-second cnt-main-up-book-second">
+					
+						<!-- titolo -->
+						<div class="form-group">
+						    <input name="titolo" type="text" class="form-control" placeholder="Titolo">
+					  	</div>
+					  	<!-- autore -->
+					  	<div class="form-group">
+						    <input name="autore" type="text" class="form-control" placeholder="Autore">
+					  	</div>
+					  	<!-- editore -->
+					  	<div class="form-group">
+						    <input name="editore" type="text" class="form-control" placeholder="Editore">
+					  	</div>
+					  	<!-- isbn -->
+					  	<div class="form-group">
+						    <input name="isbn" type="text" class="form-control" placeholder="ISBN">
+					  	</div>
+					  	<!-- data -->
+					  	<div class="form-group">
+						    <input name="data" type="date" class="form-control" placeholder="Data">
+					  	</div>
+					  	<br> <br>
+					  	<!-- genere -->
+					  	<div class="form-group">
+						    <input name="genere" type="text" class="form-control" placeholder="Genere">
+					  	</div>
+					  	<!-- sottogeneri -->
+					  	<div class="form-group">
+						    <input name="sottogenere" type="text" class="form-control" placeholder="Sottogenere">
+					  	</div>
+					  	<br> <br>
+					  	<!-- descrizione -->
+					  	<div class="form-group">
+						    <textarea name="descrizione" type="text" class="form-control" placeholder="Descrizione" rows="4"></textarea>
+					  	</div>
+					  	
+					  	
+					</section>
+		
+			</div>
+		
+			<span class="line-hor" ></span>
+		
+			<div class="bar-options bar-up-book">
 				
-				<h3 class="info-book" >Autore: <strong>George Orwell</strong></h3>
-				<h3 class="info-book" >Editore: <strong>Mondadori</strong></h3>
-				<h3 class="info-book" >Anno: <strong>1949</strong></h3>
-				<br>
-				<h3 class="info-book" >Genere: <strong>Romanzo</strong></h3>
-				<h3 class="info-book" >Sottogenere: <strong>fantascienza sociologica, fantapolitica, distopia</strong></h3>
-				<br>
-				<h4 class="info-book stars-book">Valutazione Utenti: 4,5/5</h4>
+				<button type="submit" class="btn-option-book btn-pr">
+					<i class="fas fa-plus"></i>
+					<nobr>Aggiungi</nobr>
+				</button>
 			
-			</section>
-	
-		</div>
-		
-		<span class="line-hor" ></span>
-		
-		<div class="bar-options">
+			</div>
 			
-			<button class="btn-option-book btn-pr">
-				<i class="fas fa-plus"></i>
-				<nobr>Aggiungi ai preferiti</nobr>
-			</button>
+			<span class="line-hor" ></span>
 			
-			<button class="btn-option-book btn-read">
-				<i class="fas fa-book-open"></i>
-				<nobr>Leggi</nobr>
-			</button>
-			
-			<button class="btn-option-book btn-read">
-				<i class="fas fa-star"></i>
-				<nobr>Valuta</nobr>
-			</button>
-		
-		</div>
-		
-		<span class="line-hor" ></span>
-		
-		
-		<div class="dscr-book" >
-			<p>1984 è il testamento di uno scrittore che ha dedicato la vita alla difesa della libertà e della verità, denunciando tutte le perversioni politiche, dall'imperialismo all'ingiustizia sociale ai totalitarismi di ogni colore.
-1984 è un potentissimo monito contro l'odio verso l'altro, contro le false informazioni, contro il "sentire di pancia", contro gli insulti all'immaginazione, contro le parole che non corrispondono a un pensiero.
-Letto 1984, chiunque vedrà con chiarezza che l'errore socialmente più grave è il rifiuto dell'intelligenza.</p>
-		</div>
+		</form>
 	
 	</main>
 	<!-- ##### END BOOK ##### -->
 
 
-	<!-- ################# START ALTRO DELL' AUTORE ################## -->
-	<section class="latest-albums-area section-padding-100">
-        <div class="container">
-        	<div class="container-title-cor" >
-        		<span class="line-hor" ></span>
-        			<h4><nobr>Altro di George Orwell</nobr></h4>
-        		<span class="line-hor" ></span>
-			 </div>
-			 <div class="row">
-                <div class="col-12">
-                    <div class="albums-slideshow owl-carousel">
-
-                        <!-- Single Book -->
-                        <div class="single-album">
-                            <img src="img/copertina.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Magia</h5>
-                                </a>
-                                <p>Romanzo</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-	</section>
-	<!-- ################# END ALTRO DELL' AUTORE ################## -->
 	
-	
-	<!-- ################# START SIMILI ################## -->
-	<section class="latest-albums-area section-padding-100">
-        <div class="container">
-        	<div class="container-title-cor" >
-        		<span class="line-hor" ></span>
-        			<h4><nobr>Libri Simili</nobr></h4>
-        		<span class="line-hor" ></span>
-			 </div>
-			 <div class="row">
-                <div class="col-12">
-                    <div class="albums-slideshow owl-carousel">
-
-                        <!-- Single Book -->
-                        <div class="single-album">
-                            <img src="img/copertina.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Magia</h5>
-                                </a>
-                                <p>Romanzo</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-	</section>
-	<!-- ################# END SIMILI ################## -->
-
-
-	<!-- ################# START RATING ################## -->
-	<div style="background: var(--color-bg); text-align: center;">
-		<h3 class="title-book" style="margin: 0">Valuta questo ebook</h3>
-		<p class="info-book" style="margin: 0" >Fai sapere agli altri la tua opinione</p>
-		<div class="rating"> 
-			<input type="radio" name="rating" value="5" id="5">
-			<label for="5">☆</label> 
-			<input type="radio" name="rating" value="4" id="4">
-			<label for="4">☆</label> 
-			<input type="radio" name="rating" value="3" id="3">
-			<label for="3">☆</label> 
-			<input type="radio" name="rating" value="2" id="2">
-			<label for="2">☆</label> 
-			<input type="radio" name="rating" value="1" id="1">
-			<label for="1">☆</label>
-		</div>
-	</div>
-	<!-- ################# END RATING ################## -->
 
 
 

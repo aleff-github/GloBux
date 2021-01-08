@@ -406,9 +406,9 @@ img {
   background-color: #ffffff;
   position: fixed;
   top: 0;
-  left: -310px;
+  right: -100vw;
   z-index: 1000;
-  width: 300px;
+  width: 100vw;
   height: 100%;
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
@@ -418,9 +418,10 @@ img {
   overflow-x: hidden;
   overflow-y: scroll; }
   .breakpoint-on .classy-navbar .classy-menu.menu-on {
-    left: 0; }
+    right: 0; }
 .breakpoint-on .classynav ul li {
   display: block;
+  text-align: center;
   position: relative;
   clear: both;
   z-index: 10; }
@@ -469,7 +470,7 @@ img {
       border-bottom: 1px solid #f2f4f8; }
 .breakpoint-on .classynav > ul > li > a {
   background-color: #f2f4f8;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */ }
 .breakpoint-on .classynav ul li ul.dropdown li ul li {
   margin-left: 15px; }
 .breakpoint-on .classy-btn {

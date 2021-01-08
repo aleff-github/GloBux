@@ -468,7 +468,7 @@ img {
           cursor: pointer;
           line-height: 1; }
           .header-area .oneMusic-main-menu .login-register-cart-button .cart-btn p:hover, .header-area .oneMusic-main-menu .login-register-cart-button .cart-btn p:focus {
-            color: rgba(255, 255, 255, 0.7); }
+            color: rgba(255, 255, 255, 0.7); } 
           .header-area .oneMusic-main-menu .login-register-cart-button .cart-btn p .quantity {
             width: 15px;
             height: 15px;
@@ -893,7 +893,8 @@ img {
     transition-duration: 500ms;
     margin: 25px 0 25px 0;
     border-radius: 20px;
-    cursor: pointer; }
+    cursor: pointer;
+    border: 1px solid gray; }
     .albums-slideshow .single-album:hover, .albums-slideshow .single-album:focus {
     border: none;
     box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.3);

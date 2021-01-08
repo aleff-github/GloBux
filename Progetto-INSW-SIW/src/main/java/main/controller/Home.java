@@ -11,10 +11,7 @@ public class Home {
 		return "index";
 	}
 	
-	@GetMapping("/book")
-	public String getBook() {
-		return "book";
-	}
+	
 	
 	/*
 	 * 
