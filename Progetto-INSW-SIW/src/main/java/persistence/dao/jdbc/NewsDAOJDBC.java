@@ -33,7 +33,7 @@ public class NewsDAOJDBC implements NewsDAO {
 			statement.setString(4, news.getImmagine());
 			statement.setString(5, news.getContenuto());
 			
-			statement.executeQuery();
+			statement.executeUpdate();
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -113,13 +113,48 @@ public class NewsDAOJDBC implements NewsDAO {
 
 	@Override
 	public void update(NewsDTO news) {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		try {
+			connection = dbSource.getConnection();
+			String update = "update news SET titolo = ?, data = ?, username = ?, immagine = ?, WHERE contenuto = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, news.getTitolo());				
+			statement.setDate(2, news.getData());
+			statement.setString(3, news.getUsername());
+			statement.setString(4, news.getImmagine());
+			statement.setString(5, news.getContenuto());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
 
 	}
 
 	@Override
 	public void delete(NewsDTO news) {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		try {
+			conn = dbSource.getConnection();
+			String query = "delete from news where titolo=?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, news.getTitolo());
+			statement.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
 
 	}
 
