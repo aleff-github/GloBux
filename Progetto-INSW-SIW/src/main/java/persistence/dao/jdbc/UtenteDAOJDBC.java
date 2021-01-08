@@ -23,13 +23,9 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	
 	@Override
 	public void save(UtenteDTO utente) {
-		/*
-		 * INSERT INTO utente (username, email, password)
-		 * VALUES ('user3', 'user3@gmail.com', 1234);
-		 * */
-		
+		Connection conn = null;
 		try {
-			Connection conn = dbSource.getConnection();
+			conn = dbSource.getConnection();
 			String query = "INSERT INTO utente (username,email,password) VALUES (?,?,?)";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, utente.getUsername());
@@ -40,19 +36,24 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 
 	}
 
 	@Override
 	public UtenteDTO findByPrimaryKey(String username) {
-		
+		Connection conn = null;
 		UtenteDTO utente = null;
 		try {
-			Connection conn = dbSource.getConnection();
-			PreparedStatement statement;
+			conn = dbSource.getConnection();
 			String query = "select * from utente where username = ?";
-			statement = conn.prepareStatement(query);
+			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, username);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
@@ -64,15 +65,22 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 		return utente;
 	}
 
 	@Override
 	public List<UtenteDTO> findAll() {
+		Connection conn = null;
 		List<UtenteDTO> utenti = new ArrayList<>();
 		try {
-			Connection conn = dbSource.getConnection();
+			conn = dbSource.getConnection();
 			String query = "select * from utente";
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(query);
@@ -90,20 +98,62 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 		return utenti;
 	}
 
 	@Override
 	public void update(UtenteDTO utente) {
-		// TODO Auto-generated method stub
-
+		Connection conn = null;
+		try {
+			conn = dbSource.getConnection();
+			
+			String query = "update utente set email=?, password=? where username=?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, utente.getEmail());
+			statement.setString(2, utente.getPassword());
+			statement.setString(3, utente.getUsername());
+			
+			ResultSet result = statement.executeQuery();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
 	}
 
 	@Override
 	public void delete(UtenteDTO utente) {
-		// TODO Auto-generated method stub
-
+		Connection conn = null;
+		try {
+			conn = dbSource.getConnection();
+			
+			String query = "delete from utente where username=?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, utente.getUsername());
+			
+			ResultSet result = statement.executeQuery();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
 	}
 
 }
