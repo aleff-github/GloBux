@@ -23,10 +23,10 @@ public class GestisciNews {
 	
 	@PostMapping("/addNews")
 	public String PostGestisciNews(HttpSession session, @RequestParam String titolo, 
-			@RequestParam Date data, @RequestParam String username, @RequestParam String immagine,
+			@RequestParam Date data, @RequestParam String immagine,
 			@RequestParam String contenuto) {
 
-	 	if (titolo == "" || username == "" || immagine == "" || contenuto == "") {
+	 	if (titolo == "" || immagine == "" || contenuto == "") {
 	 		return "gestioneNews";
 	 	}
 	 	else {
@@ -35,7 +35,6 @@ public class GestisciNews {
 	 		NewsDTO news = new NewsDTO();
 	 		news.setTitolo(titolo);
 	 		news.setData(d);
-	 		news.setUsername(username);
 	 		news.setImmagine(immagine);
 	 		news.setContenuto(contenuto);
 	 		nDao.save(news);

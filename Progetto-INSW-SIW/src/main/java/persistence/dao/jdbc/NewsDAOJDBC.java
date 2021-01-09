@@ -25,13 +25,12 @@ public class NewsDAOJDBC implements NewsDAO {
 		Connection connection = null;
 		try {
 			connection = dbSource.getConnection();
-			String query = "INSERT INTO news (titolo,data,username,immagine,contenuto) VALUES (?,?,?,?,?)";
+			String query = "INSERT INTO news (titolo,data,immagine,contenuto) VALUES (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, news.getTitolo());
 			statement.setDate(2, news.getData());
-			statement.setString(3, news.getUsername());
-			statement.setString(4, news.getImmagine());
-			statement.setString(5, news.getContenuto());
+			statement.setString(3, news.getImmagine());
+			statement.setString(4, news.getContenuto());
 			
 			statement.executeUpdate();
 			
@@ -64,7 +63,6 @@ public class NewsDAOJDBC implements NewsDAO {
 				news.setData(result.getDate("data"));
 				news.setImmagine(result.getString("immagine"));
 				news.setTitolo(result.getString("titolo"));
-				news.setUsername(result.getString("username"));
 				return news;
 			}
 		}catch (SQLException e) {
@@ -94,8 +92,6 @@ public class NewsDAOJDBC implements NewsDAO {
 				news.setContenuto(result.getString("contenuto"));				
 				news.setData(result.getDate("data"));
 				news.setImmagine(result.getString("immagine"));
-				news.setTitolo(result.getString("titolo"));
-				news.setUsername(result.getString("username"));
 				newsList.add(news);
 			}
 			connection.close();
@@ -116,13 +112,12 @@ public class NewsDAOJDBC implements NewsDAO {
 		Connection connection = null;
 		try {
 			connection = dbSource.getConnection();
-			String update = "update news SET titolo = ?, data = ?, username = ?, immagine = ?, WHERE contenuto = ?";
+			String update = "update news SET titolo = ?, data = ?, immagine = ?, WHERE contenuto = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, news.getTitolo());				
 			statement.setDate(2, news.getData());
-			statement.setString(3, news.getUsername());
-			statement.setString(4, news.getImmagine());
-			statement.setString(5, news.getContenuto());
+			statement.setString(3, news.getImmagine());
+			statement.setString(4, news.getContenuto());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

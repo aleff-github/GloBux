@@ -85,13 +85,12 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/Fabri-Fibra2.jpg);">
+<!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
         <div class="bradcumbContent">
-            
-            <h2>NEWS</h2>
+            <p>See what’s new</p>
+            <h2>News</h2>
         </div>
-        		
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
@@ -105,10 +104,6 @@
                         <!-- Login Form -->
                         <div class="login-form">
                             <form action="addNews" method="post">
-                            	<div class="form-group">
-                                    <label for="exampleInputTitolo">Username</label>
-                                    <input type="text" class="form-control" name="username" id="username" aria-describedby="titoloHelp" placeholder="Inserisci username">
-                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputTitolo">Titolo</label>
                                     <input type="text" class="form-control" name="titolo" id="titolo" aria-describedby="titoloHelp" placeholder="Inserisci titolo news">
