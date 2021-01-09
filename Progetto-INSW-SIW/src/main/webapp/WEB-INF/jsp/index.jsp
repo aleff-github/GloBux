@@ -66,6 +66,7 @@
                                 <ul>
                                     <li><a href="categorie">Categorie</a></li>
                                     <li><a href="news">Novità</a></li>
+                                    <li><a href="carica-libro">Carica libro</a></li>
                                     <li><a href="contact.html">Contatti</a></li>
                                 </ul>
 

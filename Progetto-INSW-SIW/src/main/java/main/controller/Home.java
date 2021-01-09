@@ -11,12 +11,9 @@ public class Home {
 		return "index";
 	}
 	
-	/*
-	 * 
-	 * Login(login, doLogin)
-	 * 
-	 * Controller(registrazione, doRegistrazione)
-	 * 
-	 * */
+	@GetMapping("/termini-e-condizioni")
+	public String getTerminiECondizioni() {
+		return "termini-e-condizioni";
+	}
 
 }
