@@ -74,7 +74,7 @@
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
+                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><i class="fas fa-user"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -140,11 +140,12 @@
 				<nobr>Aggiungi ai preferiti</nobr>
 			</button>
 			
-			<button class="btn-option-book btn-read">
+			<c:if test="${libro.file != null}">
+			<a href="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${libro.file}" target="_blank" class="btn-option-book btn-read">
 				<i class="fas fa-book-open"></i>
 				<nobr>Leggi</nobr>
-			</button>
-			
+			</a>
+			</c:if>
 			<a href="#valuta" class="btn-option-book btn-vlt">
 				<i class="fas fa-star"></i>
 				<nobr>Valuta</nobr>

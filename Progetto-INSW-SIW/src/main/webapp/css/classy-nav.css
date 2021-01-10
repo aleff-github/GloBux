@@ -92,11 +92,12 @@ img {
   -ms-grid-row-align: center;
   align-items: center; }
   .classy-navbar .nav-brand {
-    font-size: 26px;
-    font-weight: 500;
-    color: #565656;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff9a05;
     display: inline-block;
-    margin-right: 30px; }
+    margin-right: 30px;
+    letter-spacing: 2px; }
     .classy-navbar .nav-brand:focus, .classy-navbar .nav-brand:hover {
       font-size: 26px;
       font-weight: 500; }

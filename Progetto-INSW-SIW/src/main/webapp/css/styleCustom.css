@@ -1,10 +1,6 @@
-/*----- LOGO ------*/ 
-.logo{
-	color: white !important;
-	font-weight: xx-large !important;
+#loginBtn:hover i{
+	color:#ff9a05;
 }
-
-
 
 /*----- SEARCH BAR -------*/
 .input-group.md-form.form-sm.form-2 input {
