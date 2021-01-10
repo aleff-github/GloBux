@@ -98,7 +98,7 @@
 			<!-- Image -->
 			<section class="container-main-book-first">
 				
-				<img alt="" src="/img/copertina.jpg">
+				<img alt="" src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${libro.image}">
 			
 			</section>
 		
@@ -106,16 +106,26 @@
 			<!-- Info book -->
 			<section class="container-main-book-second">
 				
-				<h1 class="title-book">1984</h1>
+				<h1 class="title-book">${libro.titolo}</h1>
 				
-				<h3 class="info-book" >Autore: <strong>George Orwell</strong></h3>
-				<h3 class="info-book" >Editore: <strong>Mondadori</strong></h3>
-				<h3 class="info-book" >Anno: <strong>1949</strong></h3>
+				<h3 class="info-book" >Autore: <strong>${libro.autore}</strong></h3>
+				<h3 class="info-book" >Editore: <strong>${libro.editore}</strong></h3>
+				<%-- <h3 class="info-book" >Anno: <strong>${libro.anno}</strong></h3> --%>
 				<br>
-				<h3 class="info-book" >Genere: <strong>Romanzo</strong></h3>
-				<h3 class="info-book" >Sottogenere: <strong>fantascienza sociologica, fantapolitica, distopia</strong></h3>
+				<h3 class="info-book" >Genere: <strong>${libro.genere}</strong></h3>
+				<h3 class="info-book" >Sottogenere: <strong>${libro.sottogenere}</strong></h3>
 				<br>
-				<h4 class="info-book stars-book">Valutazione Utenti: 4,5/5</h4>
+				<c:if test="${libro.voto >= 4}">
+					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: green" >${libro.voto}</strong>/5</h4>
+				</c:if>
+				
+				<c:if test="${libro.voto < 4 && libro.voto >= 3}">
+					<h4 class="info-book stars-book">Valutazione Utenti: <strong>${libro.voto}</strong>/5</h4>
+				</c:if>
+				
+				<c:if test="${libro.voto < 3}">
+					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red" >${libro.voto}</strong>/5</h4>
+				</c:if>
 			
 			</section>
 	
@@ -135,10 +145,10 @@
 				<nobr>Leggi</nobr>
 			</button>
 			
-			<button class="btn-option-book btn-read">
+			<a href="#valuta" class="btn-option-book btn-vlt">
 				<i class="fas fa-star"></i>
 				<nobr>Valuta</nobr>
-			</button>
+			</a>
 		
 		</div>
 		
@@ -146,9 +156,7 @@
 		
 		
 		<div class="dscr-book" >
-			<p>1984 è il testamento di uno scrittore che ha dedicato la vita alla difesa della libertà e della verità, denunciando tutte le perversioni politiche, dall'imperialismo all'ingiustizia sociale ai totalitarismi di ogni colore.
-1984 è un potentissimo monito contro l'odio verso l'altro, contro le false informazioni, contro il "sentire di pancia", contro gli insulti all'immaginazione, contro le parole che non corrispondono a un pensiero.
-Letto 1984, chiunque vedrà con chiarezza che l'errore socialmente più grave è il rifiuto dell'intelligenza.</p>
+			<p>${libro.sinossi}</p>
 		</div>
 	
 	</main>
@@ -218,22 +226,24 @@ Letto 1984, chiunque vedrà con chiarezza che l'errore socialmente più grave è
 
 
 	<!-- ################# START RATING ################## -->
-	<div style="background: var(--color-bg); text-align: center;">
-		<h3 class="title-book" style="margin: 0">Valuta questo ebook</h3>
-		<p class="info-book" style="margin: 0" >Fai sapere agli altri la tua opinione</p>
-		<div class="rating"> 
-			<input type="radio" name="rating" value="5" id="5">
-			<label for="5">☆</label> 
-			<input type="radio" name="rating" value="4" id="4">
-			<label for="4">☆</label> 
-			<input type="radio" name="rating" value="3" id="3">
-			<label for="3">☆</label> 
-			<input type="radio" name="rating" value="2" id="2">
-			<label for="2">☆</label> 
-			<input type="radio" name="rating" value="1" id="1">
-			<label for="1">☆</label>
+	<a id="valuta">
+		<div style="background: var(--color-bg); text-align: center;">
+			<h3 class="title-book" style="margin: 0">Valuta questo ebook</h3>
+			<p class="info-book" style="margin: 0" >Fai sapere agli altri la tua opinione</p>
+			<div class="rating"> 
+				<input type="radio" name="rating" value="5" id="5">
+				<label for="5">☆</label> 
+				<input type="radio" name="rating" value="4" id="4">
+				<label for="4">☆</label> 
+				<input type="radio" name="rating" value="3" id="3">
+				<label for="3">☆</label> 
+				<input type="radio" name="rating" value="2" id="2">
+				<label for="2">☆</label> 
+				<input type="radio" name="rating" value="1" id="1">
+				<label for="1">☆</label>
+			</div>
 		</div>
-	</div>
+	</a>
 	<!-- ################# END RATING ################## -->
 
 

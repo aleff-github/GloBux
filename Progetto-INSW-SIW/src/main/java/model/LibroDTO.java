@@ -1,19 +1,24 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class LibroDTO {
 
 	private String isbn;
 	private String titolo;
 	private String autore;
-	private String contenuto;
+	private String editore;
+	private String file;
 	private Date data;
 	private String genere;
 	private String sottogenere;
+	private String sinossi;
+	private String image;
+	private int voto;
+	private int numeroVoti;
 	
 	
-	
+
 	public String getIsbn() {
 		return isbn;
 	}
@@ -32,11 +37,12 @@ public class LibroDTO {
 	public void setAutore(String autore) {
 		this.autore = autore;
 	}
-	public String getContenuto() {
-		return contenuto;
+	
+	public String getEditore() {
+		return editore;
 	}
-	public void setContenuto(String contenuto) {
-		this.contenuto = contenuto;
+	public void setEditore(String editore) {
+		this.editore = editore;
 	}
 	public Date getData() {
 		return data;
@@ -56,6 +62,38 @@ public class LibroDTO {
 	public void setSottogenere(String sottogenere) {
 		this.sottogenere = sottogenere;
 	}
+	public String getSinossi() {
+		return sinossi;
+	}
+	public void setSinossi(String sinossi) {
+		this.sinossi = sinossi;
+	}
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	public int getVoto() {
+		return voto;
+	}
+	public void setVoto(int voto) {
+		this.voto = voto;
+	}
+	public int getNumeroVoti() {
+		return numeroVoti;
+	}
+	public void setNumeroVoti(int numeroVoti) {
+		this.numeroVoti = numeroVoti;
+	}
+	
 	
 	
 	

@@ -98,7 +98,7 @@
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
 		<!-- form -->
-		<form action="/upbook/up" method="post">
+		<form action="/upbook/up" method="post" enctype="multipart/form-data">
 			<div class="container-main-book-1 mt-5" >
 				<!-- Image -->
 				<section class="container-main-book-first jc-c">	
@@ -106,11 +106,11 @@
 				        <div class="">
 				
 				            <!-- Upload image input-->
-				            <input id="upload" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden >
+				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden >
 				            
 				            <!-- Uploaded image area-->
-				            <label id="lbl_image" for="upload" class="image-area image-area-glo" >
-				            	<img id="imageResult" src="#" alt="" class="img-fluid shadow-sm mx-auto d-block" >
+				            <label id="lbl_image" for="upload" class="image-area image-area-glo">
+				            	<img id="imageResult" src="#" alt="" class="img-fluid shadow-sm mx-auto d-block">
 				            </label>
 				        </div>
 				    </div> 
@@ -150,10 +150,16 @@
 						    <input name="sottogenere" type="text" class="form-control" placeholder="Sottogenere">
 					  	</div>
 					  	<br> <br>
-					  	<!-- descrizione -->
+					  	<!-- sinossi -->
 					  	<div class="form-group">
-						    <textarea name="descrizione" type="text" class="form-control" placeholder="Descrizione" rows="4"></textarea>
+						    <textarea name="sinossi" type="text" class="form-control" placeholder="Sinossi" rows="4"></textarea>
 					  	</div>
+					  	<br> <br>
+					  	<!-- Contenuto -->
+					  	<div class="form-group">	
+					  		Seleziona contenuto
+							<input id="file" name ="file" type="file" class="form-control" style="padding-left:0; border:none;" >
+						</div>
 					  	
 					  	
 					</section>
