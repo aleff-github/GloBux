@@ -8,8 +8,12 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.LibreriaDTO;
 import model.LibroDTO;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.LibreriaDTO;
 import persistence.DBSource;
 import persistence.dao.LibreriaDAO;
 
@@ -21,6 +25,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 		// TODO Auto-generated constructor stub
 		this.dbSource = dbSource;
 	}
+
 	@Override
 	public void save(LibreriaDTO libreria) {
 		Connection connection = null;
@@ -104,6 +109,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 		}
 		return libreriaList;
 	}
+
 
 	public void delete(LibreriaDTO libreria) {
 		Connection conn = null;

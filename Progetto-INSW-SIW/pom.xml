@@ -55,6 +55,25 @@
 			</exclusions>
 		</dependency>
 		
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-devtools</artifactId>
+        	<optional>true</optional>
+    	</dependency>
+    	
+    	<dependency>
+     		<groupId>mysql</groupId>
+     		<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+		<dependency>
+    		<groupId>com.amazonaws</groupId>
+    		<artifactId>aws-java-sdk-s3</artifactId>
+    		<version>1.11.934</version>
+		</dependency>
+		
+		
 	</dependencies>
 
 	<build>

@@ -80,10 +80,11 @@
             smartSpeed: 750,
             responsive: {
                 0: {
-                    items: 1
-                },
-                480: {
                     items: 2
+                },
+                400: {
+                    items: 3,
+                    margin: 15
                 },
                 768: {
                     items: 3
