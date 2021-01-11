@@ -1,25 +1,23 @@
 package model;
 
-import java.util.ArrayList;
-
 public class LibreriaDTO {
 	
 	private String idUtente;
-	private ArrayList<LibroDTO> libri;
+	private String libro;
 	
 	
 	
-	public String getIdUtente() {
+	public String getIdLibreria() {
 		return idUtente;
 	}
-	public void setIdUtente(String idUtente) {
+	public void setIdLibreria(String idUtente) {
 		this.idUtente = idUtente;
 	}
-	public ArrayList<LibroDTO> getLibri() {
-		return libri;
+	public String getLibro() {
+		return libro;
 	}
-	public void setLibri(ArrayList<LibroDTO> libri) {
-		this.libri = libri;
+	public void setLibro(String libro) {
+		this.libro = libro;
 	}
 	
 	

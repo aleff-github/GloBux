@@ -11,13 +11,5 @@ public class Home {
 		System.out.println("prova");
 		return "index";
 	}
-	
-	/*
-	 * 
-	 * Login(login, doLogin)
-	 * 
-	 * Controller(registrazione, doRegistrazione)
-	 * 
-	 * */
 
 }
