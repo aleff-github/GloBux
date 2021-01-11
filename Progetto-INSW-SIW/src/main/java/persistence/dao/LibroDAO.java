@@ -12,4 +12,7 @@ public interface LibroDAO {
 	public void update(LibroDTO libro);		
 	public void delete(LibroDTO libro);		
 	
+	public List<LibroDTO> findAllAutore(String autore);
+	public List<LibroDTO> findAllGenere(String genere);
+	void updateVoto(LibroDTO libro);
 }

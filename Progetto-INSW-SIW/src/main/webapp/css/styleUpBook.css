@@ -1,0 +1,94 @@
+
+/* container main */
+.cnt-main-up-book-second{
+	align-items: unset;
+	width: 75%;
+}
+
+
+/* IMAGE PREVIEW BOOTSTRAP */
+#upload {
+    opacity: 0;
+}
+
+#upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.image-area-glo {
+    border: 2px dashed rgb(140 140 140);
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+/*
+.image-area::before {
+    content: '+';
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    z-index: 1;
+}
+*/
+.image-area img {
+    z-index: 2;
+    position: relative;
+    margin: 0;
+    border-radius: 14px;
+}
+
+.jc-c{
+	justify-content: center;
+}
+.min-h-100{
+	min-height: 60%;
+}
+
+/* Bottone aggiungi libro */
+.bar-up-book{
+	justify-content: center;
+}
+
+/* input */
+.cnt-main-up-book-second .form-control{
+	border: transparent;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    border-radius: 0;
+    outline: none;
+}
+.cnt-main-up-book-second .form-control:focus{
+	box-shadow: 0px 17px 18px -18px rgba(171, 129, 13, 1);
+    border-bottom: 1px solid rgba(171, 129, 13, 1);
+}
+
+.fc-color,
+.fc-color:focus{
+	color: #ffffffde;
+}
+
+
+@media (max-width: 769px){
+	.min-h-100{
+		min-height: 65vw;
+	}	
+	.container-main-book-first {
+    	margin: 50px 0;
+	}
+	.cnt-main-up-book-second {
+    	width: 100%;
+	}
+}
