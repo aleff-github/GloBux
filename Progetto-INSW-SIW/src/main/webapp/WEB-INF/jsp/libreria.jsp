@@ -13,7 +13,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>GloBux Login</title>
+    <title>La tua libreria</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -66,14 +66,6 @@
                                     <li><a href="blog.html">Novità</a></li>
                                     <li><a href="contact.html">Contatti</a></li>
                                 </ul>
-
-                                <!-- Login/Register -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
-                                    </div>
-                                </div>
                             </div>
                             <!-- Nav End -->
 
@@ -88,59 +80,76 @@
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
         <div class="bradcumbContent">
-            <p>Carica ora il tuo libro sulla piattaforma</p>
-            <h2>Carica Libro</h2>
+            <p>Gestisci</p>
+            <h2>La tua libreria personale</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Login Area Start ##### -->
-    <section class="login-area section-padding-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <div class="login-content">
-                        <h3>Il Tuo Libro</h3>
-                        <!-- Login Form -->
-                        <div class="login-form">
-                            <form action="do-carica-libro" method="POST">
-                                <div class="form-group">
-                                    <label for="isbn">ISBN</label>
-                                    <input type="text" class="form-control" id="isbn" placeholder="Isbn" name="isbn">
-                                </div>
-                                <div class="form-group">
-                                    <label for="titolo">Titolo</label>
-                                    <input type="text" class="form-control" id="titolo" placeholder="Titolo" name="titolo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="autore">Autore</label>
-                                    <input type="text" class="form-control" id="autore" placeholder="Autore" name="autore">
-                                </div>
-                                <div class="form-group">
-                                    <label for="data">Data</label>
-                                    <input type="date" id="data" name="data">
-                                </div>
-                                <div class="form-group">
-                                    <label for="file">File</label>
-                                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" max-file-size="1">
-                                </div>
-                                
-                                <button type="submit" class="btn oneMusic-btn mt-30">Carica</button>
-                            </form>
-                        </div>
-                    </div>
+	<!-- CARDS AREA START  -->
+		<c:forEach items="${listaLibri}" var="item">
+        <!-- Single Post Start -->
+           <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
+          <!-- Post Thumb -->
+          	<div class="col-12 col-md-6 col-lg-4">
+	        	<div class="single-event-area mb-30">
+    	        	<div class="event-thumbnail">
+        	        	<img src="img/9780786102563.jpg" alt="">
+                	</div>
+                	<form action="deleteLibro" method="post">
+	                	<div class="event-text">
+	            	    	<h4>Divina Commedia</h4>
+	                    	<div class="event-meta-data">
+	                	    	<a href="#" class="event-place">${item.autore }</a>
+	                        	<a href="#" class="event-place">${item.isbn}</a>
+                   				<a href="#" class="event-place">${item.titolo}</a>
+	                        	<input type="text" id="libro" name="libro" class="event-date" class="event-place" value="9788804668237" hidden="true"></input>
+	                        	<input type="text" id="libreria" name="libreria" value="user1" class="event-place" hidden="true"></input>
+	                    	</div>
+	                    	<button class="btn see-more-btn" type="submit" >Elimina libro</button>
+	                	</div>
+	             	</form>
+             	</div>
+         	</div>-
+               <div class="blog-post-thumb mt-30">
+                   
+                   
+        			
+               </div>
+           </div>
+		</c:forEach>
+		
+		<!-- Single Event Area 
+        <div class="col-12 col-md-6 col-lg-4">
+	        <div class="single-event-area mb-30">
+    	        <div class="event-thumbnail">
+        	        <img src="img/9780786102563.jpg" alt="">
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Login Area End ##### -->
-
+                <form action="deleteLibro" method="post">
+	                <div class="event-text">
+	            	    <h4>Divina Commedia</h4>
+	                    <div class="event-meta-data">
+	                	    <a href="#" class="event-place">Dante Alighieri</a>
+	                        <a href="#" class="event-date">548416546841</a>
+	                        <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="548416546841" hidden="true"></input>
+	                        <input type="text" id="libreria" name="libreria" value="user1" class="event-place" hidden="true"></input>
+	                    </div>
+	                    <button class="btn see-more-btn" type="submit" >Elimina libro</button>
+	                </div>
+	             </form>
+             </div>
+         </div>-->
+	    
+	    
+	
+	<!-- CARDS AREA END -->
+   
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="/" class="nav-brand logo">GLOBUX</a>
                     <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -150,10 +159,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <div class="footer-nav">
                         <ul>
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">Albums</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Novità</a></li>
+                            <li><a href="#">Contatti</a></li>
                         </ul>
                     </div>
                 </div>
