@@ -122,7 +122,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="file">File</label>
-                                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" max-file-size="10000">
+                                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx" max-file-size="1">
                                 </div>
                                 
                                 <button type="submit" class="btn oneMusic-btn mt-30">Carica</button>
