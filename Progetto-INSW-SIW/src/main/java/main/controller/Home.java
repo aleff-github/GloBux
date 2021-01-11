@@ -10,10 +10,5 @@ public class Home {
 	public String getIndex() {
 		return "index";
 	}
-	
-	@GetMapping("/termini-e-condizioni")
-	public String getTerminiECondizioni() {
-		return "termini-e-condizioni";
-	}
 
 }

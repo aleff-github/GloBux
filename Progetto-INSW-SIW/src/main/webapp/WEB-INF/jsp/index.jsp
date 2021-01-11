@@ -22,7 +22,7 @@
 	
 	<!-- Icon search -->
 	<script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
-
+ 
 </head>
 
 <body>
@@ -106,7 +106,7 @@
                             <div class="input-group md-form form-sm form-2 pl-0">
                             	<input class="form-control my-0 py-1 red-border" type="text" placeholder="Titolo, autore, ..." aria-label="Search">
 								<div class="input-group-append">
-									<span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
+									<span class="input-group-text red lighten-3 border-r-tbr-icon-search" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
 								</div>
 							</div>
                            
