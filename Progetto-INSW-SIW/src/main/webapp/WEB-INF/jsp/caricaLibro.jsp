@@ -98,7 +98,7 @@
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
 		<!-- form -->
-		<form action="/upbook/up" method="post" enctype="multipart/form-data">
+		<form action="/caricaLibro/up" method="post" enctype="multipart/form-data">
 			<div class="container-main-book-1 mt-5" >
 				<!-- Image -->
 				<section class="container-main-book-first jc-c">	
