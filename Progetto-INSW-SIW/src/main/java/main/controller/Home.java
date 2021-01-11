@@ -10,15 +10,5 @@ public class Home {
 	public String getIndex() {
 		return "index";
 	}
-	
-	
-	
-	/*
-	 * 
-	 * Login(login, doLogin)
-	 * 
-	 * Controller(registrazione, doRegistrazione)
-	 * 
-	 * */
 
 }
