@@ -93,7 +93,7 @@ public class LibroDAOJDBC implements LibroDAO {
 		}
 		
 		return libro;
-	} 
+	}
 
 	@Override
 	public List<LibroDTO> findAll() {
@@ -156,6 +156,7 @@ public class LibroDAOJDBC implements LibroDAO {
 		try {
 			conn = dbSource.getConnection();
 			
+
 			String query = "update libro set titolo=?, editore=?, autore=?, data=?, "
 							+ "file=?, genere=?, sottogenere=?, sinossi=?, image=? where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
