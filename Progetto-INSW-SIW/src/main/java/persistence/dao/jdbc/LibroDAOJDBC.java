@@ -29,8 +29,8 @@ public class LibroDAOJDBC implements LibroDAO {
 		try {
 			conn = dbSource.getConnection();
 			
-			String query = "INSERT INTO libro (isbn, titolo, autore, editore, data, file, genere, sottogenere, sinossi, image) "
-							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO libro (isbn, titolo, autore, editore, data, file, genere, sottogenere, sinossi, image, approvato) "
+							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libro.getIsbn());
 			statement.setString(2, libro.getTitolo());
@@ -42,6 +42,7 @@ public class LibroDAOJDBC implements LibroDAO {
 			statement.setString(8, libro.getSottogenere());
 			statement.setString(9, libro.getSinossi());
 			statement.setString(10, libro.getImage());
+			statement.setBoolean(11, false);
 			
 			statement.executeUpdate();
 		}catch (SQLException e) {
@@ -79,6 +80,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setImage(result.getString("image"));
 				libro.setVoto(result.getInt("voto"));
 				libro.setNumeroVoti(result.getInt("numerovoti"));
+				libro.setApprovato(result.getBoolean("approvato"));
 				
 				return libro;
 			}
@@ -118,6 +120,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				String image = rs.getString("image");
 				int voto = rs.getInt("voto");
 				int numeroVoti = rs.getInt("numerovoti");
+				boolean approvato = rs.getBoolean("approvato");
 				
 				LibroDTO libro = new LibroDTO();
 				libro.setIsbn(isb);
@@ -132,6 +135,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setImage(image);
 				libro.setVoto(voto);
 				libro.setNumeroVoti(numeroVoti);
+				libro.setApprovato(approvato);
 				
 				libri.add(libro);
 				
@@ -228,6 +232,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				String sottogenere = rs.getString("sottogenere");
 				String sinossi = rs.getString("sinossi");
 				String image = rs.getString("image");
+				int voto = rs.getInt("voto");
+				int numeroVoti = rs.getInt("numerovoti");
 				
 				LibroDTO libro = new LibroDTO();
 				libro.setIsbn(isbn);
@@ -240,6 +246,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setSottogenere(sottogenere);
 				libro.setSinossi(sinossi);
 				libro.setImage(image);
+				libro.setVoto(voto);
+				libro.setNumeroVoti(numeroVoti);
 				
 				libri.add(libro);
 				
@@ -280,6 +288,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				String sottogenere = rs.getString("sottogenere");
 				String sinossi = rs.getString("sinossi");
 				String image = rs.getString("image");
+				int voto = rs.getInt("voto");
+				int numeroVoti = rs.getInt("numerovoti");
 				
 				LibroDTO libro = new LibroDTO();
 				libro.setIsbn(isbn);
@@ -292,6 +302,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setSottogenere(sottogenere);
 				libro.setImage(image);
 				libro.setSinossi(sinossi);
+				libro.setVoto(voto);
+				libro.setNumeroVoti(numeroVoti);
 				
 				libri.add(libro);
 				
