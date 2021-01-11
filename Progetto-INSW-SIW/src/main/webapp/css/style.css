@@ -397,7 +397,7 @@ img {
             border-bottom-color: rgba(255, 255, 255, 0.1); } } */
         @media only screen and (max-width: 991px) {
           .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a {
-            background-color: #000000;
+            background-color: var(--color-nav-bar);
             border-bottom-color: rgba(255, 255, 255, 0.1);
             font-size: 1.8rem;
 		    font-weight: 500;
@@ -520,10 +520,10 @@ img {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .breakpoint-on .classy-navbar .classy-menu {
-    background-color: #000000; } }
+    background-color: var(--color-nav-bar); } }
 @media only screen and (max-width: 767px) {
   .breakpoint-on .classy-navbar .classy-menu {
-    background-color: #000000; } }
+    background-color: var(--color-nav-bar); } }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .classynav ul li .megamenu .single-mega.cn-col-4 {

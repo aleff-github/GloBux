@@ -31,6 +31,10 @@ public class Book {
 	public String getUpBook() {
 		return "upBook";
 	}
+	@GetMapping("/readBook")
+	public String readBook() {
+		return "readBook";
+	}
 	
 	@GetMapping("/book")  // /book?isbn=9788804668237
 	public String getBook(@RequestParam String isbn, HttpSession session) {

@@ -66,13 +66,18 @@
 .cnt-main-up-book-second .form-control{
 	border: transparent;
     background: transparent;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid gray;
     border-radius: 0;
     outline: none;
 }
 .cnt-main-up-book-second .form-control:focus{
 	box-shadow: 0px 17px 18px -18px rgba(171, 129, 13, 1);
     border-bottom: 1px solid rgba(171, 129, 13, 1);
+}
+
+.fc-color,
+.fc-color:focus{
+	color: #ffffffde;
 }
 
 

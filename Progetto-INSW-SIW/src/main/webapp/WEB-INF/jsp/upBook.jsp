@@ -122,43 +122,43 @@
 					
 						<!-- titolo -->
 						<div class="form-group">
-						    <input name="titolo" type="text" class="form-control" placeholder="Titolo">
+						    <input name="titolo" type="text" class="form-control fc-color" placeholder="Titolo">
 					  	</div>
 					  	<!-- autore -->
 					  	<div class="form-group">
-						    <input name="autore" type="text" class="form-control" placeholder="Autore">
+						    <input name="autore" type="text" class="form-control fc-color" placeholder="Autore">
 					  	</div>
 					  	<!-- editore -->
 					  	<div class="form-group">
-						    <input name="editore" type="text" class="form-control" placeholder="Editore">
+						    <input name="editore" type="text" class="form-control fc-color" placeholder="Editore">
 					  	</div>
 					  	<!-- isbn -->
 					  	<div class="form-group">
-						    <input name="isbn" type="text" class="form-control" placeholder="ISBN">
+						    <input name="isbn" type="text" class="form-control fc-color" placeholder="ISBN">
 					  	</div>
 					  	<!-- data -->
 					  	<div class="form-group">
-						    <input name="data" type="date" class="form-control" placeholder="Data">
+						    <input name="data" type="date" class="form-control fc-color" placeholder="Data">
 					  	</div>
 					  	<br> <br>
 					  	<!-- genere -->
 					  	<div class="form-group">
-						    <input name="genere" type="text" class="form-control" placeholder="Genere">
+						    <input name="genere" type="text" class="form-control fc-color" placeholder="Genere">
 					  	</div>
 					  	<!-- sottogeneri -->
 					  	<div class="form-group">
-						    <input name="sottogenere" type="text" class="form-control" placeholder="Sottogenere">
+						    <input name="sottogenere" type="text" class="form-control fc-color" placeholder="Sottogenere">
 					  	</div>
 					  	<br> <br>
 					  	<!-- sinossi -->
 					  	<div class="form-group">
-						    <textarea name="sinossi" type="text" class="form-control" placeholder="Sinossi" rows="4"></textarea>
+						    <textarea name="sinossi" type="text" class="form-control fc-color" placeholder="Sinossi" rows="4"></textarea>
 					  	</div>
 					  	<br> <br>
 					  	<!-- Contenuto -->
-					  	<div class="form-group">	
+					  	<div class="form-group" style="color: #7f8182">	
 					  		Seleziona contenuto
-							<input id="file" name ="file" type="file" class="form-control" style="padding-left:0; border:none;" >
+							<input id="file" name ="file" type="file" class="form-control fc-color" style="padding-left:0; border:none; " >
 						</div>
 					  	
 					  	

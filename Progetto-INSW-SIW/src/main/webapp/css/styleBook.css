@@ -120,7 +120,7 @@ p{ color: var(--color-parag) }
 	justify-content: center;
 }
 .container-title-cor .line-hor{
-	background: #00000052;
+	background: var(--color-parag);
 }
 .container-title-cor h4{
 	padding: 0 10px;
@@ -223,6 +223,7 @@ p{ color: var(--color-parag) }
  
 	.container-main-book-first{
 		width: 100%;
+		margin-top: 25px;
 	}
 	.container-main-book-first img {
     	width: 50vw;
