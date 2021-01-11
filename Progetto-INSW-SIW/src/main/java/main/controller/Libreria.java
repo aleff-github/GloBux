@@ -13,7 +13,6 @@ import model.LibreriaDTO;
 import model.LibroDTO;
 import persistence.DBManager;
 import persistence.dao.LibreriaDAO;
-import persistence.dao.LibroDAO;
 
 @Controller
 public class Libreria {
@@ -21,8 +20,8 @@ public class Libreria {
 	@GetMapping("/libreria")
 	public String getLibreria(HttpSession session) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
-		List<LibroDTO> lib = lDao.findAllByPrimaryKey("user1");
-		//List<LibreriaDTO> lib = lDao.findAllByPrimaryKey((String) session.getAttribute("username"));
+		//List<LibroDTO> lib = lDao.findAllByPrimaryKey("user1");
+		List<LibroDTO> lib = lDao.findAllByPrimaryKey((String) session.getAttribute("username"));
 		session.setAttribute("listaLibri", lib);
 		return "libreria";
 	}
