@@ -66,6 +66,19 @@
                                     <li><a href="blog.html">Novità</a></li>
                                     <li><a href="contact.html">Contatti</a></li>
                                 </ul>
+                           
+                            
+		                           	<!-- Login/Register -->
+	                           		<div class="login-register-cart-button d-flex align-items-center">
+		                                <!-- Login/Register -->
+		                                <div class="login-register-btn mr-50">
+		                                	<a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
+		                                </div>
+		                           		<li><a>${username}</a></li>	
+		                            	
+		                            </div>
+		                           
+                                
                             </div>
                             <!-- Nav End -->
 
@@ -96,15 +109,15 @@
     	        	<div class="event-thumbnail">
         	        	<img src="img/9780786102563.jpg" alt="">
                 	</div>
-                	<form action="deleteLibro" method="post">
+                	<form action="deleteLibro" method="POST">
 	                	<div class="event-text">
 	            	    	<h4>Divina Commedia</h4>
 	                    	<div class="event-meta-data">
 	                	    	<a href="#" class="event-place">${item.autore }</a>
 	                        	<a href="#" class="event-place">${item.isbn}</a>
                    				<a href="#" class="event-place">${item.titolo}</a>
-	                        	<input type="text" id="libro" name="libro" class="event-date" class="event-place" value="9788804668237" hidden="true"></input>
-	                        	<input type="text" id="libreria" name="libreria" value="user1" class="event-place" hidden="true"></input>
+	                        	<input type="text" id="libro" name="libro" class="event-date" class="event-place" value=${item.isbn } hidden="true"></input>
+	                        	<input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
 	                    	</div>
 	                    	<button class="btn see-more-btn" type="submit" >Elimina libro</button>
 	                	</div>

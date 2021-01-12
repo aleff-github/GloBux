@@ -21,8 +21,7 @@ public class Libreria {
 	@GetMapping("/libreria")
 	public String getLibreria(HttpSession session) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
-		List<LibroDTO> lib = lDao.findAllByPrimaryKey("user1");
-		//List<LibreriaDTO> lib = lDao.findAllByPrimaryKey((String) session.getAttribute("username"));
+		List<LibroDTO> lib = lDao.findAllByUser((String) session.getAttribute("username"));
 		session.setAttribute("listaLibri", lib);
 		return "libreria";
 	}
@@ -34,7 +33,7 @@ public class Libreria {
 		lib.setLibro(libro);
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		lDao.delete(lib);
-		return "libreria";
+		return getLibreria(session);
 	}
 	
 }
