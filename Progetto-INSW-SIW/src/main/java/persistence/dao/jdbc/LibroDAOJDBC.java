@@ -297,7 +297,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setIsbn(isbn);
 				libro.setTitolo(titolo);
 				libro.setAutore(autore);
-				libro.setAutore(editore);
+				libro.setEditore(editore);
 				libro.setData(data);
 				libro.setFile(file);
 				libro.setGenere(gener);

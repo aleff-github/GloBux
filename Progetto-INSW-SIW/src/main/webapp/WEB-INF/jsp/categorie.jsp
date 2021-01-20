@@ -62,7 +62,7 @@
             <div class="row oneMusic-albums">
 
                 <!-- Classici -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Classico">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
@@ -74,7 +74,7 @@
 	            </a>
                 
                 <!-- Arte -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Arte">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
@@ -86,7 +86,7 @@
 	            </a>
 	            
                 <!-- Romanzo -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Romanzo">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/Romanzo.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
@@ -98,7 +98,7 @@
 	            </a>
 	            
                 <!-- Religione -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Religione">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/religione.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
@@ -110,7 +110,7 @@
 	            </a>
                 
                 <!-- Horror -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Horror">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/Horror.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
@@ -122,7 +122,7 @@
 	            </a>
 	            
                 <!-- Musica -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Musica">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/musica.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
@@ -134,7 +134,7 @@
 	            </a>
 	            
                 <!-- Humor -->
-                <a href="/categoria?cat=arte">
+                <a href="/categoria?cat=Humor">
 	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 	                    <div class="single-album">
 	                        <img src="img/categories/Humor.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
