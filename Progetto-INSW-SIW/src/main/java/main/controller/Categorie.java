@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.LibroDTO;
 import persistence.DBManager;
@@ -26,6 +25,7 @@ public class Categorie {
 		session.setAttribute("categoria",cat);
 		LibroDAO lDao = DBManager.getInstance().libroDAO();
 		List<LibroDTO> lib = lDao.findAllGenere(cat);
+		session.setAttribute("categoria", cat);
 		session.setAttribute("libri",lib);
 		
 		return "categoria";

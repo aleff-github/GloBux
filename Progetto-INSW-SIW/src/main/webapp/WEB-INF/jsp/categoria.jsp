@@ -49,7 +49,7 @@
             <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
                 <div class="bradcumbContent">
                     <p>Ecco una lista di libri della categoria scelta</p>
-                    <h2>Classici</h2>
+                    <h2 id="categoria">${categoria}</h2>
                 </div>
             </section>
             <!-- ##### Breadcumb Area End ##### -->
