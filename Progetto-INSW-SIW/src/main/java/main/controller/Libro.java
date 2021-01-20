@@ -1,7 +1,6 @@
 package main.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
-
 
 import model.LibroDTO;
 import persistence.DBManager;

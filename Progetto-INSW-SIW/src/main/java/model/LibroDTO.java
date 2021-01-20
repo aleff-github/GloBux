@@ -16,6 +16,7 @@ public class LibroDTO {
 	private String image;
 	private int voto;
 	private int numeroVoti;
+	private boolean approvato;
 	
 	
 
@@ -92,6 +93,12 @@ public class LibroDTO {
 	}
 	public void setNumeroVoti(int numeroVoti) {
 		this.numeroVoti = numeroVoti;
+	}
+	public boolean isApprovato() {
+		return approvato;
+	}
+	public void setApprovato(boolean approvato) {
+		this.approvato = approvato;
 	}
 	
 	

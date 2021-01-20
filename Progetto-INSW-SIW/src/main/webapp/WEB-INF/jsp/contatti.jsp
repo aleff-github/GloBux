@@ -41,7 +41,7 @@
         </div>
     </div>
 
-	<c:if test="${not loggato}">
+    <c:if test="${not loggato}">
 		<jsp:include page="partials/index/menuIndex.jsp" />
 	</c:if>
 	<c:if test="${loggato and not loggatoAdmin}">
@@ -51,10 +51,11 @@
 		<jsp:include page="partials/admin/menuAdmin.jsp" />
 	</c:if>
 
+
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
 		<!-- form -->
-		<form action="/caricaLibro/up" method="post" enctype="multipart/form-data">
+		<form action="/upbook/up" method="post" enctype="multipart/form-data">
 			<div class="container-main-book-1 mt-5" >
 				<!-- Image -->
 				<section class="container-main-book-first jc-c">	
@@ -141,7 +142,7 @@
 	<!-- ##### END BOOK ##### -->
 
 
-    <jsp:include page="partials/index/footer.jsp" />
+	<jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
