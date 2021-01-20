@@ -36,56 +36,15 @@
         </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand logo">GLOBUX</a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="albums-store.html">Categorie</a></li>
-                                    <li><a href="news">Novità</a></li>
-                                    <li><a href="contact.html">Contatti</a></li>
-                                </ul>
-
-                                <!-- Login/Register -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+    <c:if test="${not loggato}">
+		<jsp:include page="partials/index/menuIndex.jsp" />
+	</c:if>
+	<c:if test="${loggato and not loggatoAdmin}">
+		<jsp:include page="partials/user/menuUser.jsp" />
+	</c:if>
+	<c:if test="${loggatoAdmin}">
+		<jsp:include page="partials/admin/menuAdmin.jsp" />
+	</c:if>
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
@@ -136,10 +95,119 @@
 
             <div class="row oneMusic-albums">
 
-                <!-- Single Album -->
+                <!-- Classici -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                        <img src="img/categoria.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria?cat=classici">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Art -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="arte">
+                                <h5>Arte</h5>
+                            </a>
+                            <p>Libri sull'Arte</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
                         <div class="album-info">
                             <a href="categoria" name="isbn" value="9780786102563">
                                 <h5>Classici</h5>
@@ -204,32 +272,7 @@
     </section>
     <!-- ##### Contact Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="footer-nav">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Albums</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area Start ##### -->
+    <jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->

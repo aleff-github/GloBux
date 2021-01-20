@@ -78,7 +78,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 	}
 	
 	@Override
-	public List<LibroDTO> findAllByPrimaryKey(String idlibreria){
+	public List<LibroDTO> findAllByUser(String idlibreria){
 		Connection connection = null;
 		List<LibroDTO> libreriaList = new LinkedList<>();
 		try {
