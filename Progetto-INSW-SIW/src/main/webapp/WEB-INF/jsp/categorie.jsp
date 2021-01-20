@@ -58,165 +58,94 @@
     <!-- ##### Album Catagory Area Start ##### -->
     <section class="album-catagory section-padding-100-0">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
-                        <a href="#" data-filter="*">Browse All</a>
-                        <a href="#" data-filter=".a" class="active">A</a>
-                        <a href="#" data-filter=".b">B</a>
-                        <a href="#" data-filter=".c">C</a>
-                        <a href="#" data-filter=".d">D</a>
-                        <a href="#" data-filter=".e">E</a>
-                        <a href="#" data-filter=".f">F</a>
-                        <a href="#" data-filter=".g">G</a>
-                        <a href="#" data-filter=".h">H</a>
-                        <a href="#" data-filter=".i">I</a>
-                        <a href="#" data-filter=".j">J</a>
-                        <a href="#" data-filter=".k">K</a>
-                        <a href="#" data-filter=".l">L</a>
-                        <a href="#" data-filter=".m">M</a>
-                        <a href="#" data-filter=".n">N</a>
-                        <a href="#" data-filter=".o">O</a>
-                        <a href="#" data-filter=".p">P</a>
-                        <a href="#" data-filter=".q">Q</a>
-                        <a href="#" data-filter=".r">R</a>
-                        <a href="#" data-filter=".s">S</a>
-                        <a href="#" data-filter=".t">T</a>
-                        <a href="#" data-filter=".u">U</a>
-                        <a href="#" data-filter=".v">V</a>
-                        <a href="#" data-filter=".w">W</a>
-                        <a href="#" data-filter=".x">X</a>
-                        <a href="#" data-filter=".y">Y</a>
-                        <a href="#" data-filter=".z">Z</a>
-                        <a href="#" data-filter=".number">0-9</a>
-                    </div>
-                </div>
-            </div>
 
             <div class="row oneMusic-albums">
 
                 <!-- Classici -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria?cat=classici">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Classici</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
                 
-                <!-- Art -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="arte">
-                                <h5>Arte</h5>
-                            </a>
-                            <p>Libri sull'Arte</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categoria -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Arte -->
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Arte</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Romanzo -->
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Romanzo.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Romanzo</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Religione -->
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/religione.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Religione</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+                
+                <!-- Horror -->
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Horror.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Horror</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Musica -->
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/musica.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Musica</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Humor -->
+                <a href="/categoria?cat=arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Humor.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Humor</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+              
             </div>
         </div>
     </section>
