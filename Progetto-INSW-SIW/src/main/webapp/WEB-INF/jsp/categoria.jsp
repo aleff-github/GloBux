@@ -60,11 +60,10 @@
                     <div class="row">
                         <c:forEach items="${libri}" var="item">
                             <!-- Single Event Area -->
-                            <a href="libro?isbn=${item.isbn}" class="btn see-more-btn">
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <div class="single-event-area mb-30">
                                         <div class="event-thumbnail">
-                                            <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="">
+                                            <a href="/libro?isbn=${item.isbn}" class="event-place"><img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt=""></a>
                                         </div>
                                         <div class="event-text">
                                             <h4>${item.titolo}</h4>
@@ -75,7 +74,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </a>
                         </c:forEach>
                     </div>
                 </div>
