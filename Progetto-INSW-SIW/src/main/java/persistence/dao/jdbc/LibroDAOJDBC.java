@@ -218,8 +218,9 @@ public class LibroDAOJDBC implements LibroDAO {
 		try {
 			conn = dbSource.getConnection();
 			String query = "select * from libro where autore = ?";
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery(query);
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, autore);
+			ResultSet rs = statement.executeQuery();
 			while(rs.next()) {
 				
 				String isbn = rs.getString("isbn");
@@ -273,9 +274,10 @@ public class LibroDAOJDBC implements LibroDAO {
 		List<LibroDTO> libri = new ArrayList<>();
 		try {
 			conn = dbSource.getConnection();
-			String query = "select * from libro where genere = ?";
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery(query);
+			String query = "SELECT * FROM libro where genere=?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, genere);
+			ResultSet rs = statement.executeQuery();
 			while(rs.next()) {
 				
 				String isbn = rs.getString("isbn");
@@ -309,7 +311,6 @@ public class LibroDAOJDBC implements LibroDAO {
 				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace(); 
 		}finally {
 			if(conn != null) {

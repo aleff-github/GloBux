@@ -95,10 +95,119 @@
 
             <div class="row oneMusic-albums">
 
-                <!-- Single Album -->
+                <!-- Classici -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                        <img src="img/categoria.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria?cat=classici">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Art -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="arte">
+                                <h5>Arte</h5>
+                            </a>
+                            <p>Libri sull'Arte</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        <div class="album-info">
+                            <a href="categoria" name="isbn" value="9780786102563">
+                                <h5>Classici</h5>
+                            </a>
+                            <p>Grandi classici della letteratura</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Categoria -->
+                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                    <div class="single-album">
+                        <img src="img/categories/" alt="#" style="border-radius: 10px 10px 10px 10px;">
                         <div class="album-info">
                             <a href="categoria" name="isbn" value="9780786102563">
                                 <h5>Classici</h5>
