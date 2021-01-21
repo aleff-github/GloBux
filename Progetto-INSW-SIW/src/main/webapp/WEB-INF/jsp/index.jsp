@@ -109,14 +109,14 @@
                                 <c:forEach items="${libri}" var="item">
                                     <!-- Single Album -->
                                     <div class="single-album">
-                                        <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}"
-                                            alt="">
-                                        <div class="album-info">
-                                            <a href="/libro?isbn=${item.isbn}">
+                                        <a href="/libro?isbn=${item.isbn}">
+                                            <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}"
+                                                alt="">
+                                            <div class="album-info">
                                                 <h5>${item.titolo}</h5>
-                                            </a>
-                                            <p>${item.autore}</p>
-                                        </div>
+                                                <p>${item.autore}</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </c:forEach>
                             </div>
