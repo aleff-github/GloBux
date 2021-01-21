@@ -16,9 +16,13 @@ public class Home {
 	@GetMapping("/")
 	public String getIndex(HttpSession session) {
 		List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
-		System.out.println(libri.toString());
 		session.setAttribute("libri", libri);
 		return "index";
+	}
+	
+	@GetMapping("/404")
+	public String get404(HttpSession session) {
+		return "404";
 	}
 
 }
