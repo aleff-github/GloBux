@@ -80,13 +80,13 @@ public class Libro {
 			libro.setSinossi(sinossi);
 			libro.setImage(nameImage);
 			libro.setFile(nameFile);
+			libro.setApprovato(false);
+			libro.setUtente(session.getAttribute("username").toString());
 			
-			// memorizziamo il libro nel DB
 			DBManager.getInstance().libroDAO().save(libro);
 			
 		} catch (IOException e) { e.printStackTrace(); }
 		
-
 		return new RedirectView("/");
 	}
 
