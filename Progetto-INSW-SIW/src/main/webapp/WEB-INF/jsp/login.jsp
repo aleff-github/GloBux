@@ -72,6 +72,7 @@
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
                                 </div>
                                 <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
+                                <a href="/registrazione"  class="btn oneMusic-btn mt-30">Registrati</a>
                             </form>
                         </div>
                     </div>

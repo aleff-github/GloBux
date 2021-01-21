@@ -81,8 +81,11 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setVoto(result.getInt("voto"));
 				libro.setNumeroVoti(result.getInt("numerovoti"));
 				libro.setApprovato(result.getBoolean("approvato"));
+				boolean approvato = result.getBoolean("approvato");
+
+				if(approvato)
+					return libro;
 				
-				return libro;
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -137,7 +140,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setNumeroVoti(numeroVoti);
 				libro.setApprovato(approvato);
 				
-				libri.add(libro);
+				if(approvato)
+					libri.add(libro);
 				
 			}
 		} catch (SQLException e) {
@@ -232,6 +236,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				String image = rs.getString("image");
 				int voto = rs.getInt("voto");
 				int numeroVoti = rs.getInt("numerovoti");
+				boolean approvato = rs.getBoolean("approvato");
 				
 				LibroDTO libro = new LibroDTO();
 				libro.setIsbn(isbn);
@@ -247,7 +252,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setVoto(voto);
 				libro.setNumeroVoti(numeroVoti);
 				
-				libri.add(libro);
+				if(approvato)
+					libri.add(libro);
 				
 			}
 		} catch (SQLException e) {
@@ -322,6 +328,61 @@ public class LibroDAOJDBC implements LibroDAO {
 		return libri;
 	}
 	
+	@Override
+	public List<LibroDTO> findAllNonApprovati() {
+		Connection conn = null;
+		List<LibroDTO> libri = new ArrayList<>();
+		try {
+			conn = dbSource.getConnection();
+			String query = "select * from libro";
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				
+				String isbn = rs.getString("isbn");
+				String titolo = rs.getString("titolo");
+				String autore = rs.getString("autore");
+				String editore = rs.getString("editore");
+				Integer anno = rs.getInt("anno");
+				String file = rs.getString("file");
+				String gener = rs.getString("genere");
+				String sottogenere = rs.getString("sottogenere");
+				String sinossi = rs.getString("sinossi");
+				String image = rs.getString("image");
+				int voto = rs.getInt("voto");
+				int numeroVoti = rs.getInt("numerovoti");
+				boolean approvato = rs.getBoolean("approvato");
+				
+				LibroDTO libro = new LibroDTO();
+				libro.setIsbn(isbn);
+				libro.setTitolo(titolo);
+				libro.setAutore(autore);
+				libro.setEditore(editore);
+				libro.setAnno(anno);
+				libro.setFile(file);
+				libro.setGenere(gener);
+				libro.setSottogenere(sottogenere);
+				libro.setImage(image);
+				libro.setSinossi(sinossi);
+				libro.setVoto(voto);
+				libro.setNumeroVoti(numeroVoti);
+				
+				if(!approvato)
+					libri.add(libro);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace(); 
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
+		
+		return libri;
+	}
 	
 	@Override
 	public void updateVoto(String isbn, Integer voto, Integer numeroVoti) {
