@@ -33,6 +33,8 @@ public class Home {
 		UtenteDTO utente = uDao.findByPrimaryKey(session.getAttribute("username").toString());
 		session.setAttribute("voti", utente.getVoti());
 		session.setAttribute("numVotazioni", utente.getVotazioni());
+		if(session.getAttribute("loggatoAdmin") != null)
+			session.setAttribute("utentiRegistrati", uDao.getUtentiRegistrati());
 		return "profilo";
 	}
 

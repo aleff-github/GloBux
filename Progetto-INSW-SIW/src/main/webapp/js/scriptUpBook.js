@@ -19,18 +19,11 @@ $(function () {
     });
 });
 
-/* ==========================================
-SHOW UPLOADED IMAGE NAME
-* ========================================== */
-var input = document.getElementById('upload');
-var infoArea = document.getElementById('upload-label');
-
-/*input.addEventListener('change', showFileName);
-function showFileName(event) {
-    var input = event.srcElement;
-    var fileName = input.files[0].name;
-    infoArea.textContent = 'File name: ' + fileName;
-}*/
+/* change color select */
+function changeColorSelect(node){
+    node.setAttribute('style', 'color:#fff');
+    console.log(node)
+}
 
 var categoria = document.getElementById('categoria').textContent;
 ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria;
@@ -68,15 +61,11 @@ function caricaLibri(libri) {
     libri.forEach(element => {
         libriDisponibili.insertAdjacentHTML('beforeend',
             `<a href="/libro?isbn=${element.id}">
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                <div class="single-album">
-                    <img src="${element.immagine}" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                    <div class="album-info">
-                        <h4>${element.titolo}</h4>
-                        <h6>${element.autore}</h6>
-                    </div>
+                <div class="cnt-img">
+                    <img src="${element.immagine}" alt="" style="border-radius: 10px 10px 10px 10px;">
                 </div>
-            </div>
-        </a>`)
+                <h4>${element.titolo}</h4>
+                <h6>${element.autore}</h6>
+            </a>`)
     });
 }

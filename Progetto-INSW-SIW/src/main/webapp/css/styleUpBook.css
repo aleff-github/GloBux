@@ -80,6 +80,29 @@
 	color: #ffffffde;
 }
 
+.cnt-main-up-book-second select[disabled]{
+    color: #6c757d;
+}
+.cnt-main-up-book-second select:focus{
+    color:#fff;
+}
+.cnt-main-up-book-second select{
+    color:#6c757d;
+}
+
+.cnt-main-up-book-second select option {
+    margin: 40px;
+    background: #47494a;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.cnt-main-up-book-second select option[value=""] {
+    color:black;
+}
+
+
+
 
 @media (max-width: 769px){
 	.min-h-100{

@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.LibroDTO;
 import model.UtenteDTO;
 import persistence.DBSource;
 import persistence.dao.UtenteDAO;
@@ -206,6 +205,11 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			}
 		}
 		return voti;
+	}
+
+	@Override
+	public Integer getUtentiRegistrati() {
+		return findAll().size();
 	}
 
 }

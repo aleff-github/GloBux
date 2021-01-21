@@ -20,6 +20,56 @@
 	font-weight: xx-large !important;
 }
 
-#containerLibri{
-	
+.container-libri{
+   width: 100%;
+   min-height: calc(100vh - 85px);
+   display: flex;
+   justify-content: space-evenly;
+   align-items: start;
+   flex-wrap: wrap;
+   padding: 95px 25px 65px;
+   text-align: center;
+}
+
+.container-libri a{
+   width: 25vw;
+   max-width: 250px;
+   margin: 25px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.container-libri .cnt-img{
+   height: 220px;
+   display: flex;
+   margin-bottom: 15px;
+
+}
+.container-libri a h4{
+   font-size: 21px;
+}
+.container-libri a .cnt-img img{
+   height: 100%;
+}
+
+.container-libri a:hover{
+   transform: scale(1.1);
+}
+
+@media (max-width: 769px){
+
+   .container-libri a h4{
+      font-size: 19px;
+   }
+   .container-libri a h6{
+      
+   }
+
+}
+
+@media (max-width: 569px){
+   .container-libri a{
+      width: 34vw;
+   }
 }

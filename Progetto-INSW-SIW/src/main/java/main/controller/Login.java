@@ -46,10 +46,10 @@ public class Login {
 	
 	@GetMapping("/logout")
 	public String getLogout(HttpSession session) {
-		session.setAttribute("loggatoAdmin", false);
+		session.setAttribute("loggatoAdmin", null); //Serve per la home altrimenti da errore se uso false
 		session.setAttribute("password", null);
 	    session.setAttribute("email", null);
-	    session.setAttribute("loggato", false);
+	    session.setAttribute("loggato", null);
 	    session.setAttribute("username", null);
 		return "index";
 	}
