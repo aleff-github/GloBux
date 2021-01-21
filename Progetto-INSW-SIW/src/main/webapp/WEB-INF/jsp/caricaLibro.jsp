@@ -92,9 +92,9 @@
 					  	<div class="form-group">
 						    <input name="isbn" type="text" class="form-control fc-color" placeholder="ISBN">
 					  	</div>
-					  	<!-- data -->
+					  	<!-- anno -->
 					  	<div class="form-group">
-						    <input name="data" type="date" class="form-control fc-color" placeholder="Data">
+						    <input name="anno" type="number" class="form-control fc-color" placeholder="Anno di pubblicazione">
 					  	</div>
 					  	<br> <br>
 					  	<!-- genere -->
