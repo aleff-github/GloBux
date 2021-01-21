@@ -5,7 +5,6 @@ import java.sql.Date;
 public class NewsDTO {
 
 	private String titolo;
-	private String username;
 	private String immagine;
 	private String contenuto;
 	private Date data;
@@ -17,12 +16,6 @@ public class NewsDTO {
 	}
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
 	}
 	public String getImmagine() {
 		return immagine;

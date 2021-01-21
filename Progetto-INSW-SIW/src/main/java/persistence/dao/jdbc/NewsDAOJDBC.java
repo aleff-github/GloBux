@@ -22,32 +22,39 @@ public class NewsDAOJDBC implements NewsDAO {
 	}
 	@Override
 	public void save(NewsDTO news) {
+		Connection connection = null;
 		try {
-			Connection conn = dbSource.getConnection();
-			String query = "INSERT INTO news (titolo,data,username,immagine,contenuto) VALUES (?,?,?,?,?)";
-			PreparedStatement statement = conn.prepareStatement(query);
+			connection = dbSource.getConnection();
+			String query = "INSERT INTO news (titolo,data,immagine,contenuto) VALUES (?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, news.getTitolo());
 			statement.setDate(2, news.getData());
-			statement.setString(3, news.getUsername());
-			statement.setString(4, news.getImmagine());
-			statement.setString(5, news.getContenuto());
+			statement.setString(3, news.getImmagine());
+			statement.setString(4, news.getContenuto());
 			
-			statement.executeQuery();
+			statement.executeUpdate();
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 
 	}
 
 	@Override
 	public NewsDTO findByPrimaryKey(String titolo) {
+		Connection connection = null;
 		NewsDTO news = null;
 		try {
-			Connection conn = dbSource.getConnection();
+			connection = dbSource.getConnection();
 			PreparedStatement statement;
 			String query = "select * from news where titolo = ?";
-			statement = conn.prepareStatement(query);
+			statement = connection.prepareStatement(query);
 			statement.setString(1, titolo);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
@@ -56,22 +63,26 @@ public class NewsDAOJDBC implements NewsDAO {
 				news.setData(result.getDate("data"));
 				news.setImmagine(result.getString("immagine"));
 				news.setTitolo(result.getString("titolo"));
-				news.setUsername(result.getString("username"));
 				return news;
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 		return news;
 	}
 
 	@Override
 	public List<NewsDTO> findAll() { 
+		Connection connection = null;
 		List<NewsDTO> newsList = new LinkedList<>();
 		try {
-			System.out.println("1");
-			Connection connection = dbSource.getConnection();
-			System.out.println("2");
+			connection = dbSource.getConnection();
 			NewsDTO news;
 			Statement statement = connection.createStatement();
 			String query = "select * from news";
@@ -81,26 +92,64 @@ public class NewsDAOJDBC implements NewsDAO {
 				news.setContenuto(result.getString("contenuto"));				
 				news.setData(result.getDate("data"));
 				news.setImmagine(result.getString("immagine"));
-				news.setTitolo(result.getString("titolo"));
-				news.setUsername(result.getString("username"));
 				newsList.add(news);
 			}
 			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
 		}
 		return newsList;
 	}
 
 	@Override
 	public void update(NewsDTO news) {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		try {
+			connection = dbSource.getConnection();
+			String update = "update news SET titolo = ?, data = ?, immagine = ?, WHERE contenuto = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, news.getTitolo());				
+			statement.setDate(2, news.getData());
+			statement.setString(3, news.getImmagine());
+			statement.setString(4, news.getContenuto());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
 
 	}
 
 	@Override
 	public void delete(NewsDTO news) {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		try {
+			conn = dbSource.getConnection();
+			String query = "delete from news where titolo=?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, news.getTitolo());
+			statement.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
 
 	}
 
