@@ -14,5 +14,6 @@ public interface UtenteDAO {
 	
 	public Integer getVoti(UtenteDTO utente);
 	public Integer getVotazioni(UtenteDTO utente);
+	public Integer getUtentiRegistrati();
 	
 }
