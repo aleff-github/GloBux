@@ -39,8 +39,6 @@ public class UtenteDTO {
 	}
 	public void setVotazioni(Integer votazioni) {
 		Votazioni = votazioni;
-	}
-	
-	
-	
+	}	
+
 }

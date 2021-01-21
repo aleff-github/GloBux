@@ -146,16 +146,18 @@
                 <div class="col-12">
                     <div class="albums-slideshow owl-carousel">
 
-                        <!-- Single Book -->
-                        <div class="single-album">
-                            <img src="img/copertina.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Magia</h5>
-                                </a>
-                                <p>Romanzo</p>
-                            </div>
-                        </div>
+						<c:forEach items="${libriAutore}" var="item">
+							<!-- Single Book -->
+							<a href="/libro?isbn=${item.isbn}">
+								<div class="single-album">
+									<img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="">
+									<div class="album-info">
+										<h5>${item.titolo}</h5>
+										<p>${item.genere}</p>
+									</div>
+								</div>
+							</a>
+						</c:forEach>
 
                     </div>
                 </div>
@@ -177,16 +179,18 @@
                 <div class="col-12">
                     <div class="albums-slideshow owl-carousel">
 
-                        <!-- Single Book -->
-                        <div class="single-album">
-                            <img src="img/copertina.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Magia</h5>
-                                </a>
-                                <p>Romanzo</p>
-                            </div>
-                        </div>
+						<c:forEach items="${libriGenere}" var="item">
+							<!-- Single Book -->
+							<a href="/libro?isbn=${item.isbn}">
+								<div class="single-album">
+									<img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="">
+									<div class="album-info">
+										<h5>${item.titolo}</h5>
+										<p>${item.genere}</p>
+									</div>
+								</div>
+							</a>
+						</c:forEach>
 
                     </div>
                 </div>
