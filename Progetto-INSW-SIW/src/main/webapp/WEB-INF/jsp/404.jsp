@@ -42,45 +42,19 @@
 	</c:if>
 	<c:if test="${loggatoAdmin}">
 		<jsp:include page="partials/admin/menuAdmin.jsp" />
-	</c:if>
-
+    </c:if>
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
-            <p>See what’s new</p>
-            <h2>Login</h2>
+            <p>La pagina che stai cercando non esiste!</p>
+            <h2 id="404">Errore 404!</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Login Area Start ##### -->
-    <section class="login-area section-padding-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <div class="login-content">
-                        <h3>Welcome Back</h3>
-                        <!-- Login Form -->
-                        <div class="login-form">
-                            <form action="doLogin" method="POST">
-                                <div class="form-group">
-                                    <label for="inputUsername">Username</label>
-                                    <input type="username" class="form-control" id="username" placeholder="Username" name="username">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-                                </div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
-                                <a href="/registrazione"  class="btn oneMusic-btn mt-30">Registrati</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section>
+        <img src="img/webapp/404.png" alt="404" style="width: 100%; height: 100%;">
     </section>
-    <!-- ##### Login Area End ##### -->
 
     <jsp:include page="partials/index/footer.jsp" />
 

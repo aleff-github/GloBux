@@ -17,7 +17,7 @@ public class LibroDTO {
 	private int voto;
 	private int numeroVoti;
 	private boolean approvato;
-	
+	private String utente;
 	
 
 	public String getIsbn() {
@@ -88,7 +88,7 @@ public class LibroDTO {
 	public void setNumeroVoti(int numeroVoti) {
 		this.numeroVoti = numeroVoti;
 	}
-	public boolean isApprovato() {
+	public boolean getApprovato() {
 		return approvato;
 	}
 	public void setApprovato(boolean approvato) {
@@ -99,6 +99,12 @@ public class LibroDTO {
 	}
 	public void setAnno(int anno) {
 		this.anno = anno;
+	}
+	public String getUtente() {
+		return utente;
+	}
+	public void setUtente(String utente) {
+		this.utente = utente;
 	}
 	
 }

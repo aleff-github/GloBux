@@ -7,26 +7,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>GloBux</title>
+    <title>Contatti</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico"> 
+    <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/styleBook.css">
-    <link rel="stylesheet" href="css/styleUpBook.css">
     
-    <!-- My script -->
-    <script src="js/scriptUpBook.js" type="text/javascript"></script>
-	
-	<!-- Icon search -->
-	<script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
 
@@ -41,7 +36,8 @@
         </div>
     </div>
 
-    <c:if test="${not loggato}">
+
+  <c:if test="${not loggato}">
 		<jsp:include page="partials/index/menuIndex.jsp" />
 	</c:if>
 	<c:if test="${loggato and not loggatoAdmin}">
@@ -52,97 +48,111 @@
 	</c:if>
 
 
-	<!-- ##### START BOOK ##### -->
-	<main class="container-main-book">
-		<!-- form -->
-		<form action="/upbook/up" method="post" enctype="multipart/form-data">
-			<div class="container-main-book-1 mt-5" >
-				<!-- Image -->
-				<section class="container-main-book-first jc-c">	
-					<div class="row min-h-100">
-				        <div class="">
-				
-				            <!-- Upload image input-->
-				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden >
-				            
-				            <!-- Uploaded image area-->
-				            <label id="lbl_image" for="upload" class="image-area image-area-glo">
-				            	<img id="imageResult" src="#" alt="" class="img-fluid shadow-sm mx-auto d-block">
-				            </label>
-				        </div>
-				    </div> 
-				
-				</section>
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
+        <div class="bradcumbContent">
+            <h2>Contatti</h2>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
 
-					<!-- Info book -->
-					<section class="container-main-book-second cnt-main-up-book-second">
-					
-						<!-- titolo -->
-						<div class="form-group">
-						    <input name="titolo" type="text" class="form-control fc-color" placeholder="Titolo">
-					  	</div>
-					  	<!-- autore -->
-					  	<div class="form-group">
-						    <input name="autore" type="text" class="form-control fc-color" placeholder="Autore">
-					  	</div>
-					  	<!-- editore -->
-					  	<div class="form-group">
-						    <input name="editore" type="text" class="form-control fc-color" placeholder="Editore">
-					  	</div>
-					  	<!-- isbn -->
-					  	<div class="form-group">
-						    <input name="isbn" type="text" class="form-control fc-color" placeholder="ISBN">
-					  	</div>
-					  	<!-- data -->
-					  	<div class="form-group">
-						    <input name="data" type="date" class="form-control fc-color" placeholder="Data">
-					  	</div>
-					  	<br> <br>
-					  	<!-- genere -->
-					  	<div class="form-group">
-						    <input name="genere" type="text" class="form-control fc-color" placeholder="Genere">
-					  	</div>
-					  	<!-- sottogeneri -->
-					  	<div class="form-group">
-						    <input name="sottogenere" type="text" class="form-control fc-color" placeholder="Sottogenere">
-					  	</div>
-					  	<br> <br>
-					  	<!-- sinossi -->
-					  	<div class="form-group">
-						    <textarea name="sinossi" type="text" class="form-control fc-color" placeholder="Sinossi" rows="4"></textarea>
-					  	</div>
-					  	<br> <br>
-					  	<!-- Contenuto -->
-					  	<div class="form-group" style="color: #7f8182">	
-					  		Seleziona contenuto
-							<input id="file" name ="file" type="file" class="form-control fc-color" style="padding-left:0; border:none; " >
-						</div>
-					  	
-					  	
-					</section>
-		
-			</div>
-		
-			<span class="line-hor" ></span>
-		
-			<div class="bar-options bar-up-book">
-				
-				<button type="submit" class="btn-option-book btn-pr">
-					<i class="fas fa-plus"></i>
-					<nobr>Aggiungi</nobr>
-				</button>
-			
-			</div>
-			
-			<span class="line-hor" ></span>
-			
-		</form>
-	
-	</main>
-	<!-- ##### END BOOK ##### -->
+    <!-- ##### Contact Area Start ##### -->
+    <section class="contact-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-lg-3">
+                    <div class="contact-content mb-100">
+                        <!-- Title -->
+                        <div class="contact-title mb-50">
+                            <h5>Informazioni per contattarci</h5>
+                        </div>
+
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt fa-2x" style="padding: 15px;"></i>
+                            <p>Via Pietro Bucci, 87036 Arcavacata, Rende CS</p>
+                        </div>
+
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info d-flex align-items-center">
+                            <i class="fas fa-phone-volume fa-2x" style="padding: 15px;"></i>
+                            <p>+53 345 7953 32453</p>
+                        </div>
+
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info d-flex align-items-center">
+                            <i class="fas fa-envelope-square fa-2x" style="padding: 15px;"></i>
+                            <p>soundsiw2020@gmail.com</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-9">
+                    <!-- ##### Google Maps ##### -->
+                    <div class="map-area mb-100">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.635005467549!2d16.224458965323258!3d39.35918932950217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f99a2cb39a49b%3A0x1a529d60540e6425!2sUnical!5e1!3m2!1sit!2sit!4v1575912750818!5m2!1sit!2sit" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen></iframe></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Contact Area End ##### -->
+
+    <!-- ##### Contact Area Start ##### -->
+    <section class="contact-area section-padding-0-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                       
+                        <h2>Aiutaci con suggerimenti a migliorare il sito</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Contact Form Area -->
+                    <div class="contact-form-area">
+                        <form action="contattiServlet" method="GET">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="nome" placeholder="Nome">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="E-mail">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="oggetto" placeholder="Oggetto">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="messaggio" cols="30" rows="10" placeholder="Messaggio"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn oneMusic-btn mt-30" type="submit">Invia <i class="fa fa-angle-double-right"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Contact Area End ##### -->
 
 
-	<jsp:include page="partials/index/footer.jsp" />
+    <jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
@@ -156,15 +166,5 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
 </body>
-
-<script type="text/javascript">
-
-	function removeBrdUpImage(){
-		console.log('ci sono');
-		document.querySelector("#lbl_image").setAttribute('style', 'border:none');
-	}
-
-</script>
-
 
 </html>

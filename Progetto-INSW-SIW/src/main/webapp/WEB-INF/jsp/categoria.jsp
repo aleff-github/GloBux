@@ -21,7 +21,7 @@
 
             <!-- Icon search -->
             <script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
-            
+
             <!-- JQuery
             <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 
@@ -60,7 +60,7 @@
             <!-- ##### Events Area Start ##### -->
 
             <section class="container-libri" id="libriDisponibili">
-            
+
                 <c:forEach items="${libri}" var="item">
                     <a href="/libro?isbn=${item.isbn}">
                         <div class="cnt-img">
@@ -70,7 +70,6 @@
                         <h6>${item.autore}</h6>
                     </a>
                 </c:forEach>
-
             </section>
 
             <!-- ##### Events Area End ##### -->
@@ -134,7 +133,7 @@
 
             <!-- ##### All Javascript Script ##### -->
             <!-- jQuery-2.2.4 js -->
-            <script src="js/jquery/jquery-2.2.4.min.js"></script> 
+            <script src="js/jquery/jquery-2.2.4.min.js"></script>
             <!-- Popper js -->
             <script src="js/bootstrap/popper.min.js"></script>
             <!-- Bootstrap js -->
