@@ -33,10 +33,11 @@ function showFileName(event) {
 }*/
 
 var categoria = document.getElementById('categoria').textContent;
+ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria;
 $(document).ready(function () {
     $.ajax(
         {
-            'url': 'https://www.googleapis.com/books/v1/volumes?q=${categoria}',
+            'url': ricerca,
             'method': 'GET',
             'success': function (risposta) {
                 riempiScaffali(risposta.items);

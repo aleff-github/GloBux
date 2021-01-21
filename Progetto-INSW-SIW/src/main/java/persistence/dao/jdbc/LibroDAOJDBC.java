@@ -29,14 +29,14 @@ public class LibroDAOJDBC implements LibroDAO {
 		try {
 			conn = dbSource.getConnection();
 			
-			String query = "INSERT INTO libro (isbn, titolo, autore, editore, data, file, genere, sottogenere, sinossi, image, approvato) "
+			String query = "INSERT INTO libro (isbn, titolo, autore, editore, anno, file, genere, sottogenere, sinossi, image, approvato) "
 							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libro.getIsbn());
 			statement.setString(2, libro.getTitolo());
 			statement.setString(3, libro.getAutore());
 			statement.setString(4, libro.getEditore());
-			statement.setDate(5, libro.getData());
+			statement.setInt(5, libro.getAnno());
 			statement.setString(6, libro.getFile());
 			statement.setString(7, libro.getGenere());
 			statement.setString(8, libro.getSottogenere());
@@ -71,7 +71,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setAutore(result.getString("autore"));
 				libro.setEditore(result.getString("editore"));
 				libro.setFile(result.getString("file"));
-				libro.setData(result.getDate("data"));
+				libro.setAnno(result.getInt("anno"));
 				libro.setIsbn(result.getString("isbn"));
 				libro.setTitolo(result.getString("titolo"));
 				libro.setGenere(result.getString("genere"));
@@ -112,7 +112,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				String titolo = rs.getString("titolo");
 				String autore = rs.getString("autore");
 				String editore = rs.getString("editore");
-				Date data = rs.getDate("data");
+				Integer anno = rs.getInt("anno");
 				String file = rs.getString("file");
 				String genere = rs.getString("genere");
 				String sottogenere = rs.getString("sottogenere");
@@ -126,8 +126,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setIsbn(isb);
 				libro.setTitolo(titolo);
 				libro.setAutore(autore);
-				libro.setAutore(editore);
-				libro.setData(data);
+				libro.setEditore(editore);
+				libro.setAnno(anno);
 				libro.setFile(file);
 				libro.setGenere(genere);
 				libro.setSottogenere(sottogenere);
@@ -161,13 +161,13 @@ public class LibroDAOJDBC implements LibroDAO {
 			conn = dbSource.getConnection();
 			
 
-			String query = "update libro set titolo=?, editore=?, autore=?, data=?, "
+			String query = "update libro set titolo=?, editore=?, autore=?, anno=?, "
 							+ "file=?, genere=?, sottogenere=?, sinossi=?, image=? where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libro.getTitolo());
 			statement.setString(2, libro.getAutore());
 			statement.setString(3, libro.getEditore());
-			statement.setDate(4, (Date) libro.getData());
+			statement.setInt(4, libro.getAnno());
 			statement.setString(5, libro.getFile());
 			statement.setString(6, libro.getGenere());
 			statement.setString(7, libro.getSottogenere());
@@ -192,13 +192,10 @@ public class LibroDAOJDBC implements LibroDAO {
 		Connection conn = null;
 		try {
 			conn = dbSource.getConnection();
-			
 			String query = "delete from libro where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libro.getIsbn());
-			
 			ResultSet result = statement.executeQuery();
-			
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -227,7 +224,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				String titolo = rs.getString("titolo");
 				String autor = rs.getString("autore");
 				String editore = rs.getString("editore");
-				Date data = rs.getDate("data");
+				Integer anno = rs.getInt("anno");
 				String file = rs.getString("file");
 				String genere = rs.getString("genere");
 				String sottogenere = rs.getString("sottogenere");
@@ -240,8 +237,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setIsbn(isbn);
 				libro.setTitolo(titolo);
 				libro.setAutore(autor);
-				libro.setAutore(editore);
-				libro.setData(data);
+				libro.setEditore(editore);
+				libro.setAnno(anno);
 				libro.setFile(file);
 				libro.setGenere(genere);
 				libro.setSottogenere(sottogenere);
@@ -284,7 +281,7 @@ public class LibroDAOJDBC implements LibroDAO {
 				String titolo = rs.getString("titolo");
 				String autore = rs.getString("autore");
 				String editore = rs.getString("editore");
-				Date data = rs.getDate("data");
+				Integer anno = rs.getInt("anno");
 				String file = rs.getString("file");
 				String gener = rs.getString("genere");
 				String sottogenere = rs.getString("sottogenere");
@@ -292,13 +289,14 @@ public class LibroDAOJDBC implements LibroDAO {
 				String image = rs.getString("image");
 				int voto = rs.getInt("voto");
 				int numeroVoti = rs.getInt("numerovoti");
+				boolean approvato = rs.getBoolean("approvato");
 				
 				LibroDTO libro = new LibroDTO();
 				libro.setIsbn(isbn);
 				libro.setTitolo(titolo);
 				libro.setAutore(autore);
 				libro.setEditore(editore);
-				libro.setData(data);
+				libro.setAnno(anno);
 				libro.setFile(file);
 				libro.setGenere(gener);
 				libro.setSottogenere(sottogenere);
@@ -307,7 +305,8 @@ public class LibroDAOJDBC implements LibroDAO {
 				libro.setVoto(voto);
 				libro.setNumeroVoti(numeroVoti);
 				
-				libri.add(libro);
+				if(approvato)
+					libri.add(libro);
 				
 			}
 		} catch (SQLException e) {
@@ -325,18 +324,18 @@ public class LibroDAOJDBC implements LibroDAO {
 	
 	
 	@Override
-	public void updateVoto(LibroDTO libro) {
+	public void updateVoto(String isbn, Integer voto, Integer numeroVoti) {
 		Connection conn = null;
 		try {
 			conn = dbSource.getConnection();
-			
+			numeroVoti += 1;
 			String query = "update libro set voto=?, numerovoti=? where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
-			statement.setInt(1,  + libro.getVoto());
-			statement.setInt(2,  + libro.getNumeroVoti());
+			statement.setInt(1, voto);
+			statement.setInt(2, numeroVoti);
+			statement.setString(3, isbn);
 			
 			ResultSet result = statement.executeQuery();
-			
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -347,10 +346,4 @@ public class LibroDAOJDBC implements LibroDAO {
 			}
 		}
 	}
-
-	
-	
-	
-	
-	
 }

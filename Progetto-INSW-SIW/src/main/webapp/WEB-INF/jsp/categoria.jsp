@@ -52,7 +52,7 @@
             <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
                 <div class="bradcumbContent">
                     <p>Ecco una lista di libri della categoria scelta</p>
-                    <h2 id="categoria">Classici</h2>
+                    <h2 id="categoria">${categoria}</h2>
                 </div>
             </section>
             <!-- ##### Breadcumb Area End ##### -->
@@ -63,7 +63,6 @@
             		<div class="row oneMusic-albums" id="libriDisponibili">
             		
                         <c:forEach items="${libri}" var="item">
-                        
 			                <a href="/libro?isbn=${item.isbn}">
 				                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
 				                    <div class="single-album">
@@ -76,6 +75,8 @@
 				                </div>
 				            </a>
                         </c:forEach>
+
+                        
                     </div>
                 </div>
             </section>

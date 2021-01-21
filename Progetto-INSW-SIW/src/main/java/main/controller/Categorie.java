@@ -27,7 +27,7 @@ public class Categorie {
 		LibroDAO lDao = DBManager.getInstance().libroDAO();
 		List<LibroDTO> lib = lDao.findAllGenere(cat);
 		session.setAttribute("libri",lib);
-		
+		session.setAttribute("categoria", cat);
 		return "categoria";
 	}
 	
