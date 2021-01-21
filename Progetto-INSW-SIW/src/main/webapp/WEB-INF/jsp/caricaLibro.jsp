@@ -157,12 +157,9 @@
 </body>
 
 <script type="text/javascript">
-
 	function removeBrdUpImage(){
-		console.log('ci sono');
 		document.querySelector("#lbl_image").setAttribute('style', 'border:none');
 	}
-
 </script>
 
 

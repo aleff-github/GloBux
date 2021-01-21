@@ -15,5 +15,6 @@ public interface LibroDAO {
 	public List<LibroDTO> findAllAutore(String autore);
 	public List<LibroDTO> findAllGenere(String genere);
 	public void updateVoto(String isbn, Integer voto, Integer numeroVoti);
-	
+	public List<LibroDTO> findAllNonApprovati();
+	public List<LibroDTO> findAllByUtente(String utente);
 }

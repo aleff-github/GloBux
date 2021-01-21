@@ -32,16 +32,13 @@
                                     <li><a href="categorie">Categorie</a></li>
                                     <li><a href="news">Novità</a></li>
                                     <li><a href="caricaLibro">Carica libro</a></li>
-                                    <li><a href="contact.html">Contatti</a></li>
+                                    <li><a href="contatti">Contatti</a></li>
                                 </ul>
 
                                 <!-- Login/Register -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
-                                    </div>
-                                    <ul><li><a href="/" style="font-size: xx-large;">${username}</a></li></ul>
+                                    <ul><li><a href="/profilo" style="font-size: xx-large;">${username}</a></li></ul>
                                 </div>
                                 
                             </div>

@@ -61,7 +61,6 @@
             <section class="album-catagory section-padding-100-0">
         		<div class="container">
             		<div class="row oneMusic-albums" id="libriDisponibili">
-            		
                         <c:forEach items="${libri}" var="item">
 			                <a href="/libro?isbn=${item.isbn}">
 				                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
@@ -75,8 +74,6 @@
 				                </div>
 				            </a>
                         </c:forEach>
-
-                        
                     </div>
                 </div>
             </section>

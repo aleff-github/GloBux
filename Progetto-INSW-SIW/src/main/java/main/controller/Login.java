@@ -44,4 +44,14 @@ public class Login {
 		}
 	}
 	
+	@GetMapping("/logout")
+	public String getLogout(HttpSession session) {
+		session.setAttribute("loggatoAdmin", false);
+		session.setAttribute("password", null);
+	    session.setAttribute("email", null);
+	    session.setAttribute("loggato", false);
+	    session.setAttribute("username", null);
+		return "index";
+	}
+	
 }
