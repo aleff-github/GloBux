@@ -37,59 +37,19 @@
         </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+    <c:if test="${not loggato}">
+		<jsp:include page="partials/index/menuIndex.jsp" />
+	</c:if>
+	<c:if test="${loggato and not loggatoAdmin}">
+		<jsp:include page="partials/user/menuUser.jsp" />
+	</c:if>
+	<c:if test="${loggatoAdmin}">
+		<jsp:include page="partials/admin/menuAdmin.jsp" />
+	</c:if>
 
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand logo">GLOBUX</a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="albums-store.html">Categorie</a></li>
-                                    <li><a href="blog.html">Novità</a></li>
-                                    <li><a href="contact.html">Contatti</a></li>
-                                </ul>
-
-                                <!-- Login/Register -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><i class="fas fa-user"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
-
-
-
+	<c:if test="${id == false}">
+		<input type="text" id="id" value="${id}" hidden></input>
+	</c:if>
 
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
@@ -97,23 +57,23 @@
 		<div class="container-main-book-1" >
 			<!-- Image -->
 			<section class="container-main-book-first">
-				
-				<img alt="" src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${libro.image}">
-			
+				<c:if test="${id != false}">
+					<img id="immagine" alt="" src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${libro.image}">
+				</c:if>
+				<c:if test="${id == false}">
+					<img id="immagine" alt="" src="">
+				</c:if>
 			</section>
-		
 			
 			<!-- Info book -->
 			<section class="container-main-book-second">
-				
-				<h1 class="title-book">${libro.titolo}</h1>
-				
-				<h3 class="info-book" >Autore: <strong>${libro.autore}</strong></h3>
-				<h3 class="info-book" >Editore: <strong>${libro.editore}</strong></h3>
-				<%-- <h3 class="info-book" >Anno: <strong>${libro.anno}</strong></h3> --%>
+				<h1 id="titolo" class="title-book">${libro.titolo}</h1>
+				<h3 class="info-book" >Autore: <strong id="autore" >${libro.autore}</strong></h3>
+				<h3 class="info-book" >Editore: <strong id="editore" >${libro.editore}</strong></h3>
+				<h3 class="info-book" >Anno: <strong id="data">${libro.anno}</strong></h3> 
 				<br>
-				<h3 class="info-book" >Genere: <strong>${libro.genere}</strong></h3>
-				<h3 class="info-book" >Sottogenere: <strong>${libro.sottogenere}</strong></h3>
+				<h3 class="info-book" >Genere: <strong id="genere" >${libro.genere}</strong></h3>
+				<h3 class="info-book" >Sottogenere: <strong id="sottogenere" >${libro.sottogenere}</strong></h3>
 				<br>
 				<c:if test="${libro.voto >= 4}">
 					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: green" >${libro.voto}</strong>/5</h4>
@@ -125,6 +85,10 @@
 				
 				<c:if test="${libro.voto < 3}">
 					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red" >${libro.voto}</strong>/5</h4>
+				</c:if>
+				
+				<c:if test="${id == false}">
+					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red"  id="valutazione" >${libro.voto}</strong>/5</h4>
 				</c:if>
 			
 			</section>
@@ -146,6 +110,12 @@
 				<nobr>Leggi</nobr>
 			</a>
 			</c:if>
+			<c:if test="${id == false}">
+			<a href="" id="pdf_link" target="_blank" class="btn-option-book btn-read">
+				<i class="fas fa-book-open"></i>
+				<nobr>Leggi</nobr>
+			</a>
+			</c:if>
 			<a href="#valuta" class="btn-option-book btn-vlt">
 				<i class="fas fa-star"></i>
 				<nobr>Valuta</nobr>
@@ -157,7 +127,7 @@
 		
 		
 		<div class="dscr-book" >
-			<p>${libro.sinossi}</p>
+			<p id="sinossi" >${libro.sinossi}</p>
 		</div>
 	
 	</main>
@@ -254,49 +224,7 @@
 	</a>
 	<!-- ################# END RATING ################## -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-12 col-md-6">
-                    <a href="/index" style="color: white; font-size: 24px">GLOBUX</a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="footer-nav">
-                        <ul>
-                            <li><a href="/categorie">Categorie</a></li>
-                            <li><a href="/novita">Novità</a></li>
-                            <li><a href="/contatti">Contatti</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area Start ##### -->
+    <jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
@@ -309,6 +237,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Libro js -->
+    <script src="js/libro.js"></script>
 </body>
 
 

@@ -9,14 +9,15 @@ public class LibroDTO {
 	private String autore;
 	private String editore;
 	private String file;
-	private Date data;
+	private Integer anno;
 	private String genere;
 	private String sottogenere;
 	private String sinossi;
 	private String image;
 	private int voto;
 	private int numeroVoti;
-	
+	private boolean approvato;
+	private String utente;
 	
 
 	public String getIsbn() {
@@ -43,12 +44,6 @@ public class LibroDTO {
 	}
 	public void setEditore(String editore) {
 		this.editore = editore;
-	}
-	public Date getData() {
-		return data;
-	}
-	public void setData(Date data) {
-		this.data = data;
 	}
 	public String getGenere() {
 		return genere;
@@ -93,9 +88,23 @@ public class LibroDTO {
 	public void setNumeroVoti(int numeroVoti) {
 		this.numeroVoti = numeroVoti;
 	}
-	
-	
-	
-	
+	public boolean getApprovato() {
+		return approvato;
+	}
+	public void setApprovato(boolean approvato) {
+		this.approvato = approvato;
+	}
+	public Integer getAnno() {
+		return anno;
+	}
+	public void setAnno(int anno) {
+		this.anno = anno;
+	}
+	public String getUtente() {
+		return utente;
+	}
+	public void setUtente(String utente) {
+		this.utente = utente;
+	}
 	
 }

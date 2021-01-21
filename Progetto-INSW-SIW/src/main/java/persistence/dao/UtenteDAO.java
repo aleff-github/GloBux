@@ -10,6 +10,9 @@ public interface UtenteDAO {
 	public UtenteDTO findByPrimaryKey(String username); 		
 	public List<UtenteDTO> findAll();
 	public void update(UtenteDTO utente);		
-	public void delete(UtenteDTO utente);		
+	public void delete(UtenteDTO utente);
+	
+	public Integer getVoti(UtenteDTO utente);
+	public Integer getVotazioni(UtenteDTO utente);
 	
 }

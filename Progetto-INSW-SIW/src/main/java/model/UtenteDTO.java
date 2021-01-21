@@ -5,6 +5,8 @@ public class UtenteDTO {
 	private String username;
 	private String email;
 	private String password;
+	private Integer voti;
+	private Integer Votazioni;
 	
 	
 	
@@ -25,6 +27,18 @@ public class UtenteDTO {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Integer getVoti() {
+		return voti;
+	}
+	public void setVoti(Integer voti) {
+		this.voti = voti;
+	}
+	public Integer getVotazioni() {
+		return Votazioni;
+	}
+	public void setVotazioni(Integer votazioni) {
+		Votazioni = votazioni;
 	}
 	
 	

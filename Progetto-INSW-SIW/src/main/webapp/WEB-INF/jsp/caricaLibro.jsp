@@ -41,64 +41,20 @@
         </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand logo">GLOBUX</a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="albums-store.html">Categorie</a></li>
-                                    <li><a href="blog.html">Novità</a></li>
-                                    <li><a href="contact.html">Contatti</a></li>
-                                </ul>
-
-                                <!-- Login/Register -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><i class="fas fa-user"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
-
-
-
+	<c:if test="${not loggato}">
+		<jsp:include page="partials/index/menuIndex.jsp" />
+	</c:if>
+	<c:if test="${loggato and not loggatoAdmin}">
+		<jsp:include page="partials/user/menuUser.jsp" />
+	</c:if>
+	<c:if test="${loggatoAdmin}">
+		<jsp:include page="partials/admin/menuAdmin.jsp" />
+	</c:if>
 
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
 		<!-- form -->
-		<form action="/upbook/up" method="post" enctype="multipart/form-data">
+		<form action="/caricaLibro/up" method="post" enctype="multipart/form-data">
 			<div class="container-main-book-1 mt-5" >
 				<!-- Image -->
 				<section class="container-main-book-first jc-c">	
@@ -136,9 +92,9 @@
 					  	<div class="form-group">
 						    <input name="isbn" type="text" class="form-control fc-color" placeholder="ISBN">
 					  	</div>
-					  	<!-- data -->
+					  	<!-- anno -->
 					  	<div class="form-group">
-						    <input name="data" type="date" class="form-control fc-color" placeholder="Data">
+						    <input name="anno" type="number" class="form-control fc-color" placeholder="Anno di pubblicazione">
 					  	</div>
 					  	<br> <br>
 					  	<!-- genere -->
@@ -185,52 +141,7 @@
 	<!-- ##### END BOOK ##### -->
 
 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-12 col-md-6">
-                    <a href="/index" style="color: white; font-size: 24px">GLOBUX</a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="footer-nav">
-                        <ul>
-                            <li><a href="/categorie">Categorie</a></li>
-                            <li><a href="/novita">Novità</a></li>
-                            <li><a href="/contatti">Contatti</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area Start ##### -->
+    <jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
@@ -246,12 +157,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 
 <script type="text/javascript">
-
 	function removeBrdUpImage(){
-		console.log('ci sono');
 		document.querySelector("#lbl_image").setAttribute('style', 'border:none');
 	}
-
 </script>
 
 

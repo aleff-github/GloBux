@@ -36,56 +36,15 @@
         </div>
     </div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
-
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand logo">GLOBUX</a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="albums-store.html">Categorie</a></li>
-                                    <li><a href="news">Novità</a></li>
-                                    <li><a href="contact.html">Contatti</a></li>
-                                </ul>
-
-                                <!-- Login/Register -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="login" id="loginBtn" style="width: 20px; height: 20px;"><img src="img/icons/user.svg" alt="Login" ></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+    <c:if test="${not loggato}">
+		<jsp:include page="partials/index/menuIndex.jsp" />
+	</c:if>
+	<c:if test="${loggato and not loggatoAdmin}">
+		<jsp:include page="partials/user/menuUser.jsp" />
+	</c:if>
+	<c:if test="${loggatoAdmin}">
+		<jsp:include page="partials/admin/menuAdmin.jsp" />
+	</c:if>
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
@@ -99,56 +58,94 @@
     <!-- ##### Album Catagory Area Start ##### -->
     <section class="album-catagory section-padding-100-0">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="browse-by-catagories catagory-menu d-flex flex-wrap align-items-center mb-70">
-                        <a href="#" data-filter="*">Browse All</a>
-                        <a href="#" data-filter=".a" class="active">A</a>
-                        <a href="#" data-filter=".b">B</a>
-                        <a href="#" data-filter=".c">C</a>
-                        <a href="#" data-filter=".d">D</a>
-                        <a href="#" data-filter=".e">E</a>
-                        <a href="#" data-filter=".f">F</a>
-                        <a href="#" data-filter=".g">G</a>
-                        <a href="#" data-filter=".h">H</a>
-                        <a href="#" data-filter=".i">I</a>
-                        <a href="#" data-filter=".j">J</a>
-                        <a href="#" data-filter=".k">K</a>
-                        <a href="#" data-filter=".l">L</a>
-                        <a href="#" data-filter=".m">M</a>
-                        <a href="#" data-filter=".n">N</a>
-                        <a href="#" data-filter=".o">O</a>
-                        <a href="#" data-filter=".p">P</a>
-                        <a href="#" data-filter=".q">Q</a>
-                        <a href="#" data-filter=".r">R</a>
-                        <a href="#" data-filter=".s">S</a>
-                        <a href="#" data-filter=".t">T</a>
-                        <a href="#" data-filter=".u">U</a>
-                        <a href="#" data-filter=".v">V</a>
-                        <a href="#" data-filter=".w">W</a>
-                        <a href="#" data-filter=".x">X</a>
-                        <a href="#" data-filter=".y">Y</a>
-                        <a href="#" data-filter=".z">Z</a>
-                        <a href="#" data-filter=".number">0-9</a>
-                    </div>
-                </div>
-            </div>
 
             <div class="row oneMusic-albums">
 
-                <!-- Single Album -->
-                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                    <div class="single-album">
-                        <img src="img/categoria.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
-                        <div class="album-info">
-                            <a href="categoria" name="isbn" value="9780786102563">
-                                <h5>Classici</h5>
-                            </a>
-                            <p>Grandi classici della letteratura</p>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Classici -->
+                <a href="/categoria?cat=Classico">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Classici</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+                
+                <!-- Arte -->
+                <a href="/categoria?cat=Arte">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Arte</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Romanzo -->
+                <a href="/categoria?cat=Romanzo">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Romanzo.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Romanzo</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Religione -->
+                <a href="/categoria?cat=Religione">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/religione.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Religione</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+                
+                <!-- Horror -->
+                <a href="/categoria?cat=Horror">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Horror.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Horror</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Musica -->
+                <a href="/categoria?cat=Musica">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/musica.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Musica</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+                <!-- Humor -->
+                <a href="/categoria?cat=Humor">
+	                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+	                    <div class="single-album">
+	                        <img src="img/categories/Humor.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                        <div class="album-info">
+	                            <h5>Humor</h5>
+	                        </div>
+	                    </div>
+	                </div>
+	            </a>
+	            
+              
             </div>
         </div>
     </section>
@@ -204,32 +201,7 @@
     </section>
     <!-- ##### Contact Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="footer-nav">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Albums</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area Start ##### -->
+    <jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
