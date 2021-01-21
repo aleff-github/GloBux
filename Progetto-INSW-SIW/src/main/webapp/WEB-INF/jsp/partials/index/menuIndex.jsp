@@ -11,7 +11,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand logo">GLOBUX</a>
+                        <a href="/" class="nav-brand logo">GLOBUX</a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
