@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import model.LibroDTO;
+import model.UtenteDTO;
 import persistence.DBManager;
+import persistence.dao.UtenteDAO;
 
 @Controller
 public class Home {
@@ -23,6 +25,15 @@ public class Home {
 	@GetMapping("/404")
 	public String get404(HttpSession session) {
 		return "404";
+	}
+	
+	@GetMapping("/profilo")
+	public String getProfilo(HttpSession session) {
+		UtenteDAO uDao = DBManager.getInstance().utenteDAO();
+		UtenteDTO utente = uDao.findByPrimaryKey(session.getAttribute("username").toString());
+		session.setAttribute("voti", utente.getVoti());
+		session.setAttribute("numVotazioni", utente.getVotazioni());
+		return "profilo";
 	}
 
 }
