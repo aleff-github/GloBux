@@ -62,7 +62,7 @@
 				        <div class="">
 				
 				            <!-- Upload image input-->
-				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden >
+				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden required>
 				            
 				            <!-- Uploaded image area-->
 				            <label id="lbl_image" for="upload" class="image-area image-area-glo">
@@ -78,29 +78,39 @@
 					
 						<!-- titolo -->
 						<div class="form-group">
-						    <input name="titolo" type="text" class="form-control fc-color" placeholder="Titolo">
+						    <input name="titolo" type="text" class="form-control fc-color" placeholder="Titolo" required>
 					  	</div>
 					  	<!-- autore -->
 					  	<div class="form-group">
-						    <input name="autore" type="text" class="form-control fc-color" placeholder="Autore">
+						    <input name="autore" type="text" class="form-control fc-color" placeholder="Autore" required>
 					  	</div>
 					  	<!-- editore -->
 					  	<div class="form-group">
-						    <input name="editore" type="text" class="form-control fc-color" placeholder="Editore">
+						    <input name="editore" type="text" class="form-control fc-color" placeholder="Editore" required>
 					  	</div>
 					  	<!-- isbn -->
 					  	<div class="form-group">
-						    <input name="isbn" type="text" class="form-control fc-color" placeholder="ISBN">
+						    <input name="isbn" type="text" class="form-control fc-color" placeholder="ISBN" required>
 					  	</div>
 					  	<!-- anno -->
 					  	<div class="form-group">
-						    <input name="anno" type="number" class="form-control fc-color" placeholder="Anno di pubblicazione">
+						    <input name="anno" type="number" class="form-control fc-color" placeholder="Anno di pubblicazione" required>
 					  	</div>
 					  	<br> <br>
 					  	<!-- genere -->
-					  	<div class="form-group">
+					  	<!-- 	<div class="form-group">
 						    <input name="genere" type="text" class="form-control fc-color" placeholder="Genere">
-					  	</div>
+						</div> -->
+						<select type="text" class="form-select form-control form-group" required onchange="changeColorSelect(this)" name="genere">
+							<option value="" selected disabled>Seleziona Genere</option>
+							<option value="Classici">Classici</option>
+							<option value="Arte">Arte</option>
+							<option value="Romanzo">Romanzo</option>
+							<option value="Religione">Religione</option>
+							<option value="Horror">Horror</option>
+							<option value="Musica">Musica</option>
+							<option value="Humor">Humor</option>
+						  </select>  
 					  	<!-- sottogeneri -->
 					  	<div class="form-group">
 						    <input name="sottogenere" type="text" class="form-control fc-color" placeholder="Sottogenere">
@@ -108,13 +118,13 @@
 					  	<br> <br>
 					  	<!-- sinossi -->
 					  	<div class="form-group">
-						    <textarea name="sinossi" type="text" class="form-control fc-color" placeholder="Sinossi" rows="4"></textarea>
+						    <textarea name="sinossi" type="text" class="form-control fc-color" placeholder="Sinossi" rows="4" required></textarea>
 					  	</div>
 					  	<br> <br>
 					  	<!-- Contenuto -->
 					  	<div class="form-group" style="color: #7f8182">	
 					  		Seleziona contenuto
-							<input id="file" name ="file" type="file" class="form-control fc-color" style="padding-left:0; border:none; " >
+							<input id="file" name ="file" type="file" class="form-control fc-color" style="padding-left:0; border:none; " required>
 						</div>
 					  	
 					  	
@@ -162,6 +172,8 @@
 		console.log('ci sono');
 		document.querySelector("#lbl_image").setAttribute('style', 'border:none');
 	}
+
+
 
 </script>
 

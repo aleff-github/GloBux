@@ -69,9 +69,9 @@
         });
 
         albumSlides.owlCarousel({
-            items: 5,
+            items: 1,
             margin: 30,
-            loop: true,
+            loop: false,
             nav: true,
             navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
             dots: false,
@@ -80,7 +80,7 @@
             smartSpeed: 750,
             responsive: {
                 0: {
-                    items: 2
+                    items: 1
                 },
                 400: {
                     items: 3,

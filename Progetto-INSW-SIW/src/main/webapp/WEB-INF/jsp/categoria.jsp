@@ -58,28 +58,21 @@
             <!-- ##### Breadcumb Area End ##### -->
 
             <!-- ##### Events Area Start ##### -->
-            <section class="album-catagory section-padding-100-0">
-        		<div class="container">
-            		<div class="row oneMusic-albums" id="libriDisponibili">
-            		
-                        <c:forEach items="${libri}" var="item">
-			                <a href="/libro?isbn=${item.isbn}">
-				                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-				                    <div class="single-album">
-				                        <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="#" style="border-radius: 10px 10px 10px 10px;">
-				                        <div class="album-info">
-				                            <h4>${item.titolo}</h4>
-				                            <h6>${item.autore}</h6>
-				                        </div>
-				                    </div>
-				                </div>
-				            </a>
-                        </c:forEach>
 
-                        
-                    </div>
-                </div>
+            <section class="container-libri" id="libriDisponibili">
+            
+                <c:forEach items="${libri}" var="item">
+                    <a href="/libro?isbn=${item.isbn}">
+                        <div class="cnt-img">
+                            <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        </div>
+                        <h4>${item.titolo}</h4>
+                        <h6>${item.autore}</h6>
+                    </a>
+                </c:forEach>
+
             </section>
+
             <!-- ##### Events Area End ##### -->
 
             <!-- ##### Contact Area Start ##### -->

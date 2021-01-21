@@ -1,6 +1,7 @@
 package main.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -41,17 +42,25 @@ public class Libro {
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
 		// ricerca di tutti i libri dell'autore
-//		List<LibroDTO> libriAutore = DBManager.getInstance().libroDAO().findAllAutore(libro.getAutore());
-//		
+		List<LibroDTO> libriAutore = DBManager.getInstance().libroDAO().findAllAutore(libro.getAutore());
+		
 //		// ricerca dei libri simili (per genere)
-//		List<LibroDTO> libriGenere = DBManager.getInstance().libroDAO().findAllAutore(libro.getGenere());
+		List<LibroDTO> libriGenere = DBManager.getInstance().libroDAO().findAllAutore(libro.getGenere());
 		session.setAttribute("id", null);
 		if(libro == null)
 			session.setAttribute("id", isbn);
 		
 		session.setAttribute("libro", libro);
-//		session.setAttribute("libriAutore", libriAutore);
-//		session.setAttribute("libriGenere", libriGenere);
+		session.setAttribute("libriAutore", libriAutore);
+		session.setAttribute("libriGenere", libriGenere);
+		
+		
+		for(LibroDTO item : libriAutore) {
+			System.out.println(item.getAutore());
+			System.out.println(item.getTitolo());
+			System.out.println(item.getEditore());
+		}
+		
 		
 		return "libro";
 	}
