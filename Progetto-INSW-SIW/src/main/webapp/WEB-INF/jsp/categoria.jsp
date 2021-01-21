@@ -21,6 +21,9 @@
 
             <!-- Icon search -->
             <script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
+            
+            <!-- JQuery
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 
         </head>
 
@@ -49,33 +52,27 @@
             <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
                 <div class="bradcumbContent">
                     <p>Ecco una lista di libri della categoria scelta</p>
-                    <h2>Classici</h2>
+                    <h2 id="categoria">${categoria}</h2>
                 </div>
             </section>
             <!-- ##### Breadcumb Area End ##### -->
 
             <!-- ##### Events Area Start ##### -->
-            <section class="events-area section-padding-100">
-                <div class="container">
-                    <div class="row">
+            <section class="album-catagory section-padding-100-0">
+        		<div class="container">
+            		<div class="row oneMusic-albums" id="libriDisponibili">
                         <c:forEach items="${libri}" var="item">
-                            <!-- Single Event Area -->
-                            <a href="libro?isbn=${item.isbn}" class="btn see-more-btn">
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <div class="single-event-area mb-30">
-                                        <div class="event-thumbnail">
-                                            <img src="${item.image}" alt="">
-                                        </div>
-                                        <div class="event-text">
-                                            <h4>${item.titolo}</h4>
-                                            <div class="event-meta-data">
-                                                <a href="#" class="event-place">${item.autore }</a>
-                                                <a href="#" class="event-date">${item.isbn}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+			                <a href="/libro?isbn=${item.isbn}">
+				                <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+				                    <div class="single-album">
+				                        <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="#" style="border-radius: 10px 10px 10px 10px;">
+				                        <div class="album-info">
+				                            <h4>${item.titolo}</h4>
+				                            <h6>${item.autore}</h6>
+				                        </div>
+				                    </div>
+				                </div>
+				            </a>
                         </c:forEach>
                     </div>
                 </div>
@@ -141,7 +138,7 @@
 
             <!-- ##### All Javascript Script ##### -->
             <!-- jQuery-2.2.4 js -->
-            <script src="js/jquery/jquery-2.2.4.min.js"></script>
+            <script src="js/jquery/jquery-2.2.4.min.js"></script> 
             <!-- Popper js -->
             <script src="js/bootstrap/popper.min.js"></script>
             <!-- Bootstrap js -->
@@ -150,6 +147,8 @@
             <script src="js/plugins/plugins.js"></script>
             <!-- Active js -->
             <script src="js/active.js"></script>
+            <!-- Active js -->
+            <script src="js/scriptUpBook.js"></script>
         </body>
 
         </html>

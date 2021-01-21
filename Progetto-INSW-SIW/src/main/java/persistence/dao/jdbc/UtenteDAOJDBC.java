@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.LibroDTO;
 import model.UtenteDTO;
 import persistence.DBSource;
 import persistence.dao.UtenteDAO;
@@ -154,6 +155,57 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				} catch (SQLException e) {/**/}
 			}
 		}
+	}
+
+	@Override
+	public Integer getVoti(UtenteDTO utente) {
+		Connection conn = null;
+		Integer voti = 0;
+		try {
+			conn = dbSource.getConnection();
+			String query = "select * from libro where utente = ?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, utente.getUsername());
+			ResultSet rs = statement.executeQuery(query);
+			while(rs.next()) {
+				voti += rs.getInt("voto"); //Valore delle votazioni per ogni libro dell'utente
+			}
+		} catch (SQLException e) {
+			e.printStackTrace(); 
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
+		
+		return voti;
+	}
+
+	@Override
+	public Integer getVotazioni(UtenteDTO utente) {
+		Connection conn = null;
+		Integer voti = 0;
+		try {
+			conn = dbSource.getConnection();
+			String query = "select * from libro where utente = ?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, utente.getUsername());
+			ResultSet rs = statement.executeQuery(query);
+			while(rs.next()) {
+				voti += rs.getInt("numerovoti"); //Numero di votazioni per ogni libro di un utente
+			}
+		} catch (SQLException e) {
+			e.printStackTrace(); 
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
+		return voti;
 	}
 
 }

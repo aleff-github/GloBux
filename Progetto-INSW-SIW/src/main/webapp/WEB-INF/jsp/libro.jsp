@@ -47,29 +47,33 @@
 		<jsp:include page="partials/admin/menuAdmin.jsp" />
 	</c:if>
 
+	<c:if test="${id == false}">
+		<input type="text" id="id" value="${id}" hidden></input>
+	</c:if>
+
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
 	
 		<div class="container-main-book-1" >
 			<!-- Image -->
 			<section class="container-main-book-first">
-				
-				<img alt="" src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${libro.image}">
-			
+				<c:if test="${id != false}">
+					<img id="immagine" alt="" src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${libro.image}">
+				</c:if>
+				<c:if test="${id == false}">
+					<img id="immagine" alt="" src="">
+				</c:if>
 			</section>
-		
 			
 			<!-- Info book -->
 			<section class="container-main-book-second">
-				
-				<h1 class="title-book">${libro.titolo}</h1>
-				
-				<h3 class="info-book" >Autore: <strong>${libro.autore}</strong></h3>
-				<h3 class="info-book" >Editore: <strong>${libro.editore}</strong></h3>
-				<%-- <h3 class="info-book" >Anno: <strong>${libro.anno}</strong></h3> --%>
+				<h1 id="titolo" class="title-book">${libro.titolo}</h1>
+				<h3 class="info-book" >Autore: <strong id="autore" >${libro.autore}</strong></h3>
+				<h3 class="info-book" >Editore: <strong id="editore" >${libro.editore}</strong></h3>
+				<h3 class="info-book" >Anno: <strong id="data">${libro.anno}</strong></h3> 
 				<br>
-				<h3 class="info-book" >Genere: <strong>${libro.genere}</strong></h3>
-				<h3 class="info-book" >Sottogenere: <strong>${libro.sottogenere}</strong></h3>
+				<h3 class="info-book" >Genere: <strong id="genere" >${libro.genere}</strong></h3>
+				<h3 class="info-book" >Sottogenere: <strong id="sottogenere" >${libro.sottogenere}</strong></h3>
 				<br>
 				<c:if test="${libro.voto >= 4}">
 					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: green" >${libro.voto}</strong>/5</h4>
@@ -81,6 +85,10 @@
 				
 				<c:if test="${libro.voto < 3}">
 					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red" >${libro.voto}</strong>/5</h4>
+				</c:if>
+				
+				<c:if test="${id == false}">
+					<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red"  id="valutazione" >${libro.voto}</strong>/5</h4>
 				</c:if>
 			
 			</section>
@@ -102,6 +110,12 @@
 				<nobr>Leggi</nobr>
 			</a>
 			</c:if>
+			<c:if test="${id == false}">
+			<a href="" id="pdf_link" target="_blank" class="btn-option-book btn-read">
+				<i class="fas fa-book-open"></i>
+				<nobr>Leggi</nobr>
+			</a>
+			</c:if>
 			<a href="#valuta" class="btn-option-book btn-vlt">
 				<i class="fas fa-star"></i>
 				<nobr>Valuta</nobr>
@@ -113,7 +127,7 @@
 		
 		
 		<div class="dscr-book" >
-			<p>${libro.sinossi}</p>
+			<p id="sinossi" >${libro.sinossi}</p>
 		</div>
 	
 	</main>
@@ -223,6 +237,8 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <!-- Libro js -->
+    <script src="js/libro.js"></script>
 </body>
 
 
