@@ -41,21 +41,18 @@ public class Libro {
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
-		// ricerca di tutti i libri dell'autore
-		List<LibroDTO> libriAutore = DBManager.getInstance().libroDAO().findAllAutore(libro.getAutore());
-		
-//		// ricerca dei libri simili (per genere)
-		List<LibroDTO> libriGenere = DBManager.getInstance().libroDAO().findAllAutore(libro.getGenere());
 		session.setAttribute("id", null);
+		
 		if(libro == null)
 			session.setAttribute("id", isbn);
+		else {
+			List<LibroDTO> libriAutore = DBManager.getInstance().libroDAO().findAllAutore(libro.getAutore());
+			List<LibroDTO> libriGenere = DBManager.getInstance().libroDAO().findAllAutore(libro.getGenere());
+			session.setAttribute("libriAutore", libriAutore);
+			session.setAttribute("libriGenere", libriGenere);
+			session.setAttribute("libro", libro);
+		}
 		
-		session.setAttribute("libro", libro);
-		session.setAttribute("libriAutore", libriAutore);
-		session.setAttribute("libriGenere", libriGenere);
-		
-		if(libro == null)
-			return "404";
 		
 		return "libro";
 	}
