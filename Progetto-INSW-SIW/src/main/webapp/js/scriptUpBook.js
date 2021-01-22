@@ -44,12 +44,12 @@ $(document).ready(function () {
 
 function riempiScaffali(risposta) {
     var libri = [];
-    risposta.forEach(element => {
+    risposta.forEach(item => {
         var libro = {
-            autore: element.volumeInfo.authors,
-            titolo: element.volumeInfo.title,
-            immagine: element.volumeInfo.imageLinks.thumbnail,
-            id: element.id
+            autore: item.volumeInfo.authors ? item.volumeInfo.authors : "Autore non disponibile",
+            titolo: item.volumeInfo.title ? item.volumeInfo.title : "Titolo non disponibile",
+            immagine: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "https://glo-2020.s3.eu-central-1.amazonaws.com/image/imageNotFound.png",
+            id: item.id
         };
         libri.push(libro);
     });
@@ -58,14 +58,14 @@ function riempiScaffali(risposta) {
 
 function caricaLibri(libri) {
     var libriDisponibili = document.getElementById('libriDisponibili');
-    libri.forEach(element => {
+    libri.forEach(item => {
         libriDisponibili.insertAdjacentHTML('beforeend',
-            `<a href="/libro?isbn=${element.id}">
+            `<a href="/libro?isbn=${item.id}">
                 <div class="cnt-img">
-                    <img src="${element.immagine}" alt="" style="border-radius: 10px 10px 10px 10px;">
+                    <img src="${item.immagine}" alt="" style="border-radius: 10px 10px 10px 10px;">
                 </div>
-                <h4>${element.titolo}</h4>
-                <h6>${element.autore}</h6>
+                <h4>${item.titolo}</h4>
+                <h6>${item.autore}</h6>
             </a>`)
     });
 }

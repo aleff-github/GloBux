@@ -22,29 +22,30 @@ public class LibroDAOJDBC implements LibroDAO {
 		this.dbSource = dbSource;
 	}
 	
-	public List<LibroDTO> effettuaSelezione(ResultSet rs, boolean approvato) throws SQLException{
+	public List<LibroDTO> effettuaSelezione(ResultSet rs, boolean approvato){
 		List<LibroDTO> libri = new ArrayList<>();
-		while(rs.next()) {
-			LibroDTO libro = new LibroDTO();
-			libro.setIsbn(rs.getString("isbn"));
-			libro.setTitolo(rs.getString("titolo"));
-			libro.setAutore(rs.getString("autore"));
-			libro.setEditore(rs.getString("editore"));
-			libro.setAnno(rs.getInt("anno"));
-			libro.setFile(rs.getString("file"));
-			libro.setGenere(rs.getString("genere"));
-			libro.setSottogenere(rs.getString("sottogenere"));
-			libro.setSinossi(rs.getString("sinossi"));
-			libro.setImage(rs.getString("image"));
-			libro.setVoto(rs.getInt("voto"));
-			libro.setNumeroVoti(rs.getInt("numerovoti"));
-			libro.setApprovato(rs.getBoolean("approvato"));
-			libro.setUtente(rs.getString("utente"));
-			
-			if(libro.getApprovato() == approvato)
-				libri.add(libro);
-			
-		}
+		try {
+			while(rs.next()) {
+				LibroDTO libro = new LibroDTO();
+				libro.setIsbn(rs.getString("isbn"));
+				libro.setTitolo(rs.getString("titolo"));
+				libro.setAutore(rs.getString("autore"));
+				libro.setEditore(rs.getString("editore"));
+				libro.setAnno(rs.getInt("anno"));
+				libro.setFile(rs.getString("file"));
+				libro.setGenere(rs.getString("genere"));
+				libro.setSottogenere(rs.getString("sottogenere"));
+				libro.setSinossi(rs.getString("sinossi"));
+				libro.setImage(rs.getString("image"));
+				libro.setVoto(rs.getInt("voto"));
+				libro.setNumeroVoti(rs.getInt("numerovoti"));
+				libro.setApprovato(rs.getBoolean("approvato"));
+				libro.setUtente(rs.getString("utente"));
+				
+				if(libro.getApprovato() == approvato)
+					libri.add(libro);
+			}
+		}catch(Exception e) {e.printStackTrace();}
 		return libri;
 	}
 	
