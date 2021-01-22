@@ -8,8 +8,17 @@ function initialize(){
 
 }
 
-function chiamaAPI(param, action){
-    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param + '&startIndex=0&maxResults=40';
+function altriRisultati(){
+    var index = document.getElementById('index').value;
+    var idVar = document.getElementById('id');
+    if(idVar != null){
+        chiamaAPI(idVar.value, riempiLibro, index);
+    }
+    document.getElementById('id').value = index + 10;
+}
+
+function chiamaAPI(param, action, index){
+    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param + '&startIndex=' +  index + '&maxResults=10';
     $(document).ready(function () {
         $.ajax(
             {
@@ -30,23 +39,21 @@ function chiamaAPI(param, action){
 function ricercaPerId(){
     var idVar = document.getElementById('id');
     if(idVar != null){
-        chiamaAPI(idVar.value, riempiLibro);
+        chiamaAPI(idVar.value, riempiLibro, 0);
     }
 }
 
 function ricercaPerAutore(){
     var autore = document.getElementById('autore').textContent;
     if(autore != null){
-        console.log(autore)
-        chiamaAPI(autore, riempiScaffaleAutore);
+        chiamaAPI(autore, riempiScaffaleAutore, 0);
     }
 }
 
 function ricercaPerGenere(){
     var genere = document.getElementById('genere').textContent;
     if(genere != null){
-        console.log(genere)
-        chiamaAPI(genere, riempiScaffaleGenere);
+        chiamaAPI(genere, riempiScaffaleGenere, 0);
     }
 }
 
@@ -88,13 +95,9 @@ function riempiLibro(libri) {
 }
 
 function riempiScaffaleAutore(libriAPI){
-    console.log("riempi scaffael autore");
-    console.log(libriAPI)
     scaffale = document.getElementById('scaffaleAutore');
 
     Array.from(libriAPI).forEach(item => {
-        console.log("item");
-        console.log(item)
         var libro = {
             titolo: item.volumeInfo.title ? item.volumeInfo.title : "Titolo non disponibile",
             genere: item.volumeInfo.categories ? item.volumeInfo.categories : "Genere non disponibile",
@@ -123,7 +126,6 @@ function riempiScaffaleAutore(libriAPI){
 }
 
 function riempiScaffaleGenere(libriAPI){
-    console.log("riempi scaffael genere");
 
     scaffale = document.getElementById('scaffaleGenere');
 

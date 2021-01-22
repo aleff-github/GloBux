@@ -295,14 +295,15 @@ public class LibroDAOJDBC implements LibroDAO {
 	}
 	
 	@Override
-	public void updateVoto(String isbn, Integer voto, Integer numeroVoti) {
+	public void updateVoto(String isbn, Integer voto, Integer numeroVoti, Integer votazioni) {
 		Connection conn = null;
 		try {
 			conn = dbSource.getConnection();
 			numeroVoti += 1;
+			votazioni += voto;
 			String query = "update libro set voto=?, numerovoti=? where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
-			statement.setInt(1, voto);
+			statement.setInt(1, votazioni);
 			statement.setInt(2, numeroVoti);
 			statement.setString(3, isbn);
 			

@@ -20,33 +20,52 @@ $(function () {
 });
 
 /* change color select */
-function changeColorSelect(node){
+function changeColorSelect(node) {
     node.setAttribute('style', 'color:#fff');
-    console.log(node)
 }
 
 var categoria = document.getElementById('categoria').textContent;
-/* for(i = 0; i < 100; i += 10){ */
+window.onload = initialize;
 
-ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex=0&maxResults=40';
-$(document).ready(function () {
-    $.ajax(
-        {
-            'url': ricerca,
-            'method': 'GET',
-            'success': function (risposta) {
-                console.log(risposta)
-                riempiScaffali(risposta.items);
-            },
-            'error': function () {
-                alert('errore!');
+function initialize() {
+    ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex=0&maxResults=10';
+    $(document).ready(function () {
+        $.ajax(
+            {
+                'url': ricerca,
+                'method': 'GET',
+                'success': function (risposta) {
+                    riempiScaffali(risposta.items);
+                },
+                'error': function () {
+                    alert('errore!');
+                }
             }
-        }
-    );
-});
+        );
+    });
+}
 
-/* } */
-
+function altriRisultati(categoria) {
+    var index = document.getElementById("index").value;
+    console.log(index);
+    console.log(document.getElementById('index'));
+    // ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex='+index+'&maxResults=10';
+    // $(document).ready(function () {
+    //     $.ajax(
+    //         {
+    //             'url': ricerca,
+    //             'method': 'GET',
+    //             'success': function (risposta) {
+    //                 console.log(risposta)
+    //                 riempiScaffali(risposta.items);
+    //             },
+    //             'error': function () {
+    //                 alert('errore!');
+    //             }
+    //         }
+    //     );
+    // });
+}
 
 function riempiScaffali(risposta) {
     var libri = [];

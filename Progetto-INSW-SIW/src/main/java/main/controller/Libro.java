@@ -35,11 +35,17 @@ public class Libro {
 	public String readBook() {
 		return "leggiLibro";
 	}
+	
+	@GetMapping("/votaLibro")
+	public String getVotazione(@RequestParam Integer voto, HttpSession session, Model model) {
+		String isbn = (String) session.getAttribute("isbn");
+		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
+		DBManager.getInstance().libroDAO().updateVoto(isbn, voto, libro.getNumeroVoti(), libro.getVoto());
+		return getBook(isbn, session, model);
+	}
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
 	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
-
-		System.out.println(isbn);
 
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
@@ -54,6 +60,8 @@ public class Libro {
 			model.addAttribute("libriAutore", libriAutore);
 			model.addAttribute("libriGenere", libriGenere);
 			model.addAttribute("libro", libro);
+			session.setAttribute("votazione", libro.getVoto()/libro.getNumeroVoti());
+			session.setAttribute("isbn", libro.getIsbn());
 		}
 		
 
