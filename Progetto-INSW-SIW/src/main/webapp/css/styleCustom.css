@@ -20,6 +20,10 @@
 	font-weight: xx-large !important;
 }
 
+body{
+   background: var(--color-bg-main);
+}
+
 .container-libri{
    width: 100%;
    min-height: calc(100vh - 85px);
@@ -57,13 +61,74 @@
    transform: scale(1.1);
 }
 
+
+.cnt-approva{
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 30px;
+   margin: 35px 0;
+}
+.cnt-approva-first{
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   width: 85%;
+}
+.cnt-approva-first a{
+   margin: 0;
+   margin-right: 25px;
+   width: 30%;
+}
+
+.libro-info{
+   text-align: start;
+   margin-top: 20px;
+   width: 70%;
+}
+.libro-info h4{
+   color: #fff;
+   font-size: 18px;
+}
+.libro-info h6{
+   color: #fff;
+   font-size: 16px;
+}
+
+.libro-action{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   height: 100%;
+   width: 15%;
+}
+
+.libro-action a{
+   font-size: 25px;
+   margin: 40px;
+   width: auto;
+}
+.libro-action .fa-check-circle{
+   color: rgb(7, 148, 7);
+}
+.libro-action .fa-trash-alt{
+   color:rgb(214 63 63);
+}
+
+
 @media (max-width: 769px){
 
    .container-libri a h4{
       font-size: 19px;
    }
-   .container-libri a h6{
-      
+
+   .libro-info h4{
+      font-size: 14px;
+   }
+   .libro-info h6{
+      font-size: 12px;
    }
 
 }
@@ -71,5 +136,20 @@
 @media (max-width: 569px){
    .container-libri a{
       width: 34vw;
+   }
+
+   .cnt-approva {
+      padding: 12px 0;
+   }
+
+   .libro-info h4{
+      font-size: 13px;
+   }
+   .libro-info h6{
+      font-size: 11px;
+   }
+
+   .libro-action a{
+      width: auto;
    }
 }
