@@ -26,13 +26,16 @@ function changeColorSelect(node){
 }
 
 var categoria = document.getElementById('categoria').textContent;
-ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria;
+/* for(i = 0; i < 100; i += 10){ */
+
+ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex=0&maxResults=40';
 $(document).ready(function () {
     $.ajax(
         {
             'url': ricerca,
             'method': 'GET',
             'success': function (risposta) {
+                console.log(risposta)
                 riempiScaffali(risposta.items);
             },
             'error': function () {
@@ -41,6 +44,9 @@ $(document).ready(function () {
         }
     );
 });
+
+/* } */
+
 
 function riempiScaffali(risposta) {
     var libri = [];

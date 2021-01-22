@@ -19,7 +19,7 @@
     if ($.fn.owlCarousel) {
         var welcomeSlide = $('.hero-slides');
         var testimonials = $('.testimonials-slide');
-        var albumSlides = $('.albums-slideshow');
+        var scaffaleIndex = $('.carouselIndex');
 
         welcomeSlide.owlCarousel({
             items: 1,
@@ -68,12 +68,11 @@
             autoplay: true
         });
 
-        /* albumSlides.owlCarousel({
+        scaffaleIndex.owlCarousel({
             items: 1,
             margin: 30,
             loop: false,
-            nav: true,
-            navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
+            nav: false,
             dots: false,
             autoplay: true,
             autoplayTimeout: 5000,
@@ -96,7 +95,7 @@
                     items: 5
                 }
             }
-        }); */
+        });
     }
 
     // :: 4.0 Masonary Gallery Active Code

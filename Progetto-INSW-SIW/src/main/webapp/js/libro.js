@@ -9,7 +9,7 @@ function initialize(){
 }
 
 function chiamaAPI(param, action){
-    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param;
+    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param + '&startIndex=0&maxResults=40';
     $(document).ready(function () {
         $.ajax(
             {

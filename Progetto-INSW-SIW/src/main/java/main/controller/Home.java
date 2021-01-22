@@ -19,6 +19,7 @@ public class Home {
 	public String getIndex(HttpSession session) {
 		List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
 		session.setAttribute("libri", libri);
+		
 		return "index";
 	}
 	

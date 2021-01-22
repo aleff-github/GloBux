@@ -65,7 +65,7 @@ public class ServiceAmazonS3 {
 	// upload file ebook
 	public String uploadFileEbook(MultipartFile file1) throws IOException { 
 		File file = this.convertMultiPartToFile(file1);
-		PutObjectRequest request = new PutObjectRequest(bucketName, this.FOLDER_EBOOK + file.getName(), file)
+		PutObjectRequest request = new PutObjectRequest(bucketName, this.FOLDER_EBOOK + generateFileName(file.getName()), file)
 				.withCannedAcl(CannedAccessControlList.PublicRead);
 		s3Client.putObject(request);
 		
@@ -86,8 +86,10 @@ public class ServiceAmazonS3 {
     
     // genera un nome univoco per ogni file
     @SuppressWarnings("unused")
-	private String generateFileName(MultipartFile multiPart) {
-        return new Date().getTime() + "-" + multiPart.getOriginalFilename().replace(" ", "_");
+	private String generateFileName(String name) {
+        String nome = new Date().getTime() + "-" + name;
+        
+        return nome;
     }
     
     

@@ -55,7 +55,7 @@ public class Libro {
 			model.addAttribute("libriGenere", libriGenere);
 			model.addAttribute("libro", libro);
 		}
-
+		
 
 		return "libro";
 	}
