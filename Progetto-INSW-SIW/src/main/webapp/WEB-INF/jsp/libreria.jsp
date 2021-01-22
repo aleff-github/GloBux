@@ -86,31 +86,6 @@
                </div>
            </div>
 		</c:forEach>
-		
-		<!-- Single Event Area 
-        <div class="col-12 col-md-6 col-lg-4">
-	        <div class="single-event-area mb-30">
-    	        <div class="event-thumbnail">
-        	        <img src="img/9780786102563.jpg" alt="">
-                </div>
-                <form action="deleteLibro" method="post">
-	                <div class="event-text">
-	            	    <h4>Divina Commedia</h4>
-	                    <div class="event-meta-data">
-	                	    <a href="#" class="event-place">Dante Alighieri</a>
-	                        <a href="#" class="event-date">548416546841</a>
-	                        <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="548416546841" hidden="true"></input>
-	                        <input type="text" id="libreria" name="libreria" value="user1" class="event-place" hidden="true"></input>
-	                    </div>
-	                    <button class="btn see-more-btn" type="submit" >Elimina libro</button>
-	                </div>
-	             </form>
-             </div>
-         </div>-->
-	    
-	    
-	
-	<!-- CARDS AREA END -->
    
     <jsp:include page="partials/index/footer.jsp" />
 
