@@ -49,11 +49,34 @@
             <c:if test="${loggatoAdmin}">
                 <jsp:include page="partials/admin/menuAdmin.jsp" />
             </c:if>
+            <!-- ##### Breadcumb Area Start ##### -->
+            <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+                <div class="bradcumbContent">
+                    <h2 id="username" style="color: black;">${username}</h2>
+                    <br>
+                    <a href="/logout" class="btn oneMusic-btn mt-30">Logout</a>
+                </div>
+            </section>
+            <!-- ##### Breadcumb Area End ##### -->
             
-            <!-- ##### Qua vanno inseriti i libri##### -->
-            <!-- ##### Qua vanno inseriti i libri##### -->
-            <!-- ##### Qua vanno inseriti i libri##### -->
-            <!-- ##### Qua vanno inseriti i libri##### -->
+            <section class="container-libri" id="libriDisponibili">
+                <c:forEach items="${libri}" var="item">
+                    <a href="/libro?isbn=${item.isbn}">
+                        <div class="cnt-img">
+                            <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                        </div>
+                        <h4>${item.titolo}</h4>
+                        <h6>${item.autore}</h6>
+                    <a href="/approva?isbn=${item.isbn}"  class="btn oneMusic-btn mt-30">Approva</a>
+                    <a href="/non-approvare?isbn=${item.isbn}"  class="btn oneMusic-btn mt-30">Elimina</a>
+                    </a>
+                </c:forEach>
+                <c:if test="${not libriDaApprovare}">
+                    <h1 style="color: black;">Non ci sono libri da approvare!</h1>
+                </c:if> 
+            </section>
+
+            <!-- ##### Events Area End ##### -->
             
             <jsp:include page="partials/index/footer.jsp" />
 
