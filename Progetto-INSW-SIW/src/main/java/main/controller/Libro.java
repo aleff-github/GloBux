@@ -60,7 +60,14 @@ public class Libro {
 			model.addAttribute("libriAutore", libriAutore);
 			model.addAttribute("libriGenere", libriGenere);
 			model.addAttribute("libro", libro);
-			session.setAttribute("votazione", libro.getVoto()/libro.getNumeroVoti());
+			Integer voti = libro.getNumeroVoti();
+			Integer voto = libro.getVoto();
+			if(voti == 0)
+				voti = 1;
+			if(voto == 0)
+				voto = 1;
+			Integer votoFinale = voto/voti;
+			session.setAttribute("votazione", votoFinale);
 			session.setAttribute("isbn", libro.getIsbn());
 		}
 		
