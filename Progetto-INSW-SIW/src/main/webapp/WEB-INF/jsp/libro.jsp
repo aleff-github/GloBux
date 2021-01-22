@@ -152,7 +152,7 @@
 					<div class="container-title-cor">
 						<span class="line-hor"></span>
 						<h4>
-							<nobr>Altro di George Orwell</nobr>
+							<nobr>Altro di ${libro.autore}</nobr>
 						</h4>
 						<span class="line-hor"></span>
 					</div>

@@ -55,11 +55,6 @@ public class Libro {
 			session.setAttribute("libro", libro);
 		}
 
-		session.setAttribute("libro", libro);
-
-		// serve per la chiamata asincrona
-		session.setAttribute("id", isbn);
-
 
 		return "libro";
 	}

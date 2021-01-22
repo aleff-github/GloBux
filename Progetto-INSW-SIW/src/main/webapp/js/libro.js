@@ -1,14 +1,17 @@
-var idVar = document.getElementById('id');
-if(idVar != null){
-    var id = idVar.value;
-    ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + id;
+
+window.onload = ricercaPerId;
+
+function chiamaAPI(param, action){
+
+    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param;
     $(document).ready(function () {
         $.ajax(
             {
-                'url': ricerca,
+                'url': url,
                 'method': 'GET',
                 'success': function (risposta) {
-                    riempiScaffali(risposta.items[0]);
+                    console.log(risposta)
+                    action(risposta.items[0]);
                 },
                 'error': function () {
                     alert('errore!');
@@ -33,7 +36,8 @@ function ricercaPerAutore(){
 function ricercaPerGenere(){
 
 }
-function riempiScaffali(risposta) {
+
+function riempiLibro(risposta) {
     var libro = {
         autore: risposta.volumeInfo.authors ? risposta.volumeInfo.authors : "Autore non disponibile",
         titolo: risposta.volumeInfo.title ? risposta.volumeInfo.title : "Titolo non disponibile",
@@ -46,24 +50,25 @@ function riempiScaffali(risposta) {
         editore: risposta.volumeInfo.publisher ? risposta.volumeInfo.publisher : "Editore non disponibile",
         data: risposta.volumeInfo.publishedDate ? risposta.volumeInfo.publishedDate : "Data non disponibile",
         pdf_link: risposta.accessInfo.webReaderLink,
-        pdf: risposta.accessInfo.pdf.isAvailable};
+        pdf: risposta.accessInfo.pdf.isAvailable
+    };
 
-        document.getElementById('immagine').setAttribute("src", libro.immagine);
-        document.getElementById('titolo').innerText = libro.titolo;
-        document.getElementById('autore').innerText = libro.autore;
-        document.getElementById('editore').innerText = libro.editore;
-        document.getElementById('genere').innerText = libro.categoria;
-        document.getElementById('sottogenere').innerText = "Avventura";
-        document.getElementById('data').innerText = libro.data;
-        if(libro.valutazione == undefined)
-            document.getElementById('valutazione').parentNode.innerText = "Valutazione non disponibile";
-        else
-            document.getElementById('valutazione').innerText = libro.valutazione;
-        document.getElementById('sinossi').innerText = libro.sinossi;
+    document.getElementById('immagine').setAttribute("src", libro.immagine);
+    document.getElementById('titolo').innerText = libro.titolo;
+    document.getElementById('autore').innerText = libro.autore;
+    document.getElementById('editore').innerText = libro.editore;
+    document.getElementById('genere').innerText = libro.categoria;
+    document.getElementById('sottogenere').innerText = "Avventura";
+    document.getElementById('data').innerText = libro.data;
+    if(libro.valutazione == undefined)
+        document.getElementById('valutazione').parentNode.innerText = "Valutazione non disponibile";
+    else
+        document.getElementById('valutazione').innerText = libro.valutazione;
+    document.getElementById('sinossi').innerText = libro.sinossi;
 
-        if(libro.pdf == true)
-            document.getElementById('pdf_link').setAttribute("href", libro.pdf_link);
-        else
-            document.getElementById('pdf_link').setAttribute("href", "/404");
-        return;
+    if(libro.pdf == true)
+        document.getElementById('pdf_link').setAttribute("href", libro.pdf_link);
+    else
+        document.getElementById('pdf_link').setAttribute("href", "/404");
+
 }
