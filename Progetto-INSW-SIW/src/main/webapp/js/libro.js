@@ -16,6 +16,22 @@ if(idVar != null){
             }
         );
     });
+
+}
+
+function ricercaPerId(){
+    var idVar = document.getElementById('id');
+    if(idVar != null){
+        chiamaAPI(idVar.value, riempiLibro);
+    }
+}
+
+function ricercaPerAutore(){
+
+}
+
+function ricercaPerGenere(){
+
 }
 function riempiScaffali(risposta) {
     var libro = {

@@ -19,13 +19,13 @@ import s3.ServiceAmazonS3;
 @Controller
 public class Libro {
 
-	 
+
 	@GetMapping("/libroA")
 	public String getBook() {
 		return "libro";
 	}
-	
-	
+
+
 	@GetMapping("/caricaLibro")
 	public String getUpBook() {
 		return "caricaLibro";
@@ -37,12 +37,14 @@ public class Libro {
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
 	public String getBook(@RequestParam String isbn, HttpSession session) {
-		
+
+		System.out.println(isbn);
+
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
 		session.setAttribute("id", null);
-		
+
 		if(libro == null)
 			session.setAttribute("id", isbn);
 		else {
@@ -52,25 +54,31 @@ public class Libro {
 			session.setAttribute("libriGenere", libriGenere);
 			session.setAttribute("libro", libro);
 		}
-		
-		
+
+		session.setAttribute("libro", libro);
+
+		// serve per la chiamata asincrona
+		session.setAttribute("id", isbn);
+
+
 		return "libro";
 	}
-	
+
+
 	@PostMapping("/caricaLibro/up")
-	public RedirectView saveBook(@RequestParam String isbn, @RequestParam String titolo, @RequestParam String autore, 
+	public RedirectView saveBook(@RequestParam String isbn, @RequestParam String titolo, @RequestParam String autore,
 			@RequestParam String editore, @RequestParam String genere, @RequestParam Integer anno, @RequestParam String sottogenere, @RequestParam String sinossi,
 			@RequestParam MultipartFile image, @RequestParam MultipartFile file, HttpSession session) {
 
-		try { 
+		try {
 			LibroDTO libro = new LibroDTO();
 			String nameImage;
 			String nameFile;
-			
+
 			// memorizziamo l'immagine e il contenuto in S3
 			nameImage = ServiceAmazonS3.getInstance().uploadFileImage(image);
 			nameFile = ServiceAmazonS3.getInstance().uploadFileEbook(file);
-			
+
 			libro.setIsbn(isbn);
 			libro.setTitolo(titolo);
 			libro.setAutore(autore);
@@ -83,18 +91,18 @@ public class Libro {
 			libro.setFile(nameFile);
 			libro.setApprovato(false);
 			libro.setUtente(session.getAttribute("username").toString());
-			
+
 			DBManager.getInstance().libroDAO().save(libro);
-			
+
 		} catch (IOException e) { e.printStackTrace(); }
-		
+
 		return new RedirectView("/");
 	}
 
-	
-	
 
-	
-	
-	
+
+
+
+
+
 }
