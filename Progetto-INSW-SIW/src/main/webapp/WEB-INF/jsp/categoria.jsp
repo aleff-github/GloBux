@@ -76,7 +76,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-                                <a onclick="altriRisultati(categoria)" id="index" value="10" class="btn oneMusic-btn">Carica Altro...</a>
+                                <input type="number" id="index" value="10" hidden=true>
+                                <a onclick="altriRisultati(categoria)" class="btn oneMusic-btn">Carica Altro...</a>
                             </div>
                         </div>
                     </div>

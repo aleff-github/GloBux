@@ -38,7 +38,7 @@ function initialize() {
                     riempiScaffali(risposta.items);
                 },
                 'error': function () {
-                    alert('errore!');
+                    alert('Non sono disponibili altri libri!');
                 }
             }
         );
@@ -47,24 +47,24 @@ function initialize() {
 
 function altriRisultati(categoria) {
     var index = document.getElementById("index").value;
-    console.log(index);
-    console.log(document.getElementById('index'));
-    // ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex='+index+'&maxResults=10';
-    // $(document).ready(function () {
-    //     $.ajax(
-    //         {
-    //             'url': ricerca,
-    //             'method': 'GET',
-    //             'success': function (risposta) {
-    //                 console.log(risposta)
-    //                 riempiScaffali(risposta.items);
-    //             },
-    //             'error': function () {
-    //                 alert('errore!');
-    //             }
-    //         }
-    //     );
-    // });
+    var max_index = parseInt(index) + 10;
+    ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex='+index+'&maxResults='+max_index;
+    $(document).ready(function () {
+        $.ajax(
+            {
+                'url': ricerca,
+                'method': 'GET',
+                'success': function (risposta) {
+                    console.log(risposta)
+                    riempiScaffali(risposta.items);
+                },
+                'error': function () {
+                    alert('Non sono disponibili altri libri!');
+                }
+            }
+        );
+    });
+    document.getElementById("index").value = parseInt(index) + 10;
 }
 
 function riempiScaffali(risposta) {
