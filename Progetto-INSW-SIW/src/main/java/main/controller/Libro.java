@@ -54,13 +54,8 @@ public class Libro {
 		session.setAttribute("libriAutore", libriAutore);
 		session.setAttribute("libriGenere", libriGenere);
 		
-		
-		for(LibroDTO item : libriAutore) {
-			System.out.println(item.getAutore());
-			System.out.println(item.getTitolo());
-			System.out.println(item.getEditore());
-		}
-		
+		if(libro == null)
+			return "404";
 		
 		return "libro";
 	}
