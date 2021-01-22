@@ -117,7 +117,7 @@
                 <div class="col-12">
                     <!-- Contact Form Area -->
                     <div class="contact-form-area">
-                        <form action="contattiServlet" method="GET">
+                        <form action="invioEmail" method="post">
                             <div class="row">
                                 <div class="col-md-6 col-lg-4">
                                     <div class="form-group">

@@ -47,9 +47,9 @@
 	</c:if>
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/deAndre.jpg);">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
         <div class="bradcumbContent">
-            
+            <p>See what’s new</p>
             <h2>News</h2>
         </div>
     </section>
@@ -78,7 +78,7 @@
 		                            <a href="#" class="post-title">${item.titolo}</a>
 		                            <!-- Post Meta -->
 		                            <div class="post-meta d-flex mb-30">
-		                                <p class="post-author">By<a href="#">${item.username}</a></p>
+		                                <p class="post-author">By <a href="#">Admin</a></p>
 		                            </div>
 		                            <!-- Post Excerpt -->
 		                            <p> ${item.contenuto} </p>
