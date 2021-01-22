@@ -59,17 +59,31 @@
 
             <!-- ##### Events Area Start ##### -->
 
-            <section class="container-libri" id="libriDisponibili">
-
-                <c:forEach items="${libri}" var="item">
-                    <a href="/libro?isbn=${item.isbn}">
-                        <div class="cnt-img">
-                            <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="#" style="border-radius: 10px 10px 10px 10px;">
+            <section>
+                <div class="container">
+                    <div class="container-libri" id="libriDisponibili">
+                        <c:forEach items="${libri}" var="item">
+                            <a href="/libro?isbn=${item.isbn}">
+                                <div class="cnt-img">
+                                    <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}"
+                                        alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                </div>
+                                <h4>${item.titolo}</h4>
+                                <h6>${item.autore}</h6>
+                            </a>
+                        </c:forEach>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
+                                <input type="number" id="index" value="10" hidden=true>
+                                <a onclick="altriRisultati(categoria)" class="btn oneMusic-btn">Carica Altro...</a>
+                            </div>
                         </div>
-                        <h4>${item.titolo}</h4>
-                        <h6>${item.autore}</h6>
-                    </a>
-                </c:forEach>
+                    </div>
+                </div>
+                </div>
+                <br><br>
             </section>
 
             <!-- ##### Events Area End ##### -->

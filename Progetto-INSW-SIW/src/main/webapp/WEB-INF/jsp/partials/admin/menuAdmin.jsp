@@ -33,13 +33,15 @@
                                     <li><a href="news">Novità</a></li>
                                     <li><a href="caricaLibro">Carica libro</a></li>
                                     <li><a href="approva-libri">Approva Libri</a></li>
+                                    <li><a href="libreria">Libreria</a></li>
                                     <li><a href="contatti">Contatti</a></li>
                                 </ul>
 
                                 <!-- Login/Register -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
-                                    <ul><li><a href="/profilo" style="font-size: xx-large;">${username}</a></li></ul>
+                                    <ul><li><a href="/profilo" style="font-size: x-large;">${username}</a></li>
+                                        <li><a href="/logout" style="font-size: large;" title="logout"><i class="fas fa-sign-out-alt"></i></a></li></ul>
                                 </div>
                             </div>
                             <!-- Nav End -->
