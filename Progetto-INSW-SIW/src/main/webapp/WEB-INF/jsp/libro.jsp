@@ -115,7 +115,7 @@
 						</button>
 					</c:if>
 
-					<c:if test="${libro.file != null}">
+					<c:if test="${libro.file != null && id != false}">
 						<a href="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${libro.file}" target="_blank"
 							class="btn-option-book btn-read">
 							<i class="fas fa-book-open"></i>
@@ -152,13 +152,13 @@
 					<div class="container-title-cor">
 						<span class="line-hor"></span>
 						<h4>
-							<nobr>Altro di ${libro.autore}</nobr>
+							<nobr>Altro dell'autore</nobr>
 						</h4>
 						<span class="line-hor"></span>
 					</div>
 					<div class="row">
 						<div class="col-12">
-							<div class="albums-slideshow owl-carousel">
+							<div class="albums-slideshow carouselAutore owl-carousel" id="scaffaleAutore">
 
 								<c:forEach items="${libriAutore}" var="item">
 									<!-- Single Book -->
@@ -194,7 +194,7 @@
 					</div>
 					<div class="row">
 						<div class="col-12">
-							<div class="albums-slideshow owl-carousel">
+							<div class="albums-slideshow carouselGenere owl-carousel" id="scaffaleGenere">
 
 								<c:forEach items="${libriGenere}" var="item">
 									<!-- Single Book -->

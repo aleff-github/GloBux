@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +37,7 @@ public class Libro {
 	}
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
-	public String getBook(@RequestParam String isbn, HttpSession session) {
+	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
 
 		System.out.println(isbn);
 
@@ -50,9 +51,9 @@ public class Libro {
 		else {
 			List<LibroDTO> libriAutore = DBManager.getInstance().libroDAO().findAllAutore(libro.getAutore());
 			List<LibroDTO> libriGenere = DBManager.getInstance().libroDAO().findAllAutore(libro.getGenere());
-			session.setAttribute("libriAutore", libriAutore);
-			session.setAttribute("libriGenere", libriGenere);
-			session.setAttribute("libro", libro);
+			model.addAttribute("libriAutore", libriAutore);
+			model.addAttribute("libriGenere", libriGenere);
+			model.addAttribute("libro", libro);
 		}
 
 

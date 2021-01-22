@@ -68,7 +68,7 @@
             autoplay: true
         });
 
-        albumSlides.owlCarousel({
+        /* albumSlides.owlCarousel({
             items: 1,
             margin: 30,
             loop: false,
@@ -96,7 +96,7 @@
                     items: 5
                 }
             }
-        });
+        }); */
     }
 
     // :: 4.0 Masonary Gallery Active Code
@@ -214,3 +214,4 @@
     })
 
 })(jQuery);
+
