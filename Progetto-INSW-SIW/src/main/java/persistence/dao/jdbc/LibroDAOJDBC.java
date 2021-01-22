@@ -92,7 +92,25 @@ public class LibroDAOJDBC implements LibroDAO {
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, isbn);
 			ResultSet rs = statement.executeQuery();
-			return effettuaSelezione(rs, true).get(0); //Primo elemento
+			while(rs.next()) {
+				libro = new LibroDTO();
+				libro.setIsbn(rs.getString("isbn"));
+				libro.setTitolo(rs.getString("titolo"));
+				libro.setAutore(rs.getString("autore"));
+				libro.setEditore(rs.getString("editore"));
+				libro.setAnno(rs.getInt("anno"));
+				libro.setFile(rs.getString("file"));
+				libro.setGenere(rs.getString("genere"));
+				libro.setSottogenere(rs.getString("sottogenere"));
+				libro.setSinossi(rs.getString("sinossi"));
+				libro.setImage(rs.getString("image"));
+				libro.setVoto(rs.getInt("voto"));
+				libro.setNumeroVoti(rs.getInt("numerovoti"));
+				libro.setApprovato(rs.getBoolean("approvato"));
+				libro.setUtente(rs.getString("utente"));
+				
+				return libro;
+			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -137,23 +155,10 @@ public class LibroDAOJDBC implements LibroDAO {
 			conn = dbSource.getConnection();
 			
 
-			String query = "update libro set titolo=?, editore=?, autore=?, anno=?, "
-							+ "file=?, genere=?, sottogenere=?, sinossi=?, image=?, voto=?, "
-							+ "numerovoti=?, approvato=?, utente=? where isbn=?";
+			String query = "update libro set approvato=? where isbn=?";
 			PreparedStatement statement = conn.prepareStatement(query);
-			statement.setString(1, libro.getTitolo());
-			statement.setString(2, libro.getAutore());
-			statement.setString(3, libro.getEditore());
-			statement.setInt(4, libro.getAnno());
-			statement.setString(5, libro.getFile());
-			statement.setString(6, libro.getGenere());
-			statement.setString(7, libro.getSottogenere());
-			statement.setString(8, libro.getSinossi());
-			statement.setString(10, libro.getImage());
-			statement.setInt(11, libro.getVoto());
-			statement.setInt(12, libro.getNumeroVoti());
-			statement.setBoolean(13, libro.getApprovato());
-			statement.setString(14, libro.getUtente());
+			statement.setBoolean(1, libro.getApprovato());
+			statement.setString(2, libro.getIsbn());
 			
 			ResultSet result = statement.executeQuery();
 			
