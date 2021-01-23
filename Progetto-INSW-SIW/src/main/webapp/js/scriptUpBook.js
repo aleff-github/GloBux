@@ -20,27 +20,52 @@ $(function () {
 });
 
 /* change color select */
-function changeColorSelect(node){
+function changeColorSelect(node) {
     node.setAttribute('style', 'color:#fff');
-    console.log(node)
 }
 
 var categoria = document.getElementById('categoria').textContent;
-ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria;
-$(document).ready(function () {
-    $.ajax(
-        {
-            'url': ricerca,
-            'method': 'GET',
-            'success': function (risposta) {
-                riempiScaffali(risposta.items);
-            },
-            'error': function () {
-                alert('errore!');
+window.onload = initialize;
+
+function initialize() {
+    ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex=0&maxResults=10';
+    $(document).ready(function () {
+        $.ajax(
+            {
+                'url': ricerca,
+                'method': 'GET',
+                'success': function (risposta) {
+                    riempiScaffali(risposta.items);
+                },
+                'error': function () {
+                    alert('Non sono disponibili altri libri!');
+                }
             }
-        }
-    );
-});
+        );
+    });
+}
+
+function altriRisultati(categoria) {
+    var index = document.getElementById("index").value;
+    var max_index = parseInt(index) + 10;
+    ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + categoria + '&startIndex='+index+'&maxResults='+max_index;
+    $(document).ready(function () {
+        $.ajax(
+            {
+                'url': ricerca,
+                'method': 'GET',
+                'success': function (risposta) {
+                    console.log(risposta)
+                    riempiScaffali(risposta.items);
+                },
+                'error': function () {
+                    alert('Non sono disponibili altri libri!');
+                }
+            }
+        );
+    });
+    document.getElementById("index").value = parseInt(index) + 10;
+}
 
 function riempiScaffali(risposta) {
     var libri = [];

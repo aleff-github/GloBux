@@ -105,7 +105,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <div class="albums-slideshow owl-carousel">
+                            <div class="albums-slideshow owl-carousel carouselIndex" >
                                 <c:forEach items="${libri}" var="item">
                                     <!-- Single Album -->
                                     <div class="single-album">

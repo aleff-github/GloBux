@@ -75,24 +75,7 @@
 						<h3 class="info-book">Genere: <strong id="genere">${libro.genere}</strong></h3>
 						<h3 class="info-book">Sottogenere: <strong id="sottogenere">${libro.sottogenere}</strong></h3>
 						<br>
-						<c:if test="${libro.voto >= 4}">
-							<h4 class="info-book stars-book">Valutazione Utenti: <strong
-									style="color: green">${libro.voto}</strong>/5</h4>
-						</c:if>
-
-						<c:if test="${libro.voto < 4 && libro.voto >= 3}">
-							<h4 class="info-book stars-book">Valutazione Utenti: <strong>${libro.voto}</strong>/5</h4>
-						</c:if>
-
-						<c:if test="${libro.voto < 3}">
-							<h4 class="info-book stars-book">Valutazione Utenti: <strong
-									style="color: red">${libro.voto}</strong>/5</h4>
-						</c:if>
-
-						<c:if test="${id == false}">
-							<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red"
-									id="valutazione">${libro.voto}</strong>/5</h4>
-						</c:if>
+							<h4 class="info-book stars-book">Valutazione Utenti: ${votazione}/5</h4>
 
 					</section>
 
@@ -128,10 +111,6 @@
 							<nobr>Leggi</nobr>
 						</a>
 					</c:if>
-					<a href="#valuta" class="btn-option-book btn-vlt">
-						<i class="fas fa-star"></i>
-						<nobr>Valuta</nobr>
-					</a>
 
 				</div>
 
@@ -219,31 +198,31 @@
 
 
 			<!-- ################# START RATING ################## -->
-			<a id="valuta">
-				<div style="background: var(--color-bg); text-align: center; ">
-					<h3 class="title-book" style="margin: 0">Valuta questo ebook</h3>
-					<p class="info-book" style="margin: 0">Fai sapere agli altri la tua opinione</p>
-					<form action="?isbn=${libro.isbn}/voto">
-						<div class="rating">
-							<input type="radio" name="voto" value="5" id="5" required>
-							<label for="5">☆</label>
-							<input type="radio" name="voto" value="4" id="4">
-							<label for="4">☆</label>
-							<input type="radio" name="voto" value="3" id="3">
-							<label for="3">☆</label>
-							<input type="radio" name="voto" value="2" id="2">
-							<label for="2">☆</label>
-							<input type="radio" name="voto" value="1" id="1">
-							<label for="1">☆</label>
-						</div>
-
-						<button type="submit" class="btn mb-4">
-							Vota
-						</button>
-
-					</form>
-				</div>
-			</a>
+			<c:if test="${id != false}">
+				<a id="valuta">
+					<div style="background: var(--color-bg); text-align: center; ">
+						<h3 class="title-book" style="margin: 0">Valuta questo ebook</h3>
+						<p class="info-book" style="margin: 0">Fai sapere agli altri la tua opinione</p>
+						<form action="/votaLibro?voto">
+							<div class="rating">
+								<input type="radio" name="voto" value="5" id="5" required>
+								<label for="5">☆</label>
+								<input type="radio" name="voto" value="4" id="4">
+								<label for="4">☆</label>
+								<input type="radio" name="voto" value="3" id="3">
+								<label for="3">☆</label>
+								<input type="radio" name="voto" value="2" id="2">
+								<label for="2">☆</label>
+								<input type="radio" name="voto" value="1" id="1">
+								<label for="1">☆</label>
+							</div>
+							<button type="submit" class="btn mb-4">
+								Vota
+							</button>
+						</form>
+					</div>
+				</a>
+			</c:if>
 			<!-- ################# END RATING ################## -->
 
 			<jsp:include page="partials/index/footer.jsp" />
