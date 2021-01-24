@@ -16,24 +16,7 @@ function altriRisultati(){
     document.getElementById('id').value = index + 10;
 }
 
-function chiamaAPI(param, action, index){
-    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param + '&startIndex=' +  index + '&maxResults=10';
-    $(document).ready(function () {
-        $.ajax(
-            {
-                'url': url,
-                'method': 'GET',
-                'success': function (risposta) {
-                    action(risposta.items);
-                },
-                'error': function () {
-                    alert('Non sono disponibili altri libri!');
-                }
-            }
-        );
-    });
 
-}
 
 function ricercaPerId(){
     var idVar = document.getElementById('id');
@@ -172,7 +155,7 @@ function creaCarosello(carousel){
                 items: 1
             },
             400: {
-                items: 3,
+                items: 2,
                 margin: 15
             },
             768: {

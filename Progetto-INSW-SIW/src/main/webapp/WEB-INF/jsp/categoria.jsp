@@ -157,7 +157,7 @@
             <!-- Active js -->
             <script src="js/active.js"></script>
             <!-- Active js -->
-            <script src="js/scriptUpBook.js"></script>
+            <script src="js/categoria.js"></script>
         </body>
 
         </html>

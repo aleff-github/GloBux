@@ -58,6 +58,7 @@ iframe{
     padding: 10px;
     color: lightgray;
     outline: none;
+    cursor: pointer;
 }
 
 @media (min-width: 996px){
@@ -116,7 +117,7 @@ iframe{
 	<main class="container-main-book">
 	
 	<div class="bar-function">
-		<h1>Titolo</h1>
+		<h1>${titolo}</h1>
 		
 		<button type="button" onclick="invertColor()">
 			<i class="fas fa-adjust"></i>
@@ -124,7 +125,7 @@ iframe{
 	
 	</div>
 		
-	<iframe id="content-2" src="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/uno-studio-in-rosso.pdf#toolbar=0" class="">
+	<iframe id="content-2" src="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${file}#toolbar=0" class="">
 		
     </iframe>
 	
