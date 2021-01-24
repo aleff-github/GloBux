@@ -48,7 +48,7 @@ public class Libro {
 	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
 		
 		if(session.getAttribute("loggato") == null)
-			return "index";
+			return getIndex(session);
 		
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
@@ -115,7 +115,12 @@ public class Libro {
 	}
 
 
-
+	public String getIndex(HttpSession session) {
+		//Per il carosello
+	    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+		session.setAttribute("libri", libri);
+		return "index";
+	}
 
 
 
