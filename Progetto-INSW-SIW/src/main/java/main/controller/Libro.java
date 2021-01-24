@@ -46,7 +46,10 @@ public class Libro {
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
 	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
-
+		
+		if(session.getAttribute("loggato") == null)
+			return "index";
+		
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
