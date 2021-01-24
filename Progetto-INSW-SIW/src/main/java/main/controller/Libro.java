@@ -51,7 +51,8 @@ public class Libro {
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
 		session.setAttribute("id", null);
-
+		session.setAttribute("votazione", null);
+		
 		if(libro == null)
 			session.setAttribute("id", isbn);
 		else {

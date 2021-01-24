@@ -75,7 +75,13 @@
 						<h3 class="info-book">Genere: <strong id="genere">${libro.genere}</strong></h3>
 						<h3 class="info-book">Sottogenere: <strong id="sottogenere">${libro.sottogenere}</strong></h3>
 						<br>
+						<c:if test="${votazione != null}">
 							<h4 class="info-book stars-book">Valutazione Utenti: ${votazione}/5</h4>
+						</c:if>
+						<c:if test="${id == false}">
+							<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red"
+									id="valutazione">${libro.voto}</strong>/5</h4>
+						</c:if>
 
 					</section>
 
