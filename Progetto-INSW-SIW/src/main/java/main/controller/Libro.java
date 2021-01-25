@@ -83,7 +83,6 @@ public class Libro {
 		// controlliamo se il libro è presente tra i preferiti dell'utente
 		if(this.esisteInLibreriaUtente(isbn, (String)session.getAttribute("username"))) {
 			model.addAttribute("preferito", true);
-			System.out.println("preferiti");
 		}
 			
 			
@@ -139,8 +138,6 @@ public class Libro {
 	
 	private boolean esisteInLibreriaUtente(String isbn, String username) {
 		
-		System.out.println("isbn: " + isbn);
-		System.out.println("usernaem: " + username);
 		
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		List<LibroDTO> libreria = lDao.findAllByUser(username);
