@@ -105,7 +105,7 @@
 					</c:if>
 
 					<c:if test="${libro.file != null && id != false}">
-						<a href="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${libro.file}" target="_blank"
+						<a href="/leggiLibro?titolo=${libro.titolo}&file=${libro.file}" target="_blank"
 							class="btn-option-book btn-read">
 							<i class="fas fa-book-open"></i>
 							<nobr>Leggi</nobr>

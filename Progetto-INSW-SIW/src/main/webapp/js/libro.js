@@ -35,7 +35,6 @@ function chiamaAPI(param, action, index){
         );
     });
 
-}
 
 function ricercaPerId(){
     var idVar = document.getElementById('id');
@@ -174,7 +173,7 @@ function creaCarosello(carousel){
                 items: 1
             },
             400: {
-                items: 3,
+                items: 2,
                 margin: 15
             },
             768: {

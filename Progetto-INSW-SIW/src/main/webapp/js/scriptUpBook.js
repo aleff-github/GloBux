@@ -190,5 +190,3 @@ function riempiLibreria(libriAPI){
 
 
 recuperaLibri();
-
-
