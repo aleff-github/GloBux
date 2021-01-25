@@ -1,4 +1,4 @@
-//window.onload = initialize;
+window.onload = initialize;
 
 function initialize(){
     ricercaPerId();
@@ -27,7 +27,7 @@ function chiamaAPI(param, action, index){
                     action(risposta.items);
                 },
                 'error': function () {
-                    //alert('Non sono disponibili altri libri!');
+                    alert('Non sono disponibili altri libri!');
                 }
             }
         );

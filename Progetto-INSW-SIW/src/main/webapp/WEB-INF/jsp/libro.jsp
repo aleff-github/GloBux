@@ -88,7 +88,7 @@
 					<c:if test="${preferito != true}">
 						<form action="addLibro" method="POST">
 			            	<div class="event-text">
-			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value=${libro.isbn } hidden="true"></input>
+			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
 			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
 			                </div>
 			                <button class="btn-option-book btn-pr" type="submit">
@@ -100,7 +100,7 @@
 					<c:if test="${preferito == true}">
 						<form action="deleteLibro" method="POST">
 			            	<div class="event-text">
-			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value=${libro.isbn } hidden="true"></input>
+			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
 			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
 			                </div>
 			                <button class="btn-option-book btn-pr" type="submit">
