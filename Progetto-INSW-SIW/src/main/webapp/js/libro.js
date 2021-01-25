@@ -1,4 +1,4 @@
-window.onload = initialize;
+//window.onload = initialize;
 
 function initialize(){
     ricercaPerId();
@@ -18,16 +18,18 @@ function altriRisultati(){
 
 function chiamaAPI(param, action, index){
     url = 'https://www.googleapis.com/books/v1/volumes?q=' + param + '&startIndex=' +  index + '&maxResults=10';
+    console.log(url);
     $(document).ready(function () {
         $.ajax(
             {
                 'url': url,
                 'method': 'GET',
                 'success': function (risposta) {
+                    console.log(risposta)
                     action(risposta.items);
                 },
                 'error': function () {
-                    alert('Non sono disponibili altri libri!');
+                    //alert('Non sono disponibili altri libri!');
                 }
             }
         );

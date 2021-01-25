@@ -78,24 +78,19 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 	}
 	
 	@Override
-	public List<LibroDTO> findAllByUser(String idlibreria){
+	public List<String> findAllByUser(String idlibreria){
 		Connection connection = null;
-		List<LibroDTO> libreriaList = new LinkedList<>();
+		List<String> libreriaList = new LinkedList<>();
 		try {
 			connection = dbSource.getConnection();
-			LibroDTO libro;
-			String query = "select * from librolibreria l2 join libro l3 on l3.isbn = l2.libro and l2.idlibreria =?";
+			String query = "select libro from librolibreria where idlibreria =?";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, idlibreria);
 			ResultSet result = statement.executeQuery();
 			
 			while (result.next()) {
-				libro = new LibroDTO();
-				libro.setIsbn(result.getString("isbn"));
-				libro.setTitolo(result.getString("titolo"));
-				libro.setAutore(result.getString("autore"));
 				
-				libreriaList.add(libro);
+				libreriaList.add(result.getString("libro"));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -119,6 +114,29 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libreria.getLibro());
 			statement.setString(2, libreria.getIdLibreria());
+			statement.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
+
+	}
+	
+	public void add(String libro, String utente) {
+		Connection conn = null;
+		try {
+			conn = dbSource.getConnection();
+			String query = "INSERT INTO librolibreria (idlibreria, libro)"
+					+ "VALUES (?, ?)";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, utente);
+			statement.setString(2, libro);
 			statement.executeUpdate();
 			
 		}catch (SQLException e) {
