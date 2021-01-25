@@ -1,13 +1,14 @@
 package persistence.dao.jdbc;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import model.LibroDTO;
 import persistence.DBSource;
@@ -317,5 +318,28 @@ public class LibroDAOJDBC implements LibroDAO {
 				} catch (SQLException e) {/**/}
 			}
 		}
+	}
+	
+	@Override
+	public List<LibroDTO> ricerca(String ricerca) {
+		Connection conn = null;
+		List<LibroDTO> libri = new ArrayList<>();
+		try {
+			conn = dbSource.getConnection();
+			String query = "SELECT * FROM libro where titolo like '%"+ricerca+"%'";
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			libri = effettuaSelezione(rs, true);
+		} catch (SQLException e) {
+			e.printStackTrace(); 
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
+		
+		return libri;
 	}
 }

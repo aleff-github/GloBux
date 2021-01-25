@@ -26,14 +26,20 @@ public class Libreria {
 		return "libreria";
 	}
 	
-	@PostMapping("/deleteLibro")
-	public String deleteLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
-		LibreriaDTO lib = new LibreriaDTO();
-		lib.setIdLibreria(libreria);
-		lib.setLibro(libro);
+	  @PostMapping("/deleteLibro")
+	  public String deleteLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
+		  LibreriaDTO lib = new LibreriaDTO();
+		  lib.setIdLibreria(libreria);
+		  lib.setLibro(libro);
+		  LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
+		  lDao.delete(lib);
+		  return getLibreria(session);
+	  }
+	
+	@PostMapping("/addLibro")
+	public String addLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
-		lDao.delete(lib);
+		lDao.add(libro, libreria);
 		return getLibreria(session);
 	}
-	
 }

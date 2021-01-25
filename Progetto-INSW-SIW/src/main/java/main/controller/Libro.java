@@ -32,7 +32,10 @@ public class Libro {
 		return "caricaLibro";
 	}
 	@GetMapping("/leggiLibro")
-	public String readBook() {
+	public String readBook(@RequestParam String file, @RequestParam String titolo, HttpSession session) {
+		
+		session.setAttribute("file", file);
+		session.setAttribute("titolo", titolo);
 		return "leggiLibro";
 	}
 	
@@ -46,12 +49,16 @@ public class Libro {
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
 	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
-
+		
+		if(session.getAttribute("loggato") == null)
+			return getIndex(session);
+		
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
 		session.setAttribute("id", null);
-
+		session.setAttribute("votazione", null);
+		
 		if(libro == null)
 			session.setAttribute("id", isbn);
 		else {
@@ -111,7 +118,12 @@ public class Libro {
 	}
 
 
-
+	public String getIndex(HttpSession session) {
+		//Per il carosello
+	    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+		session.setAttribute("libri", libri);
+		return "index";
+	}
 
 
 

@@ -1,5 +1,7 @@
 package main.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import model.LibroDTO;
 import model.UtenteDTO;
 import persistence.DBManager;
 import persistence.dao.UtenteDAO;
@@ -37,7 +40,7 @@ public class Login {
 		    session.setAttribute("loggato", true);
 		    session.setAttribute("username", utente.getUsername());
 		    
-		    return "index";
+		    return getIndex(session);
 		}
 		else {
 			 return "login";
@@ -51,6 +54,14 @@ public class Login {
 	    session.setAttribute("email", null);
 	    session.setAttribute("loggato", null);
 	    session.setAttribute("username", null);
+	    
+		return getIndex(session);
+	}
+	
+	public String getIndex(HttpSession session) {
+		//Per il carosello
+	    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+		session.setAttribute("libri", libri);
 		return "index";
 	}
 	

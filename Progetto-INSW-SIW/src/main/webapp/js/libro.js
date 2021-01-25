@@ -1,4 +1,4 @@
-window.onload = initialize;
+//window.onload = initialize;
 
 function initialize(){
     ricercaPerId();
@@ -27,12 +27,11 @@ function chiamaAPI(param, action, index){
                     action(risposta.items);
                 },
                 'error': function () {
-                    alert('Non sono disponibili altri libri!');
+                    //alert('Non sono disponibili altri libri!');
                 }
             }
         );
     });
-
 }
 
 function ricercaPerId(){
@@ -172,7 +171,7 @@ function creaCarosello(carousel){
                 items: 1
             },
             400: {
-                items: 3,
+                items: 2,
                 margin: 15
             },
             768: {

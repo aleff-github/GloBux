@@ -85,11 +85,17 @@
 
 				<div class="bar-options">
 
-					<c:if test="${preferito == false}">
-						<button class="btn-option-book btn-pr">
-							<i class="fas fa-plus"></i>
-							<nobr>Aggiungi ai preferiti</nobr>
-						</button>
+					<c:if test="${preferito != true}">
+						<form action="addLibro" method="POST">
+			            	<div class="event-text">
+			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value=${libro.isbn } hidden="true"></input>
+			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
+			                </div>
+			                <button class="btn-option-book btn-pr" type="submit">
+								<i class="fas fa-plus"></i>
+								<nobr>Aggiungi ai preferiti</nobr>
+							</button>
+						</form>
 					</c:if>
 					<c:if test="${preferito == true}">
 						<button class="btn-option-book btn-pr">
