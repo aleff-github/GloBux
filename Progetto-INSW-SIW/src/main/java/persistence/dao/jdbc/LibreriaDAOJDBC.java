@@ -89,6 +89,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 				libro.setIsbn(result.getString("isbn"));
 				libro.setTitolo(result.getString("titolo"));
 				libro.setAutore(result.getString("autore"));
+				libro.setImage(result.getString("image"));
 	      
 				libreriaList.add(libro);
 			}

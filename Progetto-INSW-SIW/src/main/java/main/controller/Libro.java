@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
+import model.LibreriaDTO;
 import model.LibroDTO;
 import persistence.DBManager;
+import persistence.dao.LibreriaDAO;
 import s3.ServiceAmazonS3;
 
 @Controller
@@ -78,7 +80,14 @@ public class Libro {
 			session.setAttribute("isbn", libro.getIsbn());
 		}
 		
-
+		// controlliamo se il libro è presente tra i preferiti dell'utente
+		if(this.esisteInLibreriaUtente(isbn, (String)session.getAttribute("username"))) {
+			model.addAttribute("preferito", true);
+		}
+			
+			
+			
+		
 		return "libro";
 	}
 
@@ -125,6 +134,22 @@ public class Libro {
 		return "index";
 	}
 
+	
+	
+	private boolean esisteInLibreriaUtente(String isbn, String username) {
+		
+		
+		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
+		List<LibroDTO> libreria = lDao.findAllByUser(username);
+		
+		for(LibroDTO libro : libreria) {
+			if(libro.getIsbn().equals(isbn))
+				return true;
+		}
+		
+		return false;
+	}
+	
 
 
 

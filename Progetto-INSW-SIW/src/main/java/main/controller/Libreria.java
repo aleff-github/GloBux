@@ -21,7 +21,7 @@ public class Libreria {
 	public String getLibreria(HttpSession session) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		List<LibroDTO> lib = lDao.findAllByUser((String) session.getAttribute("username"));
-
+		
 		session.setAttribute("listaLibri", lib);
 		return "libreria";
 	}
