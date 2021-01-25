@@ -10,7 +10,7 @@ public interface LibreriaDAO {
 	public void save(LibreriaDTO libreria);		
 	public LibreriaDTO findByPrimaryKey(String idlibreria);	
 	public void delete(LibreriaDTO libreria);	
-	public List<String> findAllByUser(String idlibreria);
+	public List<LibroDTO> findAllByUser(String idlibreria);
 
 	public void add(String libro, String utente);
 	

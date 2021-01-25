@@ -100,7 +100,7 @@
 	 	</a>
 	 
 	    <!-- Musica -->
-	    <a href="/categoria?cat=Classico">
+	    <a href="/categoria?cat=Musica">
 	       	<div class="cnt-img">
 	           	<img src="img/categories/musica.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
 	        </div>

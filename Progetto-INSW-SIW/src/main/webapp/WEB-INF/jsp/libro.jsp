@@ -75,13 +75,7 @@
 						<h3 class="info-book">Genere: <strong id="genere">${libro.genere}</strong></h3>
 						<h3 class="info-book">Sottogenere: <strong id="sottogenere">${libro.sottogenere}</strong></h3>
 						<br>
-						<c:if test="${votazione != null}">
 							<h4 class="info-book stars-book">Valutazione Utenti: ${votazione}/5</h4>
-						</c:if>
-						<c:if test="${id == false}">
-							<h4 class="info-book stars-book">Valutazione Utenti: <strong style="color: red"
-									id="valutazione">${libro.voto}</strong>/5</h4>
-						</c:if>
 
 					</section>
 
@@ -94,8 +88,8 @@
 					<c:if test="${preferito != true}">
 						<form action="addLibro" method="POST">
 			            	<div class="event-text">
-			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
-			                    <input type="text" id="libreria" name="libreria" value="${username }" class="event-place" hidden="true"></input>
+			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value=${libro.isbn } hidden="true"></input>
+			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
 			                </div>
 			                <button class="btn-option-book btn-pr" type="submit">
 								<i class="fas fa-plus"></i>
@@ -111,7 +105,7 @@
 					</c:if>
 
 					<c:if test="${libro.file != null && id != false}">
-						<a href="/leggiLibro?titolo=${libro.titolo}&file=${libro.file}" target="_blank"
+						<a href="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${libro.file}" target="_blank"
 							class="btn-option-book btn-read">
 							<i class="fas fa-book-open"></i>
 							<nobr>Leggi</nobr>

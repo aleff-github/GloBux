@@ -1,6 +1,5 @@
 package persistence.dao.jdbc;
 
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,12 +7,8 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.LibroDTO;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import model.LibreriaDTO;
+import model.LibroDTO;
 import persistence.DBSource;
 import persistence.dao.LibreriaDAO;
 
@@ -78,19 +73,24 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 	}
 	
 	@Override
-	public List<String> findAllByUser(String idlibreria){
+	public List<LibroDTO> findAllByUser(String idlibreria){
 		Connection connection = null;
-		List<String> libreriaList = new LinkedList<>();
+		List<LibroDTO> libreriaList = new LinkedList<>();
 		try {
 			connection = dbSource.getConnection();
-			String query = "select libro from librolibreria where idlibreria =?";
+			LibroDTO libro;
+			String query = "select * from librolibreria l2 join libro l3 on l3.isbn = l2.libro and l2.idlibreria =?";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, idlibreria);
 			ResultSet result = statement.executeQuery();
-			
+	    
 			while (result.next()) {
-				
-				libreriaList.add(result.getString("libro"));
+				libro = new LibroDTO();
+				libro.setIsbn(result.getString("isbn"));
+				libro.setTitolo(result.getString("titolo"));
+				libro.setAutore(result.getString("autore"));
+	      
+				libreriaList.add(libro);
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -102,7 +102,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 				} catch (SQLException e) {/**/}
 			}
 		}
-		return libreriaList;
+	  return libreriaList;
 	}
 
 
@@ -128,6 +128,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 
 	}
 	
+	@Override
 	public void add(String libro, String utente) {
 		Connection conn = null;
 		try {
