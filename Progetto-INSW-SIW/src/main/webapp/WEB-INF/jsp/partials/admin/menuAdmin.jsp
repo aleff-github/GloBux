@@ -31,6 +31,7 @@
                                 <ul>
                                     <li><a href="categorie">Categorie</a></li>
                                     <li><a href="news">Novità</a></li>
+                                    <li><a href="gestisci-news">Gestisci News</a></li>
                                     <li><a href="caricaLibro">Carica libro</a></li>
                                     <li><a href="approva-libri">Approva Libri</a></li>
                                     <li><a href="libreria">Libreria</a></li>

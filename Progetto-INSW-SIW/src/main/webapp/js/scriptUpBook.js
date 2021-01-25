@@ -106,87 +106,72 @@ function caricaLibri(libri) {
 
 
 
+// function sleep(s){
+//     var now = new Date().getTime();
+//     while(new Date().getTime() < now + (s*1000)){
+//          /* non faccio niente */ 
+//     }
+// }
 
 
 
-
-
-
-
-
-function sleep(s){
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + (s*1000)){
-         /* non faccio niente */ 
-    }
-}
-
-
-var r = new Response();
-console.log(r);
-
-
-function recuperaLibri(){
+// function recuperaLibri(){
     
-    var listaId = document.getElementsByClassName('listaId');
+//     var listaId = document.getElementsByClassName('listaId');
     
-    if(listaId != null || listaId != undefined ){
+//     if(listaId != null || listaId != undefined ){
         
-        Array.from(listaId).forEach(item => {
-            var param = item.value;
-            console.log(param);
-            chiamaAPI(param, riempiLibreria, 0);
-            sleep(2);
-        })
+//         Array.from(listaId).forEach(item => {
+//             var param = item.value;
+//             chiamaAPI(param, riempiLibreria, 0);
+//             sleep(2);
+//         })
         
-    }
+//     }
     
-}
+// }
 
 
 
-function riempiLibreria(libriAPI){
-    console.log(libriAPI);
-    scaffale = document.getElementById('scaffaleLibreria');
-    
-    
+// function riempiLibreria(libriAPI){
+//     scaffale = document.getElementById('scaffaleLibreria');
 
-    Array.from(libriAPI).forEach(item => {
-        var libro = {
-            titolo: item.volumeInfo.title ? item.volumeInfo.title : "Titolo non disponibile",
-            genere: item.volumeInfo.categories ? item.volumeInfo.categories : "Genere non disponibile",
-            immagine:  item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "https://glo-2020.s3.eu-central-1.amazonaws.com/image/imageNotFound.png",
-            autore: item.volumeInfo.authors ? item.volumeInfo.authors : "Autore non disponibile",
-            id: item.id,
-        }
+//     Array.from(libriAPI).forEach(item => {
+//         var libro = {
+//             titolo: item.volumeInfo.title ? item.volumeInfo.title : "Titolo non disponibile",
+//             genere: item.volumeInfo.categories ? item.volumeInfo.categories : "Genere non disponibile",
+//             immagine:  item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "https://glo-2020.s3.eu-central-1.amazonaws.com/image/imageNotFound.png",
+//             autore: item.volumeInfo.authors ? item.volumeInfo.authors : "Autore non disponibile",
+//             id: item.id,
+//         }
 
-        scaffale.insertAdjacentHTML('beforeend',
-            `<div  class="cnt-approva">
-	            <div class="cnt-approva-first">
-	                <a href="/libro?isbn=${libro.id}">
-	                    <img src="${libro.immagine}" alt="#" style="border-radius: 10px 10px 10px 10px;">
-	                </a>
-	                <div class="libro-info">
-	                    <h4>${libro.titolo}</h4>
-	                    <h6>${libro.autore}</h6>
-	                </div>
-	            </div>
-	            <div class="libro-action">
-	                <a href="/approva?isbn=${libro.id}" ><i class="far fa-check-circle"></i></a>
-	                <a href="/non-approvare?isbn=${libro.id}"><i class="far fa-trash-alt"></i></a>         
-	            </div>
-	        </div>
+//         scaffale.insertAdjacentHTML('beforeend',
+//             `<div  class="cnt-approva">
+// 	            <div class="cnt-approva-first">
+// 	                <a href="/libro?isbn=${libro.id}">
+// 	                    <img src="${libro.immagine}" alt="#" style="border-radius: 10px 10px 10px 10px;">
+// 	                </a>
+// 	                <div class="libro-info">
+// 	                    <h4>${libro.titolo}</h4>
+// 	                    <h6>${libro.autore}</h6>
+// 	                </div>
+// 	            </div>
+// 	            <div class="libro-action">
+// 	                <a href="/approva?isbn=${libro.id}" ><i class="far fa-check-circle"></i></a>
+// 	                <a href="/non-approvare?isbn=${libro.id}"><i class="far fa-trash-alt"></i></a>         
+// 	            </div>
+// 	        </div>
 	
-	        <span class="line-hor"></span>`)
+// 	        <span class="line-hor"></span>`)
 
         
-    })
+//     })
 
 
-    //creaCarosello($('.carouselAutore'));
+//     //creaCarosello($('.carouselAutore'));
 
-}
+// }
 
 
 
-recuperaLibri();
+// recuperaLibri();

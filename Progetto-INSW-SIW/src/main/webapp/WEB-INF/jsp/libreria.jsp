@@ -83,24 +83,11 @@
 	    </c:forEach>
 	</section>
 
-	
-	
-	
-	
-	
-	
-	
-	
 	<c:forEach items="${listaId}" var="item">
 	
 		<input class="listaId" value=${item } hidden="true"></input>
 	
 	</c:forEach>
-	
-	
-	
-	
-	
 	
    
     <jsp:include page="partials/index/footer.jsp" />
