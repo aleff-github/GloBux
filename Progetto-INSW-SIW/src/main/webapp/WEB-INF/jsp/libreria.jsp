@@ -18,12 +18,18 @@
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
+   
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleBook.css">
+    <link rel="stylesheet" href="css/styleUpBook.css">
+    
+     <!-- Icon search -->
+     <script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
 
 </head>
 
-<body>
+<body style="background-color: ">
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="lds-ellipsis">
@@ -54,38 +60,48 @@
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
-	<!-- CARDS AREA START  -->
-		<c:forEach items="${listaLibri}" var="item">
-        <!-- Single Post Start -->
-           <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-          <!-- Post Thumb -->
-          	<div class="col-12 col-md-6 col-lg-4">
-	        	<div class="single-event-area mb-30">
-    	        	<div class="event-thumbnail">
-        	        	<img src="img/9780786102563.jpg" alt="">
-                	</div>
-                	<form action="deleteLibro" method="POST">
-	                	<div class="event-text">
-	            	    	<h4>Divina Commedia</h4>
-	                    	<div class="event-meta-data">
-	                	    	<a href="#" class="event-place">${item.autore }</a>
-	                        	<a href="#" class="event-place">${item.isbn}</a>
-                   				<a href="#" class="event-place">${item.titolo}</a>
-	                        	<input type="text" id="libro" name="libro" class="event-date" class="event-place" value=${item.isbn } hidden="true"></input>
-	                        	<input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
-	                    	</div>
-	                    	<button class="btn see-more-btn" type="submit" >Elimina libro</button>
-	                	</div>
-	             	</form>
-             	</div>
-         	</div>-
-               <div class="blog-post-thumb mt-30">
-                   
-                   
-        			
-               </div>
-           </div>
-		</c:forEach>
+	<section class="container-libri" id="scaffaleLibreria" style="margin-top: 80px;">
+	    <c:forEach items="${listaLibri}" var="item">
+	        <div  class="cnt-approva">
+	            <div class="cnt-approva-first">
+	                <a href="/libro?isbn=${item.isbn}">
+	                    <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}" alt="#" style="border-radius: 10px 10px 10px 10px;">
+	                </a>
+	                <div class="libro-info">
+	                    <h4>${item.titolo}</h4>
+	                    <h6>${item.autore}</h6>
+	                </div>
+	            </div>
+	            <div class="libro-action">
+	                <a href="/approva?isbn=${item.isbn}" ><i class="far fa-check-circle"></i></a>
+	                <a href="/non-approvare?isbn=${item.isbn}"><i class="far fa-trash-alt"></i></a>         
+	            </div>
+	        </div>
+	
+	        <span class="line-hor"></span>
+	
+	    </c:forEach>
+	</section>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	<c:forEach items="${listaId}" var="item">
+	
+		<input class="listaId" value=${item } hidden="true"></input>
+	
+	</c:forEach>
+	
+	
+	
+	
+	
+	
    
     <jsp:include page="partials/index/footer.jsp" />
 
@@ -100,6 +116,10 @@
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+	<!-- Libro js -->
+	<script src="js/libro.js"></script>
+    <!-- Active js -->
+    <script src="js/scriptUpBook.js"></script>
 </body>
 
 </html>

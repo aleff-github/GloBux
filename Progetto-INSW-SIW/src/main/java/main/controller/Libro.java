@@ -32,7 +32,10 @@ public class Libro {
 		return "caricaLibro";
 	}
 	@GetMapping("/leggiLibro")
-	public String readBook() {
+	public String readBook(@RequestParam String file, @RequestParam String titolo, HttpSession session) {
+		
+		session.setAttribute("file", file);
+		session.setAttribute("titolo", titolo);
 		return "leggiLibro";
 	}
 	
