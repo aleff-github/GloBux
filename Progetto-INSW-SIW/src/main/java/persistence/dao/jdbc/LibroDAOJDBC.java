@@ -295,6 +295,7 @@ public class LibroDAOJDBC implements LibroDAO {
 		return libri;
 	}
 	
+	
 	@Override
 	public void updateVoto(String isbn, Integer voto, Integer numeroVoti, Integer votazioni) {
 		Connection conn = null;

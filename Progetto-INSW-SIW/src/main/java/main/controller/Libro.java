@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
-import model.LibreriaDTO;
 import model.LibroDTO;
 import persistence.DBManager;
 import persistence.dao.LibreriaDAO;
+import persistence.dao.LibroDAO;
 import s3.ServiceAmazonS3;
 
 @Controller
@@ -136,7 +136,7 @@ public class Libro {
 
 	
 	
-	private boolean esisteInLibreriaUtente(String isbn, String username) {
+	public boolean esisteInLibreriaUtente(String isbn, String username) {
 		
 		
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
@@ -149,8 +149,4 @@ public class Libro {
 		
 		return false;
 	}
-	
-
-
-
 }
