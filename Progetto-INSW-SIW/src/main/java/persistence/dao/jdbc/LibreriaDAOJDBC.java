@@ -1,6 +1,5 @@
 package persistence.dao.jdbc;
 
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,12 +7,8 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.LibroDTO;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import model.LibreriaDTO;
+import model.LibroDTO;
 import persistence.DBSource;
 import persistence.dao.LibreriaDAO;
 
@@ -88,13 +83,14 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, idlibreria);
 			ResultSet result = statement.executeQuery();
-			
+	    
 			while (result.next()) {
 				libro = new LibroDTO();
 				libro.setIsbn(result.getString("isbn"));
 				libro.setTitolo(result.getString("titolo"));
 				libro.setAutore(result.getString("autore"));
-				
+				libro.setImage(result.getString("image"));
+	      
 				libreriaList.add(libro);
 			}
 			connection.close();
@@ -107,7 +103,7 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 				} catch (SQLException e) {/**/}
 			}
 		}
-		return libreriaList;
+	  return libreriaList;
 	}
 
 
@@ -119,6 +115,30 @@ public class LibreriaDAOJDBC implements LibreriaDAO {
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, libreria.getLibro());
 			statement.setString(2, libreria.getIdLibreria());
+			statement.executeUpdate();
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {/**/}
+			}
+		}
+
+	}
+	
+	@Override
+	public void add(String libro, String utente) {
+		Connection conn = null;
+		try {
+			conn = dbSource.getConnection();
+			String query = "INSERT INTO librolibreria (idlibreria, libro)"
+					+ "VALUES (?, ?)";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, utente);
+			statement.setString(2, libro);
 			statement.executeUpdate();
 			
 		}catch (SQLException e) {

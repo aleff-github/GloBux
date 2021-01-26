@@ -77,13 +77,13 @@
                         <!-- Single Contact Info -->
                         <div class="single-contact-info d-flex align-items-center">
                             <i class="fas fa-phone-volume fa-2x" style="padding: 15px;"></i>
-                            <p>+53 345 7953 32453</p>
+                            <p>+39 320 000 0000</p>
                         </div>
 
                         <!-- Single Contact Info -->
                         <div class="single-contact-info d-flex align-items-center">
                             <i class="fas fa-envelope-square fa-2x" style="padding: 15px;"></i>
-                            <p>soundsiw2020@gmail.com</p>
+                            <p>progetto.ingsw.siw@gmail.com</p>
                         </div>
 
                     </div>

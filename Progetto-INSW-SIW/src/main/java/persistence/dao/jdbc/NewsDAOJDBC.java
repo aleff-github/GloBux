@@ -89,6 +89,7 @@ public class NewsDAOJDBC implements NewsDAO {
 			ResultSet result = statement.executeQuery(query);
 			while (result.next()) {
 				news = new NewsDTO();
+				news.setTitolo(result.getString("titolo"));
 				news.setContenuto(result.getString("contenuto"));				
 				news.setData(result.getDate("data"));
 				news.setImmagine(result.getString("immagine"));

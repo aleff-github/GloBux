@@ -1,5 +1,7 @@
 package main.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import model.LibroDTO;
 import model.UtenteDTO;
 import persistence.DBManager;
 import persistence.dao.UtenteDAO;
@@ -28,7 +31,11 @@ public class Registrazione {
 		UtenteDAO uDao = DBManager.getInstance().utenteDAO();
 		if(uDao.findByPrimaryKey(username) != null) {
 			System.out.println("Utente già esistente");
-			return "index";
+			
+			//Per il carosello
+		    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+			session.setAttribute("libri", libri);
+			return getIndex(session);
 		}
 		
 		UtenteDTO utente = new UtenteDTO();
@@ -38,7 +45,16 @@ public class Registrazione {
 		
 		uDao.save(utente);
 		
-		System.out.println("Utente creato!");
+		//Per il carosello
+	    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+		session.setAttribute("libri", libri);
+		return getIndex(session);
+	}
+	
+	public String getIndex(HttpSession session) {
+		//Per il carosello
+	    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+		session.setAttribute("libri", libri);
 		return "index";
 	}
 }

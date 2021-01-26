@@ -11,5 +11,7 @@ public interface LibreriaDAO {
 	public LibreriaDTO findByPrimaryKey(String idlibreria);	
 	public void delete(LibreriaDTO libreria);	
 	public List<LibroDTO> findAllByUser(String idlibreria);
+
+	public void add(String libro, String utente);
 	
 }

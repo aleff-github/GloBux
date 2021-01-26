@@ -1,6 +1,7 @@
 package persistence.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import model.LibroDTO;
 
@@ -17,4 +18,5 @@ public interface LibroDAO {
 	public void updateVoto(String isbn, Integer voto, Integer numeroVoti, Integer votazioni);
 	public List<LibroDTO> findAllNonApprovati();
 	public List<LibroDTO> findAllByUtente(String utente);
+	public List<LibroDTO> ricerca(String ricerca);
 }

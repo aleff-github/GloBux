@@ -24,4 +24,9 @@ public class News {
 		return "news"; 
 	}
 	
+	@GetMapping("/gestisci-news")
+	public String getManageNews(HttpSession session) {
+		return "gestioneNews"; 
+	}
+	
 }

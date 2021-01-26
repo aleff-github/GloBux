@@ -15,6 +15,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import model.LibroDTO;
 import persistence.DBManager;
+import persistence.dao.LibreriaDAO;
+import persistence.dao.LibroDAO;
 import s3.ServiceAmazonS3;
 
 @Controller
@@ -32,7 +34,10 @@ public class Libro {
 		return "caricaLibro";
 	}
 	@GetMapping("/leggiLibro")
-	public String readBook() {
+	public String readBook(@RequestParam String file, @RequestParam String titolo, HttpSession session) {
+		
+		session.setAttribute("file", file);
+		session.setAttribute("titolo", titolo);
 		return "leggiLibro";
 	}
 	
@@ -46,12 +51,16 @@ public class Libro {
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
 	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
-
+		
+		if(session.getAttribute("loggato") == null)
+			return getIndex(session);
+		
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		
 		session.setAttribute("id", null);
-
+		session.setAttribute("votazione", null);
+		
 		if(libro == null)
 			session.setAttribute("id", isbn);
 		else {
@@ -60,11 +69,25 @@ public class Libro {
 			model.addAttribute("libriAutore", libriAutore);
 			model.addAttribute("libriGenere", libriGenere);
 			model.addAttribute("libro", libro);
-			session.setAttribute("votazione", libro.getVoto()/libro.getNumeroVoti());
+			Integer voti = libro.getNumeroVoti();
+			Integer voto = libro.getVoto();
+			if(voti == 0)
+				voti = 1;
+			if(voto == 0)
+				voto = 1;
+			Integer votoFinale = voto/voti;
+			session.setAttribute("votazione", votoFinale);
 			session.setAttribute("isbn", libro.getIsbn());
 		}
 		
-
+		// controlliamo se il libro è presente tra i preferiti dell'utente
+		if(this.esisteInLibreriaUtente(isbn, (String)session.getAttribute("username"))) {
+			model.addAttribute("preferito", true);
+		}
+			
+			
+			
+		
 		return "libro";
 	}
 
@@ -104,9 +127,26 @@ public class Libro {
 	}
 
 
+	public String getIndex(HttpSession session) {
+		//Per il carosello
+	    List<LibroDTO> libri = DBManager.getInstance().libroDAO().findAll();
+		session.setAttribute("libri", libri);
+		return "index";
+	}
 
-
-
-
-
+	
+	
+	public boolean esisteInLibreriaUtente(String isbn, String username) {
+		
+		
+		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
+		List<LibroDTO> libreria = lDao.findAllByUser(username);
+		
+		for(LibroDTO libro : libreria) {
+			if(libro.getIsbn().equals(isbn))
+				return true;
+		}
+		
+		return false;
+	}
 }
