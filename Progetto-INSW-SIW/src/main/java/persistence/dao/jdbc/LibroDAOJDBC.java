@@ -272,16 +272,23 @@ public class LibroDAOJDBC implements LibroDAO {
 	}
 	
 	@Override
-	public List<LibroDTO> findAllByUtente(String utente) {
+	public List<Integer> findAllByUtente(String utente) {
 		Connection conn = null;
-		List<LibroDTO> libri = new ArrayList<>();
+		List<Integer> voti = new ArrayList<>();
+		voti.add(0);
+		voti.add(0);
 		try {
 			conn = dbSource.getConnection();
 			String query = "select * from libro where utente = ?";
 			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, utente);
-			ResultSet rs = statement.executeQuery(query);
-			libri = effettuaSelezione(rs, true);
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()) {
+				if(rs.getBoolean("approvato") == true) {
+					voti.set(0, voti.get(0) + rs.getInt("voto"));
+					voti.set(1, voti.get(1) + rs.getInt("numerovoti"));
+				}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace(); 
 		}finally {
@@ -292,7 +299,7 @@ public class LibroDAOJDBC implements LibroDAO {
 			}
 		}
 		
-		return libri;
+		return voti;
 	}
 	
 	@Override

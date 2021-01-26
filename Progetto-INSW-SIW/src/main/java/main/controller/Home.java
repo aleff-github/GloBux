@@ -30,12 +30,11 @@ public class Home {
 	
 	@GetMapping("/profilo")
 	public String getProfilo(HttpSession session) {
-		UtenteDAO uDao = DBManager.getInstance().utenteDAO();
-		UtenteDTO utente = uDao.findByPrimaryKey(session.getAttribute("username").toString());
-		session.setAttribute("voti", utente.getVoti());
-		session.setAttribute("numVotazioni", utente.getVotazioni());
+		List<Integer> voti = DBManager.getInstance().libroDAO().findAllByUtente(session.getAttribute("username").toString());
+		session.setAttribute("voti", voti.get(0));
+		session.setAttribute("numVotazioni", voti.get(1));
 		if(session.getAttribute("loggatoAdmin") != null)
-			session.setAttribute("utentiRegistrati", uDao.getUtentiRegistrati());
+			session.setAttribute("utentiRegistrati", DBManager.getInstance().utenteDAO().getUtentiRegistrati());
 		return "profilo";
 	}
 
