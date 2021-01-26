@@ -20,10 +20,6 @@
 	border-radius: 0 20px 20px 0;
 }
 
-.logo{
-	color: white !important;
-	font-weight: xx-large !important;
-}
 
 body{
    background: var(--color-bg-main);
@@ -107,7 +103,7 @@ body{
    align-items: center;
    flex-direction: column;
    height: 100%;
-   width: 15%;
+   width: 50px;
 }
 
 .libro-action a{
@@ -122,6 +118,21 @@ body{
    color:rgb(214 63 63);
 }
 
+section.cnt-center {
+   text-align: center;
+   margin-top: 181px;
+   overflow-x: hidden;
+}
+
+.cnt-page {
+   display: block;
+   width: 100%;
+   /* font-size: 30px; */
+   margin-bottom: 40px;
+}
+.cnt-page h3{
+   font-size: 35px;
+}
 
 @media (max-width: 769px){
 

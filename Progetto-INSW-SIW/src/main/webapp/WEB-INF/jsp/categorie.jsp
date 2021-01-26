@@ -48,16 +48,16 @@
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
-        <div class="bradcumbContent">
-            <p>Scegli fra le migliori categorie</p>
-            <h2>Categorie</h2>
-        </div>
+
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
     <!-- ##### Album Catagory Area Start ##### -->
     <section class="container-libri">
-       
+	   
+		<div class="cnt-page">
+			<h3>Categorie</h3>
+		</div>
 
 	    <!-- Classici -->
 	    <a href="/categoria?cat=Classico">

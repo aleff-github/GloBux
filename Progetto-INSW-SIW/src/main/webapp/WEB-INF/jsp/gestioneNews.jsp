@@ -30,7 +30,7 @@
             <div></div>
             <div></div>
             <div></div>
-            <div></div>
+            <div></div>     
         </div>
     </div>
 
@@ -47,10 +47,6 @@
 
 <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
-        <div class="bradcumbContent">
-            <p>See what’s new</p>
-            <h2>News</h2>
-        </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 

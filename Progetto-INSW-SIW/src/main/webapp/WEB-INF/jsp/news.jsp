@@ -48,10 +48,7 @@
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
-        <div class="bradcumbContent">
-            <p>See what’s new</p>
-            <h2>News</h2>
-        </div>
+        
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
@@ -67,10 +64,7 @@
 					                <!-- Post Thumb -->
 		                        <div class="blog-post-thumb mt-30">
 		                            <a href="#"><img src=${item.immagine } alt="" width="1200" height="635"></a>
-		                            <!-- Post Date --> 
-		                            <div class="post-date">
-		                                <h6>${item.data}</h6>
-		                            </div>
+		                            
 		                        </div>
 	                        	<!-- Blog Content -->
 		                        <div class="blog-content">
@@ -78,10 +72,10 @@
 		                            <a href="#" class="post-title">${item.titolo}</a>
 		                            <!-- Post Meta -->
 		                            <div class="post-meta d-flex mb-30">
-		                                <p class="post-author">By <a href="#">Admin</a></p>
+		                                <p class="post-author">By <a href="#">Admin</a> ${item.data}</p>
 		                            </div>
 		                            <!-- Post Excerpt -->
-		                            <p> ${item.contenuto} </p>
+		                            <p style="color: var(--gray)"> ${item.contenuto} </p>
 		                        </div>
 		                    </div>
 						</c:forEach>

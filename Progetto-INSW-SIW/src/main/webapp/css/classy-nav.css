@@ -52,12 +52,13 @@ img {
     display: inline-block; }
     .classy-nav-container a:hover, .classy-nav-container a:focus {
       -webkit-transition-duration: 500ms;
-      transition-duration: 500ms;
-      text-decoration: none;
-      outline: none;
-      font-size: 14px;
-      font-weight: 400;
-      color: #1abc9c; }
+      /* transition-duration: 500ms; */
+      /* text-decoration: none; */
+      /* outline: none; */
+      /* font-size: 14px; */
+      /* font-weight: 400; */
+      color: #1abc9c;
+      }
   .classy-nav-container.classy-sticky {
     position: fixed;
     z-index: 1010;
@@ -99,8 +100,8 @@ img {
     margin-right: 30px;
     letter-spacing: 2px; }
     .classy-navbar .nav-brand:focus, .classy-navbar .nav-brand:hover {
-      font-size: 26px;
-      font-weight: 500; }
+      color: #ff9a05;
+      }
 
 .classynav ul li {
   display: inline-block;

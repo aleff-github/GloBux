@@ -347,8 +347,8 @@ img {
   min-width: 212px;
   height: 49px;
   color: #000;
-  border: 1px solid #000;
-  border-radius: 0;
+  border: none;
+  border-radius: 24px;
   padding: 0 30px;
   font-size: 16px;
   line-height: 47px;
@@ -1168,11 +1168,12 @@ img {
   transition-duration: 500ms;
   position: relative;
   z-index: 1;
-  background-color: #f5f9fa;
-  border: 1px solid #d8d8d8;
+  /* background-color: #f5f9fa; */
+  /* border: 1px solid #d8d8d8; */
   padding: 50px 100px;
   box-shadow: 0 2px 70px 0 rgba(0, 0, 0, 0.15);
-  text-align: center; }
+  text-align: center;
+  }
   @media only screen and (max-width: 767px) {
     .login-content {
       padding: 50px 30px; } }
@@ -1183,11 +1184,12 @@ img {
   .login-content .form-control {
     width: 100%;
     height: 50px;
-    border: 1px solid #000000;
+    border: none;
     font-size: 12px;
     font-style: italic;
     padding: 0 20px;
-    border-radius: 0; }
+    border-radius: 24px;
+    outline: none; }
     .login-content .form-control:focus {
       box-shadow: none; }
 
@@ -1717,7 +1719,10 @@ img {
 /*# sourceMappingURL=style.css.map */
 
 
-
+h2#categoria {
+  color: #ff9a05;
+  font-size: 53px;
+}
 
 
 

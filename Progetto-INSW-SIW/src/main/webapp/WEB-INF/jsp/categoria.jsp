@@ -48,31 +48,25 @@
                 <jsp:include page="partials/admin/menuAdmin.jsp" />
             </c:if>
 
-            <!-- ##### Breadcumb Area Start ##### -->
-            <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
-                <div class="bradcumbContent">
-                    <p>Ecco una lista di libri della categoria scelta</p>
-                    <h2 id="categoria">${categoria}</h2>
-                </div>
-            </section>
-            <!-- ##### Breadcumb Area End ##### -->
+           
+
 
             <!-- ##### Events Area Start ##### -->
 
-            <section>
-                <div class="container">
-                    <div class="container-libri" id="libriDisponibili">
-                        <c:forEach items="${libri}" var="item">
-                            <a href="/libro?isbn=${item.isbn}">
-                                <div class="cnt-img">
-                                    <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}"
-                                        alt="#" style="border-radius: 10px 10px 10px 10px;">
-                                </div>
-                                <h4>${item.titolo}</h4>
-                                <h6>${item.autore}</h6>
-                            </a>
-                        </c:forEach>
-                    </div>
+            <section class="cnt-center">
+                <h2 id="categoria">${categoria}</h2>
+                <div class="container-libri" id="libriDisponibili">
+                    <c:forEach items="${libri}" var="item">
+                        <a href="/libro?isbn=${item.isbn}">
+                            <div class="cnt-img">
+                                <img src="https://glo-2020.s3.eu-central-1.amazonaws.com/image/${item.image}"
+                                    alt="#" style="border-radius: 10px 10px 10px 10px;">
+                            </div>
+                            <h4>${item.titolo}</h4>
+                            <h6>${item.autore}</h6>
+                        </a>
+                    </c:forEach>
+                </div>
                     <div class="row">
                         <div class="col-12">
                             <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
@@ -82,66 +76,12 @@
                         </div>
                     </div>
                 </div>
-                </div>
                 <br><br>
             </section>
 
             <!-- ##### Events Area End ##### -->
 
-            <!-- ##### Contact Area Start ##### -->
-            <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
-                style="background-image: url(img/bg-img/bg-2.jpg);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="section-heading white">
-                                <p>See what’s new</p>
-                                <h2>Get In Touch</h2>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <!-- Contact Form Area -->
-                            <div class="contact-form-area">
-                                <form action="#" method="post">
-                                    <div class="row">
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="name" placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" id="email"
-                                                    placeholder="E-mail">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="subject"
-                                                    placeholder="Subject">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <textarea name="message" class="form-control" id="message" cols="30"
-                                                    rows="10" placeholder="Message"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 text-center">
-                                            <button class="btn oneMusic-btn mt-30" type="submit">Send <i
-                                                    class="fa fa-angle-double-right"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- ##### Contact Area End ##### -->
 
             <jsp:include page="partials/index/footer.jsp" />
 

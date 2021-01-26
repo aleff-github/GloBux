@@ -28,7 +28,7 @@
 
         </head>
 
-        <body style="background-color: ">
+        <body>
             <!-- Preloader -->
             <div class="preloader d-flex align-items-center justify-content-center">
                 <div class="lds-ellipsis">
@@ -53,10 +53,6 @@
             <!-- ##### Breadcumb Area Start ##### -->
             <section class="breadcumb-area bg-img bg-overlay"
                 style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
-                <div class="bradcumbContent">
-                    <p>Gestisci</p>
-                    <h2>La tua libreria personale</h2>
-                </div>
             </section>
             <!-- ##### Breadcumb Area End ##### -->
 
