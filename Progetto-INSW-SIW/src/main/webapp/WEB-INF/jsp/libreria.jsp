@@ -15,7 +15,7 @@
             <title>La tua libreria</title>
 
             <!-- Favicon -->
-            <link rel="icon" href="img/core-img/favicon.ico">
+    		<link rel="icon" href="img/webapp/GloBuxLogo.png">
 
 
             <!-- Stylesheet -->
