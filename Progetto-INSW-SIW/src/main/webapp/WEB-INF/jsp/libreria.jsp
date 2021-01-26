@@ -75,8 +75,8 @@
                                     <h4>${item.titolo}</h4>
                                     <h6>${item.autore}</h6>
                                     <input type="text" id="libro" name="libro" class="event-date" class="event-place"
-                                        value=${item.isbn } hidden="true"></input>
-                                    <input type="text" id="libreria" name="libreria" value=${username }
+                                        value=${item.isbn} hidden="true"></input>
+                                    <input type="text" id="libreria" name="libreria" value=${username}
                                         class="event-place" hidden="true"></input>
                                     <button class="btn see-more-btn" type="submit">Elimina libro</button>
                                 </div>

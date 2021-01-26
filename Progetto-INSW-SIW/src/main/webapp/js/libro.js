@@ -13,7 +13,6 @@ function altriRisultati(){
     if(idVar != null){
         chiamaAPI(idVar.value, riempiLibro, index);
     }
-    document.getElementById('id').value = index + 10;
 }
 
 function chiamaAPI(param, action, index){
@@ -27,11 +26,12 @@ function chiamaAPI(param, action, index){
                     action(risposta.items);
                 },
                 'error': function () {
-                    alert('Non sono disponibili altri libri!');
+                    //alert('Non sono disponibili altri libri!');
                 }
             }
         );
     });
+    document.getElementById('id').value = index + 10;
 }
 
 function ricercaPerId(){

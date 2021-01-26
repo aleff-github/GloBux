@@ -91,7 +91,7 @@
     <!-- All Plugins js -->
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="js/active.js"></script> 
     <!-- Active js -->
     <script src="js/ricerca.js"></script>
 </body>

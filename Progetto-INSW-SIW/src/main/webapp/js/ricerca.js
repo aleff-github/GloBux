@@ -9,17 +9,17 @@ function initialize() {
 function altriRisultati(ricerca) {
     var index = document.getElementById("index").value;
     var max_index = parseInt(index) + 10;
-    ricerca = 'https://www.googleapis.com/books/v1/volumes?q=' + ricerca + '&startIndex='+index+'&maxResults='+max_index;
+    ricerca_da_fare = 'https://www.googleapis.com/books/v1/volumes?q=' + ricerca.textContent + '&startIndex='+index+'&maxResults='+max_index;
     $(document).ready(function () {
         $.ajax(
             {
-                'url': ricerca,
+                'url': ricerca_da_fare,
                 'method': 'GET',
                 'success': function (risposta) {
                     riempiScaffali(risposta.items);
                 },
                 'error': function () {
-                    alert('Non sono disponibili altri libri!');
+                    //alert('Non sono disponibili altri libri!');
                 }
             }
         );
