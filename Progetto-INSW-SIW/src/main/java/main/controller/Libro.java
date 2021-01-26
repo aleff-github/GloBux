@@ -53,7 +53,8 @@ public class Libro {
 	public String getBook(@RequestParam String isbn, HttpSession session, Model model) {
 		
 		if(session.getAttribute("loggato") == null)
-			return getIndex(session);
+			return "redirect:/login";
+//			return getIndex(session);
 		
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);

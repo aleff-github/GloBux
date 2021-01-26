@@ -56,20 +56,27 @@ public class ServiceAmazonS3 {
 	// upload file image
 	public String uploadFileImage(MultipartFile file1) throws IOException { 
 		File file = this.convertMultiPartToFile(file1);
-		PutObjectRequest request = new PutObjectRequest(bucketName, this.FOLDER_IMAGE + file.getName(), file)
+		String fileName = FOLDER_IMAGE + generateFileName(file.getName());
+		PutObjectRequest request = new PutObjectRequest(bucketName, fileName, file)
 				.withCannedAcl(CannedAccessControlList.PublicRead);
 		s3Client.putObject(request); 
 		
-		return file.getName();
+		file.delete();
+		
+		return fileName;
 	} 
+	
 	// upload file ebook
 	public String uploadFileEbook(MultipartFile file1) throws IOException { 
 		File file = this.convertMultiPartToFile(file1);
-		PutObjectRequest request = new PutObjectRequest(bucketName, this.FOLDER_EBOOK + generateFileName(file.getName()), file)
+		String fileName = FOLDER_EBOOK + generateFileName(file.getName());
+		PutObjectRequest request = new PutObjectRequest(bucketName, fileName, file)
 				.withCannedAcl(CannedAccessControlList.PublicRead);
 		s3Client.putObject(request);
 		
-		return file.getName();
+		file.delete();
+		
+		return fileName;
 	} 
 	
 	

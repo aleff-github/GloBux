@@ -27,6 +27,7 @@ public class DBManager {
 			System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC driver\n" + e);
 			e.printStackTrace();
 		}
+		
 	}
 	
 	

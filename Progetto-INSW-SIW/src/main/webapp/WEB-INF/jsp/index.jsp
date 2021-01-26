@@ -51,7 +51,7 @@
                 <div class="single-hero-slide d-flex align-items-center justify-content-center">
                     <!-- Slide Img -->
                     <div class="slide-img bg-img"
-                        style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);"></div>
+                        style="background-image: url(/img/bg-img/libri.jpg);"></div>
                     <!-- Slide Content -->
                     <div class="container">
                         <div class="row">
