@@ -79,13 +79,17 @@ function riempiLibro(libri) {
     document.getElementById('genere').innerText = libro.categoria;
     document.getElementById('sottogenere').innerText = "Avventura";
     document.getElementById('data').innerText = libro.data;
-    if(libro.valutazione == undefined)
-        document.getElementById('valutazione').parentNode.innerText = "Valutazione non disponibile";
-    else
-        document.getElementById('valutazione').innerText = libro.valutazione;
+    
+    if(libro.valutazione != undefined){
+        document.getElementById('valutazione').innerText = `Valutazione Utenti: ${libro.valutazione}/5`;
+    }
+
     document.getElementById('sinossi').innerText = libro.sinossi;
 
-    if(libro.pdf == true)
+    console.log(libro.pdf_link);
+    console.log(typeof(libro.pdf));
+
+    if(libro.pdf)
         document.getElementById('pdf_link').setAttribute("href", libro.pdf_link);
     else
         document.getElementById('pdf_link').setAttribute("href", "/404");

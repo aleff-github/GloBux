@@ -23,12 +23,6 @@ import s3.ServiceAmazonS3;
 public class Libro {
 
 
-	@GetMapping("/libroA")
-	public String getBook() {
-		return "libro";
-	}
-
-
 	@GetMapping("/caricaLibro")
 	public String getUpBook() {
 		return "caricaLibro";
@@ -138,7 +132,6 @@ public class Libro {
 	
 	
 	private boolean esisteInLibreriaUtente(String isbn, String username) {
-		
 		
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		List<LibroDTO> libreria = lDao.findAllByUser(username);

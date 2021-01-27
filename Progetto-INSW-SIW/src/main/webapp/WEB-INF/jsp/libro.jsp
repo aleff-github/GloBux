@@ -75,7 +75,13 @@
 						<h3 class="info-book">Genere: <strong id="genere">${libro.genere}</strong></h3>
 						<h3 class="info-book">Sottogenere: <strong id="sottogenere">${libro.sottogenere}</strong></h3>
 						<br>
-							<h4 class="info-book stars-book">Valutazione Utenti: ${votazione}/5</h4>
+							<c:if test="${votazione != null}">
+								<h4 class="info-book stars-book">Valutazione Utenti: ${votazione}/5</h4>
+							</c:if>
+
+							<c:if test="${votazione == null}">
+								<h4 id="valutazione" class="info-book stars-book">Valutazione non disponibile</h4>
+							</c:if>
 
 					</section>
 
@@ -85,7 +91,7 @@
 
 				<div class="bar-options">
 
-					<c:if test="${preferito != true}">
+					<c:if test="${preferito != true && libro != null}">
 						<form action="addLibro" method="POST" style="width: 40%;">
 			            	<div class="event-text">
 			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
@@ -97,7 +103,8 @@
 							</button>
 						</form>
 					</c:if>
-					<c:if test="${preferito == true}">
+					<!-- Se il libro è tra i preferiti dell'utente -->
+					<c:if test="${preferito == true && libro != null}">
 						<form action="deleteLibro" method="POST" style="width: 40%;">
 			            	<div class="event-text">
 			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
@@ -110,13 +117,30 @@
 						</form>
 					</c:if>
 
+					<!-- Quando il libro è null -> libro API -->
+					<c:if test="${libro == null}">
+						<form action="deleteLibro" method="POST" style="width: 40%;">
+			            	<div class="event-text">
+			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
+			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
+			                </div>
+			                <button class="btn-option-book btn-pr" type="submit" disabled>
+								<i class="fas fa-plus"></i>
+								<nobr><del>Aggiungi ai preferiti</del></nobr>
+							</button>
+						</form>
+					</c:if>
+
 					<c:if test="${libro.file != null && id != false}">
-						<a href="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${libro.file}" target="_blank"
+						<!-- <a href="https://glo-2020.s3.eu-central-1.amazonaws.com/ebook/${libro.file}" target="_blank"
+							class="btn-option-book btn-read"> -->
+							<a href="/leggiLibro?titolo=${libro.titolo}&file=${libro.file}" target="_blank"
 							class="btn-option-book btn-read">
 							<i class="fas fa-book-open"></i>
 							<nobr>Leggi</nobr>
 						</a>
 					</c:if>
+
 					<c:if test="${id == false}">
 						<a href="" id="pdf_link" target="_blank" class="btn-option-book btn-read">
 							<i class="fas fa-book-open"></i>

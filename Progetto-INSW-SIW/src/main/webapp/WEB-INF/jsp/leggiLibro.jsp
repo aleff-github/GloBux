@@ -37,7 +37,7 @@
 }
 
 iframe{
-    height: 85vh;
+    height: 76vh;
     border: none;
     border-radius: 12px;
 }
@@ -59,6 +59,12 @@ iframe{
     color: lightgray;
     outline: none;
     cursor: pointer;
+}
+
+@media (max-width: 996px){
+  h1{
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 996px){

@@ -27,7 +27,7 @@ public class Libreria {
 	}
 	
 	  @PostMapping("/deleteLibro")
-	  public String deleteLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
+	  public String rimuoviLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
 		  LibreriaDTO lib = new LibreriaDTO();
 		  lib.setIdLibreria(libreria);
 		  lib.setLibro(libro);
@@ -38,7 +38,7 @@ public class Libreria {
 	  }
 	
 	@PostMapping("/addLibro")
-	public String addLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
+	public String aggiungiLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		lDao.add(libro, libreria);
 		

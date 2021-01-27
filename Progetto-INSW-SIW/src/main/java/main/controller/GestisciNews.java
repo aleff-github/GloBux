@@ -22,7 +22,7 @@ public class GestisciNews {
 	}
 	
 	@PostMapping("/addNews")
-	public String PostGestisciNews(HttpSession session, @RequestParam String titolo, 
+	public String aggiungiNews(HttpSession session, @RequestParam String titolo, 
 			@RequestParam Date data, @RequestParam String immagine,
 			@RequestParam String contenuto) {
 
@@ -45,7 +45,7 @@ public class GestisciNews {
 	}
 	
 	@PostMapping("/deleteNews")
-	public String PostGestisciNews(HttpSession session, @RequestParam String titolo) {
+	public String rimuoviNews(HttpSession session, @RequestParam String titolo) {
 
 	 	if (titolo == "") {
 	 		return "gestioneNews";
