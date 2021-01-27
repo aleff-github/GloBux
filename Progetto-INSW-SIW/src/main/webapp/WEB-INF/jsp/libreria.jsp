@@ -56,7 +56,10 @@
             </section>
             <!-- ##### Breadcumb Area End ##### -->
 
-            <section class="container-libri" style="margin-top: 80px;">
+            <section class="container-libri">
+
+                <h2 id="categoria">La tua libreria</h2>
+
                 <c:forEach items="${listaLibri}" var="item">
                     <div class="cnt-approva">
                         <div class="cnt-approva-first">
@@ -66,18 +69,24 @@
                                         alt="#" style="border-radius: 10px 10px 10px 10px;">
                                 </div>
                             </a>
-                            <form action="deleteLibro" method="POST">
-                                <div class="libro-info">
-                                    <h4>${item.titolo}</h4>
-                                    <h6>${item.autore}</h6>
-                                    <input type="text" id="libro" name="libro" class="event-date" class="event-place"
-                                        value=${item.isbn} hidden="true"></input>
-                                    <input type="text" id="libreria" name="libreria" value=${username}
-                                        class="event-place" hidden="true"></input>
-                                    <button class="btn see-more-btn" type="submit">Elimina libro</button>
-                                </div>
-                            </form>
+                           
+                            <div class="libro-info">
+                                <h4>${item.titolo}</h4>
+                                <h6>${item.autore}</h6>
+                                
+                            </div>
                         </div>
+
+                        <div class="libro-action">
+                            <form action="deleteLibro" method="POST"> 
+                            <input type="text" id="libro" name="libro" class="event-date" class="event-place"
+                                    value=${item.isbn} hidden="true"></input>
+                                <input type="text" id="libreria" name="libreria" value=${username}
+                                    class="event-place" hidden="true"></input>
+                                <button class="btn see-more-btn" type="submit"><i class="far fa-trash-alt"></i></button>    
+                            </form> 
+                        </div>
+                        
                     </div>
 
                     <span class="line-hor"></span>

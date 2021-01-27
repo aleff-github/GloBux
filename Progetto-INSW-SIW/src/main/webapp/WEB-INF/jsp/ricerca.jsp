@@ -44,16 +44,17 @@
 		<jsp:include page="partials/admin/menuAdmin.jsp" />
     </c:if>
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
-        <div class="bradcumbContent">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(https://source.unsplash.com/collection/228444/1920x1280);">
+       <!--  <div class="bradcumbContent">
             <p>Hai effettuato una ricerca tramite GloBux!</p>
             <h2 id="ricerca">${ricerca}</h2>
-        </div>
+        </div> -->
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <section>
+    <section class="cnt-center" style="margin-top: 35px;">
         <div class="container">
+            <h2 id="ricerca">Risultati per: "<strong style="color: #ff9a05;">${ricerca}</strong>"</h2>
             <div class="container-libri" id="libriDisponibili">
                 <c:forEach items="${libri}" var="item">
                     <a href="/libro?isbn=${item.isbn}">

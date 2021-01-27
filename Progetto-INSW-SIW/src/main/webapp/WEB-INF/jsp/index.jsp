@@ -143,11 +143,11 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <div class="albums-slideshow owl-carousel carouselIndex container-libri" >
+                            <div class="albums-slideshow owl-carousel carouselIndex">
                                 <!-- Classici -->
                                 <a href="/categoria?cat=Classico">
                                        <div class="cnt-img">
-                                           <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/Classici.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Classici</h4>
                                  </a>
@@ -155,7 +155,7 @@
                                 <!-- Arte -->
                                 <a href="/categoria?cat=Arte">
                                        <div class="cnt-img">
-                                           <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/Art.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Arte</h4>
                                  </a>
@@ -163,7 +163,7 @@
                                 <!-- Romanzo -->
                                 <a href="/categoria?cat=Romanzo">
                                        <div class="cnt-img">
-                                           <img src="img/categories/Romanzo.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/Romanzo.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Romanzo</h4>
                                  </a>
@@ -171,7 +171,7 @@
                                 <!-- Religione -->
                                 <a href="/categoria?cat=Religione">
                                        <div class="cnt-img">
-                                           <img src="img/categories/religione.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/religione.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Religione</h4>
                                  </a>
@@ -179,7 +179,7 @@
                                 <!-- Horror -->
                                 <a href="/categoria?cat=Horror">
                                        <div class="cnt-img">
-                                           <img src="img/categories/Horror.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/Horror.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Horror</h4>
                                  </a>
@@ -187,7 +187,7 @@
                                 <!-- Musica -->
                                 <a href="/categoria?cat=Musica">
                                        <div class="cnt-img">
-                                           <img src="img/categories/musica.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/musica.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Musica</h4>
                                  </a>
@@ -195,7 +195,7 @@
                                 <!-- Humor -->
                                 <a href="/categoria?cat=Humor">
                                        <div class="cnt-img">
-                                           <img src="img/categories/Humor.jpg" alt="#" style="border-radius: 10px 10px 10px 10px;">
+                                           <img src="img/categories/Humor.jpg" alt="#" style="border-radius: 10px 10px 10px 10px; height: 180px;">
                                     </div>
                                     <h4>Humor</h4>
                                  </a>
@@ -206,6 +206,55 @@
             </section>
             <!-- ##### Categories Now Area End ##### -->
 
+
+
+            <section class="latest-albums-area section-padding-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-heading style-2">
+                                <p>Gli ultimi libri caricati</p>
+                                <h2>Ultime Novità</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="ablums-text text-center mb-70">
+                                <p>Ecco una raccolta di libri caricati esclusivamente da voi utenti</p>
+                            </div>
+                        </div>
+                    </div>
+
+ 
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="albums-slideshow owl-carousel carouselIndex" >
+                                <c:forEach items="${newss}" var="item">
+                                    <!-- Single Post Start -->
+                                    <div class="single-blog-post mb-100 wow fadeInUp single-news" data-wow-delay="100ms">
+                                            <!-- Post Thumb -->
+                                        <div class="blog-post-thumb mt-30 single-news-img">
+                                            <a href="/news#${item.titolo}" target="_blank"><img src=${item.immagine } alt="" width="1200" height="635"></a>
+                                            
+                                        </div>
+                                        <!-- Blog Content -->
+                                        <div class="blog-content" style="padding: 0;">
+                                            <!-- Post Title -->
+                                            <a href="/news#${item.titolo}" class="post-title" style="font-size: 18px;">${item.titolo}</a>
+                                            <!-- Post Meta -->
+                                            <div class="post-meta d-flex mb-30">
+                                                <p class="post-author">By <a href="#">Admin</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
             <jsp:include page="partials/index/footer.jsp" />

@@ -111,6 +111,13 @@ body{
    margin: 40px;
    width: auto;
 }
+.libro-action button{
+   font-size: 35px;
+   margin: 40px;
+   width: auto;
+   background: transparent;
+   outline: none;
+}
 .libro-action .fa-check-circle{
    color: rgb(7, 148, 7);
 }
@@ -145,6 +152,10 @@ section.cnt-center {
    }
    .libro-info h6{
       font-size: 12px;
+   }
+
+   .libro-action button{
+      margin: 0px;
    }
 
 }

@@ -17,6 +17,7 @@ public class News {
 
 	@GetMapping("/news")
 	public String getNews(HttpSession session) {
+		
 		NewsDAO nDao = DBManager.getInstance().newsDAO();
 		List<NewsDTO> nws = nDao.findAll();
 		Collections.reverse(nws);

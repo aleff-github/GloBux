@@ -33,13 +33,15 @@ public class Libreria {
 		  lib.setLibro(libro);
 		  LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		  lDao.delete(lib);
-		  return getLibreria(session);
+		  
+		  return "redirect:/libreria";
 	  }
 	
 	@PostMapping("/addLibro")
 	public String addLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		lDao.add(libro, libreria);
-		return getLibreria(session);
+		
+		return "redirect:/libreria";
 	}
 }

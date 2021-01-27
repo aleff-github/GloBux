@@ -63,7 +63,7 @@
 		                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
 					                <!-- Post Thumb -->
 		                        <div class="blog-post-thumb mt-30">
-		                            <a href="#"><img src=${item.immagine } alt="" width="1200" height="635"></a>
+		                            <a href="" name="${item.titolo}"><img src=${item.immagine } alt="" width="1200" height="635"></a>
 		                            
 		                        </div>
 	                        	<!-- Blog Content -->

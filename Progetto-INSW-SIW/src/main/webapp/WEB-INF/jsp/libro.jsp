@@ -86,7 +86,7 @@
 				<div class="bar-options">
 
 					<c:if test="${preferito != true}">
-						<form action="addLibro" method="POST">
+						<form action="addLibro" method="POST" style="width: 40%;">
 			            	<div class="event-text">
 			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
 			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
@@ -98,7 +98,7 @@
 						</form>
 					</c:if>
 					<c:if test="${preferito == true}">
-						<form action="deleteLibro" method="POST">
+						<form action="deleteLibro" method="POST" style="width: 40%;">
 			            	<div class="event-text">
 			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
 			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
