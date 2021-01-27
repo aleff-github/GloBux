@@ -62,7 +62,7 @@
 				        <div class="">
 
 				            <!-- Upload image input-->
-				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" hidden required>
+				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" accept=".jpg, .jpeg, .png" hidden required>
 
 				            <!-- Uploaded image area-->
 				            <label id="lbl_image" for="upload" class="image-area image-area-glo">
@@ -124,7 +124,7 @@
 					  	<!-- Contenuto -->
 					  	<div class="form-group" style="color: #7f8182">
 					  		Seleziona contenuto
-							<input id="file" name ="file" type="file" class="form-control fc-color" style="padding-left:0; border:none; " required>
+							<input id="file" name ="file" type="file" class="form-control fc-color" accept=".pdf, .doc, .docx" style="padding-left:0; border:none; " required>
 						</div>
 
 

@@ -1756,6 +1756,11 @@ h2#categoria {
   font-size: 15px;
 }
 
+
+.cl-g-g{
+  color: #e2e0e0!important;
+}
+
 ::-webkit-scrollbar {
   width: 0px;  /* Remove scrollbar space */
   background: transparent;  /* Optional: just make scrollbar invisible */

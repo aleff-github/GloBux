@@ -20,7 +20,7 @@
                                     <div class="single-cool-fact mb-100">
                                         <div class="scf-text">
                                             <h2>+<span class="counter">${voti}</span></h2>
-                                            <p>Stelle</p>
+                                            <p class="cl-g-g">Stelle</p>
                                         </div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                     <div class="single-cool-fact mb-100">
                                         <div class="scf-text">
                                             <h2><span class="counter">${numVotazioni}</span></h2>
-                                            <p>Votazioni</p>
+                                            <p class="cl-g-g">Votazioni</p>
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                     <div class="single-cool-fact mb-100">
                                         <div class="scf-text">
                                             <h2><span class="counter">${utentiRegistrati}</span></h2>
-                                            <p>Utenti Registrati</p>
+                                            <p class="cl-g-g">Utenti Registrati</p>
                                         </div>
                                     </div>
                                 </div>
