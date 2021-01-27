@@ -1742,6 +1742,14 @@ h2#categoria {
   height: 150px;;
 }
 
+
+.form-group .form-control {
+  color: #e8e7e7;
+  font-style: normal;
+  font-size: 15px;
+  border-bottom: 1px solid #797979;
+}
+
 .login-content .form-control{
   color:#232323;
   font-style: normal;
