@@ -70,6 +70,7 @@ body{
    align-items: center;
    padding: 10px 30px;
    margin: 35px 0;
+   flex-wrap: wrap;
 }
 .cnt-approva-first{
    display: flex;

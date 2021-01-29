@@ -22,9 +22,6 @@
     <link rel="stylesheet" href="css/styleBook.css">
     <link rel="stylesheet" href="css/styleUpBook.css">
 
-    <!-- My script -->
-    <script src="js/scriptUpBook.js" type="text/javascript"></script>
-
 	<!-- Icon search -->
 	<script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
 
@@ -54,7 +51,7 @@
 	<!-- ##### START BOOK ##### -->
 	<main class="container-main-book">
 		<!-- form -->
-		<form action="/caricaLibro/up" method="post" enctype="multipart/form-data">
+		<form id="uploadForm" action="/caricaLibro/up" method="post" enctype="multipart/form-data">
 			<div class="container-main-book-1 mt-5" >
 				<!-- Image -->
 				<section class="container-main-book-first jc-c">
@@ -62,11 +59,11 @@
 				        <div class="">
 
 				            <!-- Upload image input-->
-				            <input id="upload" name="image" type="file" onchange="readURL(this); removeBrdUpImage()" class="form-control border-0" accept=".jpg, .jpeg, .png" hidden required>
+				            <input id="upload" name="image" type="file" onchange=" removeBrdUpImage()" class="form-control border-0" accept=".jpg, .jpeg, .png" hidden required>
 
 				            <!-- Uploaded image area-->
 				            <label id="lbl_image" for="upload" class="image-area image-area-glo">
-				            	<img id="imageResult" src="#" alt="" class="img-fluid shadow-sm mx-auto d-block">
+				            	<img id="imageResult" src="" alt="" class="img-fluid shadow-sm mx-auto d-block">
 				            </label>
 				        </div>
 				    </div>
@@ -123,8 +120,9 @@
 					  	<br> <br>
 					  	<!-- Contenuto -->
 					  	<div class="form-group" style="color: #7f8182">
-					  		Seleziona contenuto
-							<input id="file" name ="file" type="file" class="form-control fc-color" accept=".pdf, .doc, .docx" style="padding-left:0; border:none; " required>
+							<input id="file" name="file" type="file" class="form-control fc-color" accept=".pdf, .doc, .docx" style="padding-left:0; border:none; " hidden required>
+							<label  for="file" class="up-file"><i class="fas fa-arrow-up"></i>Upload file</label>
+							<p id="nameFile"></p>
 						</div>
 
 
@@ -132,9 +130,17 @@
 
 			</div>
 
-			<span class="line-hor" ></span>
+			
+
+
+
 
 			<div class="bar-options bar-up-book">
+
+				<!-- Barra di avanzamento --> 
+				<div  class = "progress" > 
+					<div  class = "progress-bar" > </div > 
+				</div>
 
 				<button type="submit" class="btn-option-book btn-pr">
 					<i class="fas fa-plus"></i>
@@ -143,7 +149,7 @@
 
 			</div>
 
-			<span class="line-hor" ></span>
+			
 
 		</form>
 
@@ -151,11 +157,26 @@
 	<!-- ##### END BOOK ##### -->
 
 
+	<div id="popup-success" class="cnt-popup" style="display: none;" onclick="removePopup(this)">
+		<div class="popup">
+			<i class="far fa-check-circle"></i>
+			<p>Libro caricato con successo!</p>
+		</div>
+	</div>
+
+	<div id="popup-error" class="cnt-popup" style="display: none;" onclick="removePopup(this)" >
+		<div class="popup">
+			<i class="fas fa-exclamation-circle"></i>
+			<p>Caricamento fallito, riprova</p>
+		</div>
+	</div>
+
+
     <jsp:include page="partials/index/footer.jsp" />
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
     <script src="js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
@@ -163,15 +184,10 @@
     <!-- All Plugins js -->
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+	<script src="js/active.js"></script>
+	<!-- Carica Libro js -->
+    <script src="js/caricaLibro.js" type="text/javascript"></script>
 </body>
-
-<script type="text/javascript">
-	function removeBrdUpImage(){
-		document.querySelector("#lbl_image").setAttribute('style', 'border:none');
-	}
-
-</script>
 
 
 </html>

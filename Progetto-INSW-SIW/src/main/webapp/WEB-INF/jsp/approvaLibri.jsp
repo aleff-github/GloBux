@@ -21,9 +21,6 @@
             <link rel="stylesheet" href="css/styleBook.css">
             <link rel="stylesheet" href="css/styleUpBook.css">
 
-            <!-- My script -->
-            <script src="js/scriptUpBook.js" type="text/javascript"></script>
-
             <!-- Icon search -->
             <script src="https://kit.fontawesome.com/445f803675.js" crossorigin="anonymous"></script>
 

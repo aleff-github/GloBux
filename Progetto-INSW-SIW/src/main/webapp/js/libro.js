@@ -7,16 +7,16 @@ function initialize(){
 
 }
 
-function altriRisultati(){
+/* function altriRisultati(){
     var index = document.getElementById('index').value;
     var idVar = document.getElementById('id');
     if(idVar != null){
         chiamaAPI(idVar.value, riempiLibro, index);
     }
-}
+} */
 
-function chiamaAPI(param, action, index){
-    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param + '&startIndex=' +  index + '&maxResults=10';
+function chiamaAPI(param, action){
+    url = 'https://www.googleapis.com/books/v1/volumes?q=' + param;
     $(document).ready(function () {
         $.ajax(
             {
@@ -31,27 +31,27 @@ function chiamaAPI(param, action, index){
             }
         );
     });
-    document.getElementById('id').value = index + 10;
+    //document.getElementById('id').value = index + 10;
 }
 
 function ricercaPerId(){
     var idVar = document.getElementById('id');
     if(idVar != null){
-        chiamaAPI(idVar.value, riempiLibro, 0);
+        chiamaAPI(idVar.value, riempiLibro);
     }
 }
 
 function ricercaPerAutore(){
     var autore = document.getElementById('autore').textContent;
     if(autore != null){
-        chiamaAPI(autore, riempiScaffaleAutore, 0);
+        chiamaAPI(autore, riempiScaffaleAutore);
     }
 }
 
 function ricercaPerGenere(){
     var genere = document.getElementById('genere').textContent;
     if(genere != null){
-        chiamaAPI(genere, riempiScaffaleGenere, 0);
+        chiamaAPI(genere, riempiScaffaleGenere);
     }
 }
 

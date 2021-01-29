@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.LibreriaDTO;
 import model.LibroDTO;
@@ -27,6 +28,7 @@ public class Libreria {
 	}
 	
 	  @PostMapping("/deleteLibro")
+	  @ResponseBody
 	  public String rimuoviLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
 		  LibreriaDTO lib = new LibreriaDTO();
 		  lib.setIdLibreria(libreria);
@@ -34,7 +36,7 @@ public class Libreria {
 		  LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		  lDao.delete(lib);
 		  
-		  return "redirect:/libreria";
+		  return "SUCCESS";
 	  }
 	
 	@PostMapping("/addLibro")

@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.concurrent.SuccessCallback;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -27,6 +29,7 @@ public class Libro {
 	public String getUpBook() {
 		return "caricaLibro";
 	}
+	
 	@GetMapping("/leggiLibro")
 	public String readBook(@RequestParam String file, @RequestParam String titolo, HttpSession session) {
 		
@@ -40,7 +43,11 @@ public class Libro {
 		String isbn = (String) session.getAttribute("isbn");
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
 		DBManager.getInstance().libroDAO().updateVoto(isbn, voto, libro.getNumeroVoti(), libro.getVoto());
-		return getBook(isbn, session, model);
+		
+//		return getBook(isbn, session, model);
+		
+		return "redirect:/libro?isbn=" + (String) session.getAttribute("isbn");
+	
 	}
 
 	@GetMapping("/libro")  // /book?isbn=9788804668237
@@ -48,7 +55,7 @@ public class Libro {
 		
 		if(session.getAttribute("loggato") == null)
 			return "redirect:/login";
-//			return getIndex(session);
+
 		
 		// ricerca del libro indicato dall'utente
 		LibroDTO libro = DBManager.getInstance().libroDAO().findByPrimaryKey(isbn);
@@ -79,16 +86,15 @@ public class Libro {
 		if(this.esisteInLibreriaUtente(isbn, (String)session.getAttribute("username"))) {
 			model.addAttribute("preferito", true);
 		}
-			
-			
-			
+
 		
 		return "libro";
 	}
 
 
 	@PostMapping("/caricaLibro/up")
-	public RedirectView saveBook(@RequestParam String isbn, @RequestParam String titolo, @RequestParam String autore,
+	@ResponseBody
+	public String saveBook(@RequestParam String isbn, @RequestParam String titolo, @RequestParam String autore,
 			@RequestParam String editore, @RequestParam String genere, @RequestParam Integer anno, @RequestParam String sottogenere, @RequestParam String sinossi,
 			@RequestParam MultipartFile image, @RequestParam MultipartFile file, HttpSession session) {
 
@@ -101,7 +107,7 @@ public class Libro {
 			nameImage = ServiceAmazonS3.getInstance().uploadFileImage(image);
 			nameFile = ServiceAmazonS3.getInstance().uploadFileEbook(file);
 
-			libro.setIsbn(isbn);
+			libro.setIsbn(isbn); 
 			libro.setTitolo(titolo);
 			libro.setAutore(autore);
 			libro.setEditore(editore);
@@ -116,9 +122,9 @@ public class Libro {
 
 			DBManager.getInstance().libroDAO().save(libro);
 
-		} catch (IOException e) { e.printStackTrace(); }
+		} catch (IOException e) { e.printStackTrace(); return "ERROR"; }
 
-		return new RedirectView("/");
+		return "SUCCESS";
 	}
 
 

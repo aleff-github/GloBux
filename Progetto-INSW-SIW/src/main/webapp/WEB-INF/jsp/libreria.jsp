@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="libro-action">
-                            <form action="deleteLibro" method="POST"> 
+                            <form class="deleteForm" action="deleteLibro" method="POST"> 
                             <input type="text" id="libro" name="libro" class="event-date" class="event-place"
                                     value=${item.isbn} hidden="true"></input>
                                 <input type="text" id="libreria" name="libreria" value=${username}
@@ -86,14 +86,31 @@
                                 <button class="btn see-more-btn" type="submit"><i class="far fa-trash-alt"></i></button>    
                             </form> 
                         </div>
-                        
+
+                        <span class="line-hor"></span>
                     </div>
 
-                    <span class="line-hor"></span>
+                    
 
                 </c:forEach>
             </section>
             
+
+            <div id="popup-success" class="cnt-popup" style="display: none;" onclick="removePopup(this)">
+                <div class="popup">
+                    <i class="far fa-check-circle"></i>
+                    <p>Libro eliminato con successo!</p>
+                </div>
+            </div>
+        
+            <div id="popup-error" class="cnt-popup" style="display: none;" onclick="removePopup(this)" >
+                <div class="popup">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>C'è stato un problema, riprova</p>
+                </div>
+            </div>
+
+
             <c:forEach items="${listaId}" var="item">
                 <input class="listaId" value=${item } hidden="true"></input>
             </c:forEach>
@@ -111,10 +128,8 @@
             <script src="js/plugins/plugins.js"></script>
             <!-- Active js -->
             <script src="js/active.js"></script>
-            <!-- Libro js -->
-            <script src="js/libro.js"></script>
             <!-- Active js -->
-            <script src="js/scriptUpBook.js"></script>
+            <script src="js/libreria.js"></script>
         </body>
 
         </html>
