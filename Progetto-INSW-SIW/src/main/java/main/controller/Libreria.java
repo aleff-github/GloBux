@@ -40,10 +40,11 @@ public class Libreria {
 	  }
 	
 	@PostMapping("/addLibro")
+	@ResponseBody
 	public String aggiungiLibro(HttpSession session, @RequestParam String libreria, @RequestParam String libro) {
 		LibreriaDAO lDao = DBManager.getInstance().libreriaDAO();
 		lDao.add(libro, libreria);
 		
-		return "redirect:/libreria";
+		return "SUCCESS";
 	}
 }

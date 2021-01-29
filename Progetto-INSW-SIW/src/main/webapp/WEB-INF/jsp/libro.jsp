@@ -92,7 +92,7 @@
 				<div class="bar-options">
 
 					<c:if test="${preferito != true && libro != null}">
-						<form action="addLibro" method="POST" style="width: 40%;">
+						<form id="addLibroPrefer" action="" method="POST" style="width: 40%;">
 			            	<div class="event-text">
 			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
 			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
@@ -105,13 +105,13 @@
 					</c:if>
 					<!-- Se il libro è tra i preferiti dell'utente -->
 					<c:if test="${preferito == true && libro != null}">
-						<form action="deleteLibro" method="POST" style="width: 40%;">
+						<form id="deleteLibroPrefer" action="" method="POST" style="width: 40%;">
 			            	<div class="event-text">
 			                    <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${libro.isbn }" hidden="true"></input>
 			                    <input type="text" id="libreria" name="libreria" value=${username } class="event-place" hidden="true"></input>
 			                </div>
 			                <button class="btn-option-book btn-pr" type="submit">
-								<i class="fas fa-plus"></i>
+								<i class="fas fa-minus"></i>
 								<nobr>Rimuovi dai preferiti</nobr>
 							</button>
 						</form>
@@ -277,6 +277,22 @@
 			<!-- Libro js -->
 			<script src="js/libro.js"></script>
 		</body>
+
+		<style>
+			.bar-options{
+				flex-direction: row;
+			}
+			.btn-option-book {
+				background: transparent;
+				margin-top: 0;
+				color: var(--color-btn-bar);
+			}
+			.btn-pr:hover{
+				color: orange;
+				transform: scale(1);
+			}
+
+		</style>
 
 
 		</html>

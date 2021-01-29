@@ -4,16 +4,11 @@ function initialize(){
     ricercaPerId();
     setTimeout(() => {ricercaPerAutore()}, 600);
     setTimeout(() => {ricercaPerGenere()}, 800);
+    callAdd();
+    callDelete();
 
 }
 
-/* function altriRisultati(){
-    var index = document.getElementById('index').value;
-    var idVar = document.getElementById('id');
-    if(idVar != null){
-        chiamaAPI(idVar.value, riempiLibro, index);
-    }
-} */
 
 function chiamaAPI(param, action){
     url = 'https://www.googleapis.com/books/v1/volumes?q=' + param;
@@ -26,12 +21,10 @@ function chiamaAPI(param, action){
                     action(risposta.items);
                 },
                 'error': function () {
-                    //alert('Non sono disponibili altri libri!');
                 }
             }
         );
     });
-    //document.getElementById('id').value = index + 10;
 }
 
 function ricercaPerId(){
@@ -190,3 +183,107 @@ function creaCarosello(carousel){
         }
     });
 }
+
+
+
+/* chiamata aggiungi ai preferiti */
+function callAdd(){
+    $("#addLibroPrefer").on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/addLibro',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            fail:function(){
+                showPopupError();
+            },
+            success: function(resp){
+                if(resp === 'SUCCESS'){
+                    deletePrefer(e.target);
+                
+                }else if(resp == 'ERROR'){
+                    showPopupError();
+                }
+            }
+        });
+    });
+}
+
+/* chiamata rimuovi dai preferiti */
+function callDelete(){
+    $("#deleteLibroPrefer").on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/deleteLibro',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            fail:function(){
+                showPopupError();
+            },
+            success: function(resp){
+                if(resp === 'SUCCESS'){
+                    addPrefer(e.target);
+                
+                }else if(resp == 'ERROR'){
+                    showPopupError();
+                }
+            }
+        });
+    });
+}
+
+function addPrefer(node){
+
+    let idLibro = node.querySelector('#libro').value;
+    let idLibreria = node.querySelector('#libreria').value;
+
+    let newNode = document.createRange().createContextualFragment(`<form id="addLibroPrefer" action="" method="POST" style="width: 40%;">
+                                        <div class="event-text">
+                                            <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${idLibro}" hidden="true"></input>
+                                            <input type="text" id="libreria" name="libreria" value=${idLibreria} class="event-place" hidden="true"></input>
+                                        </div>
+                                        <button class="btn-option-book btn-pr" type="submit">
+                                            <i class="fas fa-plus"></i>
+                                            <nobr>Aggiungi ai preferiti</nobr>
+                                        </button>
+                                    </form>`);
+
+
+
+    node.replaceWith(newNode);
+
+    callAdd();
+
+}
+
+function deletePrefer(node){
+
+    let idLibro = node.querySelector('#libro').value;
+    let idLibreria = node.querySelector('#libreria').value;
+    
+    let newNode = document.createRange().createContextualFragment(`<form id="deleteLibroPrefer" action="" method="POST" style="width: 40%;">
+                                            <div class="event-text">
+                                                <input type="text" id="libro" name="libro" class="event-date" class="event-place" value="${idLibro}" hidden="true"></input>
+                                                <input type="text" id="libreria" name="libreria" value=${idLibreria} class="event-place" hidden="true"></input>
+                                            </div>
+                                            <button class="btn-option-book btn-pr" type="submit">
+                                                <i class="fas fa-minus"></i>
+                                                <nobr>Rimuovi dai preferiti</nobr>
+                                            </button>
+                                        </form>`);
+
+
+
+    node.replaceWith(newNode);
+
+    callDelete();
+
+
+}
+
