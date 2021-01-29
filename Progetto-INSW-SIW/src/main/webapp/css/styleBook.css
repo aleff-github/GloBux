@@ -161,7 +161,9 @@ p{ color: var(--color-parag) }
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+	align-items: center;
+	backdrop-filter: blur(2px);
+    background: #eae3e338;
 }
 
 .popup{
